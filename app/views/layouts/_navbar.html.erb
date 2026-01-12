@@ -1,0 +1,22 @@
+<header>
+    <div class="container">
+        <div class="logo">
+            <%= image_tag "KS_logo.png", class: "KS_logo" %>
+            <span class="first_name">Kevin</span> <span class="last_name">Saison</span>
+        </div>
+        <nav>
+            <ul>
+                <li><%= link_to "Profil", root_path %></li>
+                <li><%= link_to "Skills", root_path %></li>
+                <li><%= link_to "Projets", root_path %></li>
+                <li><%= link_to "Blog", root_path %></li>
+                <li><%= link_to "Open Source", root_path %></li>
+                <li><%= link_to "Méthodologie", root_path %></li>
+                <li><%= link_to "Contact", root_path %></li>
+            </ul>
+        </nav>
+        <div class="project_button">
+            <%= link_to "Un projet ?", root_path %>
+        </div>
+    </div>
+</header>
