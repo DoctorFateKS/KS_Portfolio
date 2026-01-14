@@ -1,77 +1,77 @@
+:root {
+  --primary-red: #ff0000;
+  --dark-red: #770101;
+  --text-grey: #808080;
+  --transition-speed: 0.3s;
+}
+
+.navbar {
+  padding: 1rem 0;
+  background-color: #1a1a1a;
+}
+
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 75%;
-    margin: auto;
-    padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    width: 20%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
+.navbar__brand .logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
 }
 
-.KS_logo {
-    width: 50px;
-    margin-right: 20px;
-    border-radius: 50%;
+.logo-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+  transition: transform var(--transition-speed) ease;
 }
 
-.KS_logo:hover {
-    width: 60px;
-    transition: 0.8s;
+.logo-link:hover .logo-img {
+  transform: scale(1.1);
 }
 
-.first_name {
-    color: white;
-    margin-right: 5px;
+.first-name { color: white; margin-right: 5px; }
+.last-name { color: var(--primary-red); }
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
 }
 
-.last_name {
-    color: red;
+.nav-link {
+  color: var(--text-grey);
+  text-decoration: none;
+  padding-bottom: 5px;
+  transition: all var(--transition-speed);
+  border-bottom: 3px solid transparent;
 }
 
-nav ul {
-    list-style: none;
+.nav-link:hover {
+  color: white;
+  border-bottom-color: var(--primary-red);
 }
 
-nav li {
-    display: inline-block;
-    margin-left: 30px;
+.btn--primary {
+  display: inline-block;
+  background-color: var(--primary-red);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background var(--transition-speed);
 }
 
-nav a {
-    color: grey;
-    text-decoration: none;
-    font-size: 16px;
-    padding-bottom: 5px;
-}
-
-nav a:hover {
-    color: white;
-    border-bottom: 3px solid red;
-    transition: 0.8s;
-}
-
-.project_button {
-    color: white;
-    background-color: red;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.project_button a {
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
-}
-
-.project_button:hover {
-    background-color: rgb(119, 1, 1);
-    transition: 0.8s;
+.btn--primary:hover {
+  background-color: var(--dark-red);
 }
