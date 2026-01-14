@@ -1,86 +1,8 @@
+@import 'navbar';
+
 body {
     margin: 0;
     background-color: black;
-}
-
-/* NAVBAR */
-
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 75%;
-    margin: auto;
-    padding-top: 10px;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    width: 20%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.KS_logo {
-    width: 50px;
-    margin-right: 20px;
-    border-radius: 50%;
-}
-
-.KS_logo:hover {
-    width: 60px;
-    transition: 0.8s;
-}
-
-.first_name {
-    color: white;
-    margin-right: 5px;
-}
-
-.last_name {
-    color: red;
-}
-
-nav ul {
-    list-style: none;
-}
-
-nav li {
-    display: inline-block;
-    margin-left: 30px;
-}
-
-nav a {
-    color: grey;
-    text-decoration: none;
-    font-size: 16px;
-    padding-bottom: 5px;
-}
-
-nav a:hover {
-    color: white;
-    border-bottom: 3px solid red;
-    transition: 0.8s;
-}
-
-.project_button {
-    color: white;
-    background-color: red;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.project_button a {
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
-}
-
-.project_button:hover {
-    background-color: rgb(119, 1, 1);
-    transition: 0.8s;
 }
 
 /* HOMEPAGE */
