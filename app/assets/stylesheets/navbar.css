@@ -3,6 +3,14 @@
   background-color: transparent;
   position: fixed;
   width: 100%;
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition-speed);
+}
+
+.navbar--scrolled {
+  background-color: #1a1a1adc;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgb(61, 57, 57); 
 }
 
 .container {

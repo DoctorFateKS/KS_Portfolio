@@ -1,4 +1,7 @@
-<header class="navbar">
+<header class="navbar" 
+        data-controller="navbar" 
+        data-navbar-scrolled-class="navbar--scrolled"
+        data-action="scroll@window->navbar#toggleNavbarStyles">
   <div class="container">
     <div class="navbar__brand">
       <%= link_to root_path, class: "logo-link" do %>
