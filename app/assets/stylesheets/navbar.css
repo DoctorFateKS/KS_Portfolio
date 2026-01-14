@@ -1,13 +1,8 @@
-:root {
-  --primary-red: #ff0000;
-  --dark-red: #770101;
-  --text-grey: #808080;
-  --transition-speed: 0.3s;
-}
-
 .navbar {
-  padding: 1rem 0;
-  background-color: #1a1a1a;
+  padding: var(--spacing);
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
 }
 
 .container {
@@ -16,16 +11,16 @@
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--spacing);
 }
 
 .navbar__brand .logo-link {
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-family: sans-serif;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bold;
-  font-size: 1.25rem;
+  font-size: var(--m-size);
 }
 
 .logo-img {
@@ -40,8 +35,8 @@
   transform: scale(1.1);
 }
 
-.first-name { color: white; margin-right: 5px; }
-.last-name { color: var(--primary-red); }
+.first-name { color: var(--co-2); margin-right: 5px; }
+.last-name { color: var(--co-1); }
 
 .nav-list {
   display: flex;
@@ -50,7 +45,7 @@
 }
 
 .nav-link {
-  color: var(--text-grey);
+  color: var(--text);
   text-decoration: none;
   padding-bottom: 5px;
   transition: all var(--transition-speed);
@@ -58,20 +53,20 @@
 }
 
 .nav-link:hover {
-  color: white;
-  border-bottom-color: var(--primary-red);
+  color: var(--co-2);
+  border-bottom-color: var(--co-1);
 }
 
 .btn--primary {
   display: inline-block;
-  background-color: var(--primary-red);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
+  background-color: var(--co-1);
+  color: var(--co-2);
+  padding: 10px var(--spacing);
+  border-radius: var(--radius);
   text-decoration: none;
   transition: background var(--transition-speed);
 }
 
 .btn--primary:hover {
-  background-color: var(--dark-red);
+  background-color: var(--co-3);
 }

@@ -1,5 +1,23 @@
 @import 'navbar';
 
+:root {
+  --co-1: #ff0000;
+  --co-2: #fff;
+  --co-3: #770101;
+  --text: #808080;
+  --bg1: #1a1a1a;
+  
+  --s-size: 1rem;
+  --m-size: 1.25rem;
+  --l-size: 1.8rem;
+  --xl-size: 2.7rem;
+  --xxl-size: 5rem;
+
+  --spacing: 20px;
+  --radius: 8px;
+  --transition-speed: 0.3s;
+}
+
 body {
     margin: 0;
     background-color: black;
