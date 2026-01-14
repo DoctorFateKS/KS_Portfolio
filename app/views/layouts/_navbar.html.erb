@@ -1,7 +1,9 @@
 <header>
     <div class="container">
         <div class="logo">
-            <%= image_tag "KS_logo.png", class: "KS_logo" %>
+            <%= link_to root_path do %>
+                <%= image_tag "profile.png", class: "KS_logo" %>
+            <% end %>
             <span class="first_name">Kevin</span> <span class="last_name">Saison</span>
         </div>
         <nav>
