@@ -10,7 +10,11 @@
       <% end %>
     </div>
 
-    <nav class="navbar__nav" aria-label="Main Navigation">
+    <button class="navbar__toggle" data-action="click->navbar#toggleMenu" aria-label="Toggle menu">
+      <span class="hamburger"></span>
+    </button>
+
+    <nav class="navbar__nav" data-navbar-target="menu" aria-label="Main Navigation">
       <ul class="nav-list">
         <% ["Profil", "Skills", "Projets", "Blog", "Open Source", "Méthodologie", "Contact"].each do |item| %>
           <li class="nav-item">
@@ -18,10 +22,9 @@
           </li>
         <% end %>
       </ul>
+      <div class="navbar__actions">
+        <%= link_to "Un projet ?", root_path, class: "btn btn--primary" %>
+      </div>
     </nav>
-
-    <div class="navbar__actions">
-      <%= link_to "Un projet ?", root_path, class: "btn btn--primary" %>
-    </div>
   </div>
 </header>

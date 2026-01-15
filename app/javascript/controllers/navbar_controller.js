@@ -1,11 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Connects to data-controller="navbar"
 export default class extends Controller {
+  static targets = [ "menu" ]
   static classes = [ "scrolled" ]
 
-  connect() {
-    this.toggleNavbarStyles()
+  toggleMenu() {
+    this.menuTarget.classList.toggle("is-open")
+    document.body.classList.toggle("no-scroll")
   }
 
   toggleNavbarStyles() {
