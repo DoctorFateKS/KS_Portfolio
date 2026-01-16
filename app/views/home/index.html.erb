@@ -1,32 +1,46 @@
-<section class="hero-section">
-    <div class="opp">
-        <i class="fa-solid fa-circle"></i><p>Disponible pour de nouvelles opportunités</p>
-    </div>
-    <h1 class="hero_title">Développeur <br> <span class="h1s">Ruby</span> & <span class="h1s">Rails</span></h1>
-    <p class="hero_subtitle">Création d'applications web <span class="hss">évolutives</span>, <span class="hss">maintenables</span> et <span class="hss">élégantes</span>, <br> alliant un code propre et une vision produit.</p>
-    <div class="hero_buttons">
-        <div class="project_hero_button">
-            <%= link_to 'Mes projets', root_path %>
-        </div>
-        <div class="contact_hero_button">
-            <%= link_to 'Prendre contact', root_path %>
-        </div>
-    </div>
-    <div class="hero_socials">
-        <i class="fa-brands fa-github"></i>
-        <i class="fa-brands fa-linkedin"></i>
-        <i class="fa-regular fa-envelope"></i>
-    </div>
-    <p class="hero_title_techno">Principales technologies</p>
-    <ul class="hero_techno_list">
-        <li class="techno">Ruby</li>
-        <li class="techno">Rails</li>
-        <li class="techno">PostgreSQL</li>
-        <li class="techno">Redis</li>
-        <li class="techno">Hotwire</li>
-        <li class="techno">RSpec</li>
+<section class="hero">
+  <%# Status Badge %>
+  <div class="hero__status">
+    <i class="fa-solid fa-circle hero__status-dot" aria-hidden="true"></i>
+    <span>Disponible pour de nouvelles opportunités</span>
+  </div>
+
+  <h1 class="hero__title">
+    Développeur <br> 
+    <span class="text--accent">Ruby</span> & <span class="text--accent">Rails</span>
+  </h1>
+
+  <p class="hero__subtitle">
+    Création d'applications web <span class="text--highlight">évolutives</span>, 
+    <span class="text--highlight">maintenables</span> et <span class="text--highlight">élégantes</span> alliant un code propre et une vision produit.
+  </p>
+
+  <%# Action Buttons %>
+  <div class="hero__actions">
+    <%= link_to 'Mes projets ➫', root_path, class: 'btn hero--btn--primary' %>
+    <%= link_to 'Prendre contact', root_path, class: 'btn btn--outline' %>
+  </div>
+
+  <%# Social Links %>
+  <nav class="hero__socials" aria-label="Social media links">
+    <% ['github', 'linkedin', 'envelope'].each do |platform| %>
+      <%= link_to "#", class: "hero__social-link", aria: { label: platform.capitalize } do %>
+        <i class="fa-<%= platform == 'envelope' ? 'regular' : 'brands' %> fa-<%= platform %>"></i>
+      <% end %>
+    <% end %>
+  </nav>
+
+  <%# Tech Stack Section %>
+  <div class="hero__stack">
+    <p class="hero__stack-title">Principales technologies</p>
+    <ul class="hero__stack-list">
+      <% %w[Ruby Rails PostgreSQL Redis Hotwire RSpec].each do |tech| %>
+        <li class="hero__stack-item"><%= tech %></li>
+      <% end %>
     </ul>
-    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+
+  <i class="fa-solid fa-chevron-down hero__scroll-icon"></i>
 </section>
 
 <section class="technical-section">
