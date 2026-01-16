@@ -1,5 +1,4 @@
 <section class="hero">
-  <%# Status Badge %>
   <div class="hero__status">
     <i class="fa-solid fa-circle hero__status-dot" aria-hidden="true"></i>
     <span>Disponible pour de nouvelles opportunités</span>
@@ -15,13 +14,11 @@
     <span class="text--highlight">maintenables</span> et <span class="text--highlight">élégantes</span> alliant un code propre et une vision produit.
   </p>
 
-  <%# Action Buttons %>
   <div class="hero__actions">
     <%= link_to 'Mes projets ➫', root_path, class: 'btn hero--btn--primary' %>
     <%= link_to 'Prendre contact', root_path, class: 'btn btn--outline' %>
   </div>
 
-  <%# Social Links %>
   <nav class="hero__socials" aria-label="Social media links">
     <% ['github', 'linkedin', 'envelope'].each do |platform| %>
       <%= link_to "#", class: "hero__social-link", aria: { label: platform.capitalize } do %>
@@ -30,7 +27,6 @@
     <% end %>
   </nav>
 
-  <%# Tech Stack Section %>
   <div class="hero__stack">
     <p class="hero__stack-title">Principales technologies</p>
     <ul class="hero__stack-list">
@@ -43,82 +39,49 @@
   <i class="fa-solid fa-chevron-down hero__scroll-icon"></i>
 </section>
 
-<section class="technical-section">
-    <p class="tech-intro">Expertise Technique</p>
-    <h2 class="tech-title">L'excellence Full-Stack Ruby</h2>
-    <p class="tech-subtitle">Expérience dans la création d'applications avec <br>Ruby on Rails et son écosystème.</p>
-    <div class="block-line1">
-        <div class="block">
-            <i class="fa-solid fa-code tech-logo"></i>
-            <h3>Maîtrise de Ruby & Rails</h3>
-            <p class="tech-desc">Une expertise approfondie de l'élégance de Ruby et des conventions de Rails. Des monolithes aux microservices.</p>
-            <div class="skills">
-                <p class="tech-skill">POO & Méta-programmation</p>
-                <p class="tech-skill">Active Record</p>
-                <p class="tech-skill">Action Cable</p>
-                <p class="tech-skill">APIs REST</p>
-            </div>
+<section class="tech-section">
+  <header class="tech-section__header">
+    <p class="tech-section__intro">Expertise Technique</p>
+    <h2 class="tech-section__title">L'excellence Full-Stack Ruby</h2>
+    <p class="tech-section__subtitle">
+      Expérience dans la création d'applications avec <br>
+      Ruby on Rails et son écosystème.
+    </p>
+  </header>
+  <div class="tech-grid">
+    <% 
+      expertise = [
+        { icon: 'code', title: 'Ruby & Rails', desc: 'Expertise approfondie de Ruby et Rails. Des monolithes aux microservices.', skills: ['POO', 'Active Record', 'Action Cable', 'APIs REST'] },
+        { icon: 'sitemap', title: 'Architecture', desc: "Systèmes maintenables s'appuyant sur SOLID, DDD et design patterns.", skills: ['DDD', 'SOLID', 'Design Patterns', 'Refactoring'] },
+        { icon: 'database', title: 'Bases de Données', desc: 'Optimisation de PostgreSQL pour la performance et l\'intégrité.', skills: ['Requêtes Avancées', 'Indexation', 'Migrations', 'Performance'] },
+        { icon: 'brush', title: 'Frontend Moderne', desc: 'Expériences réactives avec Hotwire et les outils modernes.', skills: ['Turbo', 'Stimulus', 'CSS', 'Accessibilité'] },
+        { icon: 'brands fa-dev', title: 'DevOps', desc: 'Déploiement fiable via CI/CD et infrastructures robustes.', skills: ['Docker', 'CI/CD', 'Sidekiq', 'AWS'] },
+        { icon: 'flask-vial', title: 'Tests & Qualité', desc: 'Garantir la fiabilité grâce à une stratégie de tests complète.', skills: ['RSpec', 'Capybara', 'TDD', 'Code Reviews'] }
+      ]
+    %>
+    <% expertise.each do |item| %>
+      <article class="tech-card">
+        <div class="tech-card__icon">
+          <i class="fa-solid fa-<%= item[:icon] %>"></i>
         </div>
-        <div class="block">
-            <i class="fa-solid fa-sitemap tech-logo"></i>
-            <h3>Clean Architecture</h3>
-            <p class="tech-desc">Conception de systèmes maintenables s'appuyant sur les principes SOLID, le DDD et les design patterns éprouvés.</p>
-            <div class="skills">
-                <p class="tech-skill">Domain-Driven Design (DDD)</p>
-                <p class="tech-skill">Principes SOLID</p>
-                <p class="tech-skill">Design Patterns</p>
-                <p class="tech-skill">Refactoring</p>
-            </div>
+        <h3 class="tech-card__title"><%= item[:title] %></h3>
+        <p class="tech-card__desc"><%= item[:desc] %></p>
+        <div class="tech-card__skills">
+          <% item[:skills].each do |skill| %>
+            <span class="tech-card__skill-tag"><%= skill %></span>
+          <% end %>
         </div>
-        <div class="block">
-            <i class="fa-solid fa-database tech-logo"></i>
-            <h3>Expertise Bases de Données</h3>
-            <p class="tech-desc">Optimisation de PostgreSQL pour la performance, la scalabilité et l'intégrité des données.</p>
-            <div class="skills">
-                <p class="tech-skill">Requêtes Avancées</p>
-                <p class="tech-skill">Indexation</p>
-                <p class="tech-skill">Migrations</p>
-                <p class="tech-skill">Optimisation des performances</p>
-            </div>
-        </div>
-    </div>
-    <div class="block-line1">
-        <div class="block">
-            <i class="fa-solid fa-brush tech-logo"></i>
-            <h3>Frontend Moderne</h3>
-            <p class="tech-desc">Création d'expériences interactives et réactives avec Hotwire et les outils modernes.</p>
-            <div class="skills">
-                <p class="tech-skill">Turbo & Stimulus</p>
-                <p class="tech-skill">CSS</p>
-                <p class="tech-skill">Javascript</p>
-                <p class="tech-skill">Accessibilité</p>
-            </div>
-        </div>
-        <div class="block">
-            <i class="fa-brands fa-dev tech-logo"></i>
-            <h3>DevOps & Infrastructure</h3>
-            <p class="tech-desc">Déploiement d'applications fiables grâce à des pratiques d'infrastructure et des pipelines CI/CD robustes.</p>
-            <div class="skills">
-                <p class="tech-skill">Docker</p>
-                <p class="tech-skill">CI/CD</p>
-                <p class="tech-skill">Sidekiq</p>
-                <p class="tech-skill">Heroku / AWS</p>
-            </div>
-        </div>
-        <div class="block">
-            <i class="fa-solid fa-flask-vial tech-logo"></i>
-            <h3>Tests & Qualité</h3>
-            <p class="tech-desc">Garantir la fiabilité des applications grâce à une stratégie de tests complète et un développement axé sur la qualité.</p>
-            <div class="skills">
-                <p class="tech-skill">RSpec</p>
-                <p class="tech-skill">Capybara</p>
-                <p class="tech-skill">TDD / BDD</p>
-                <p class="tech-skill">Code Reviews</p>
-            </div>
-        </div>
-    </div>
-    <p class="tech-quote"><span class="tech-guillemets">«</span> Optimiser pour le bonheur du développeur. <br><span class="tech-quote-bis">La convention plutôt que la configuration.</span> <span class="tech-guillemets">»</span></p>
-    <p class="tech-quote-author">— Philosophie Ruby</p>
+      </article>
+    <% end %>
+  </div>
+  <footer class="tech-quote">
+    <blockquote class="tech-quote__text">
+      <span class="tech-quote__marks">«</span> 
+      Optimiser pour le bonheur du développeur. <br>
+      <span class="tech-quote__sub">La convention plutôt que la configuration.<span class="tech-quote__marks">»</span></span>
+    </blockquote>
+    <cite class="tech-quote__author">— Philosophie Ruby</cite>
+  </footer>
 </section>
 
 <section class="project-section">
