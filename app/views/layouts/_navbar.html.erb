@@ -16,11 +16,13 @@
 
     <nav class="navbar__nav" data-navbar-target="menu" aria-label="Main Navigation">
       <ul class="nav-list">
-        <% ["Profil", "Skills", "Projets", "Blog", "Open Source", "Méthodologie", "Contact"].each do |item| %>
-          <li class="nav-item">
-            <%= link_to item, root_path, class: "nav-link" %>
-          </li>
-        <% end %>
+          <li class="nav-item"><%= link_to "Profil", pages_profil_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Skills", pages_skills_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Projets", root_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Blog", root_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Open Source", root_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Méthodologie", root_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Contact", root_path, class: "nav-link" %></li>
       </ul>
       <div class="navbar__actions">
         <%= link_to "Un projet ?", root_path, class: "btn btn--primary" %>
