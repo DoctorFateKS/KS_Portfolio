@@ -1,18 +1,20 @@
 <footer>
     <div class="container-footer">
-        <div class="logo">
-            <%= image_tag "KS_logo.png", class: "KS_logo" %>
-            <span class="first_name">Kevin</span> <span class="last_name">Saison</span>
+        <div class="navbar__brand">
+            <%= link_to root_path, class: "logo-link" do %>
+                <%= image_tag "profile.png", class: "logo-img", alt: "Kevin Saison" %>
+                <span class="first-name">Kevin</span><span class="last-name">Saison</span>
+            <% end %>
         </div>
-        <nav>
-            <ul>
-                <li><%= link_to "Profil", root_path %></li>
-                <li><%= link_to "Skills", root_path %></li>
-                <li><%= link_to "Projets", root_path %></li>
-                <li><%= link_to "Blog", root_path %></li>
-                <li><%= link_to "Open Source", root_path %></li>
-                <li><%= link_to "Méthodologie", root_path %></li>
-                <li><%= link_to "Contact", root_path %></li>
+        <nav class="navbar__nav">
+            <ul class="nav-list">
+                <li class="nav-item"><%= link_to "Profil", pages_profil_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to "Skills", pages_skills_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to "Projets", root_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to "Blog", root_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to "Open Source", root_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to "Méthodologie", root_path, class: "nav-link" %></li>
+                <li class="nav-item"><%= link_to "Contact", root_path, class: "nav-link" %></li>
             </ul>
         </nav>
         <p class="footer-p">© Ruby on Rails • 2026</p>

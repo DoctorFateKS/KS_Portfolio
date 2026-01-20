@@ -44,7 +44,7 @@
     <p class="tech-section__intro">Expertise Technique</p>
     <h2 class="tech-section__title">L'excellence Full-Stack Ruby</h2>
     <p class="tech-section__subtitle">
-      Expérience dans la création d'applications avec <br>
+      Expérience dans la création d'applications avec
       Ruby on Rails et son écosystème.
     </p>
   </header>
@@ -84,95 +84,91 @@
   </footer>
 </section>
 
-<section class="project-section">
-    <p class="tech-intro">Mon travail</p>
-    <h2 class="tech-title">Des Projets qui Comptent</h2>
-    <p class="tech-subtitle">Chaque projet est une opportunité de dévelloper <br>des solutions évolutives et satisfaisantes pour ses utilisateurs.</p>
-    <div class="project-block-line">
-        <div class="project-block">
-            <div class="project-title">
-                <div class="title">
-                    <p class="project-role">Freelance</p>
-                    <p class="project-name">SkillEn - Plateforme d'aide à l'emploi</p>
-                </div>
-                <div class="links">
-                    <i class="fa-brands fa-github project-links"></i>
-                    <i class="fa-solid fa-arrow-up-right-from-square project-links"></i>
-                </div>
-            </div>
-            <p class="tech-desc">SaaS d’analyse prédictive du marché de l’emploi connectant les profils candidats aux offres (via France Travail) grâce à une normalisation sémantique des compétences.</p>
-            <div class="project-skills">
-                <p class="project-skill">Ruby on Rails</p>
-                <p class="project-skill">PostgreSQL</p>
-                <p class="project-skill">Sidekiq & Redis</p>
-                <p class="project-skill">NLP / Sémantique</p>
-            </div>
-            <hr class="line">
-            <p class="project-desc">Impact: <span class="impact">Algorithme de scoring en temps réel, moteur d'analyse de "Skill Gap", architecture scalable pour traitement de données massives.</span></p>
+<section class="projects">
+  <header class="projects__header">
+    <p class="tech-section__intro ">Mon travail</p>
+    <h2 class="tech-section__title">Des Projets qui Comptent</h2>
+    <p class="tech-section__subtitle">
+      Chaque projet est une opportunité de développer des solutions
+      évolutives et satisfaisantes pour ses utilisateurs.
+    </p>
+  </header>
+
+  <%# Grid for Major Projects %>
+  <div class="projects__grid">
+    <% 
+      major_projects = [
+        { 
+          role: 'Freelance', 
+          name: 'SkillEn', 
+          subtitle: "Plateforme d'aide à l'emploi",
+          desc: "SaaS d’analyse prédictive connectant les candidats aux offres via une normalisation sémantique des compétences.",
+          skills: ['Rails', 'PostgreSQL', 'Sidekiq', 'NLP'],
+          impact: "Algorithme de scoring en temps réel et moteur d'analyse de Skill Gap."
+        },
+        { 
+          role: 'Fullstack', 
+          name: 'Sharefriends', 
+          subtitle: "Réseau social d'affinités",
+          desc: "Application de mise en relation permettant de briser l’isolement social via un algorithme de compatibilité.",
+          skills: ['Rails', 'Maps API', 'ActionCable', 'Hotwire'],
+          impact: "Messagerie instantanée et moteur de recherche de proximité géographique."
+        }
+      ]
+    %>
+
+    <% major_projects.each do |project| %>
+      <article class="p-card p-card--featured">
+        <div class="p-card__header">
+          <div>
+            <span class="p-card__badge"><%= project[:role] %></span>
+            <h3 class="p-card__name"><%= project[:name] %> <small class="p-card__subname"><%= project[:subtitle] %></small></h3>
+          </div>
+          <div class="p-card__links">
+            <%= link_to '#', class: 'p-card__link' do %><i class="fa-brands fa-github"></i><% end %>
+            <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-arrow-up-right-from-square"></i><% end %>
+          </div>
         </div>
-        <div class="project-block">
-            <div class="project-title">
-                <div class="title">
-                    <p class="project-role">Développeur Fullstack</p>
-                    <p class="project-name">Sharefriends</p>
-                </div>
-                <div class="links">
-                    <i class="fa-brands fa-github project-links"></i>
-                    <i class="fa-solid fa-arrow-up-right-from-square project-links"></i>
-                </div>
-            </div>
-            <p class="tech-desc">Application de mise en relation basée sur les centres d’intérêt, permettant de briser l’isolement social via un algorithme de compatibilité par affinités et activités locales.</p>
-            <div class="project-skills">
-                <p class="project-skill">Ruby on Rails</p>
-                <p class="project-skill">Geocoding & Maps</p>
-                <p class="project-skill">ActionCable</p>
-                <p class="project-skill">Hotwire</p>
-            </div>
-            <hr class="line">
-            <p class="project-desc">Impact: <span class="impact">Système de matching par centres d'intérêt, messagerie instantanée en temps réel et moteur de recherche de proximité géographique.</span></p>
+
+        <p class="p-card__desc"><%= project[:desc] %></p>
+
+        <div class="p-card__tags">
+          <% project[:skills].each do |skill| %>
+            <span class="p-card__tag p-card__tag--accent"><%= skill %></span>
+          <% end %>
         </div>
-    </div>
-    <div class="project-block-line">
-        <div class="project-block">
-            <div class="project-title">
-                <div class="title">
-                    <p class="project-name-bis">ActiveRecord::Summary</p>
-                </div>
-                <div class="links">
-                    <i class="fa-solid fa-arrow-right project-links"></i>
-                </div>
-            </div>
-            <p class="project-desc">Librairie Ruby "console-native" conçue pour extraire instantanément la structure, la distribution et les anomalies des données d'une application Rails sans interface graphique.</p>
-            <div class="project-skills">
-                <p class="project-skill-bis">Ruby on Rails</p>
-                <p class="project-skill-bis">ActiveRecord / SQL</p>
-                <p class="project-skill-bis">Algo d'échantillonnage</p>
-                <p class="project-skill-bis">Architecture Gem</p>
-            </div>
+
+        <div class="p-card__impact">
+          <strong>Impact:</strong> <span><%= project[:impact] %></span>
         </div>
-        <div class="project-block">
-            <div class="project-title">
-                <div class="title">
-                    <p class="project-name-bis">Brainfuck-Ruby</p>
-                </div>
-                <div class="links">
-                    <i class="fa-solid fa-arrow-right project-links"></i>
-                </div>
-            </div>
-            <p class="project-desc">Conception et développement d'un interpréteur complet pour le langage Brainfuck, incluant la gestion d'une bande mémoire virtuelle et la logique de boucles imbriquées.</p>
-            <div class="project-skills">
-                <p class="project-skill-bis">Ruby</p>
-                <p class="project-skill-bis">Algorithmique & Structures de données</p>
-                <p class="project-skill-bis">RSpec</p>
-                <p class="project-skill-bis">Gestion de la mémoire</p>
-            </div>
+      </article>
+    <% end %>
+  </div>
+  <div class="projects__grid projects__grid--secondary">
+    <% 
+      tools = [
+        { name: 'ActiveRecord::Summary', desc: 'Extraction instantanée de structure et anomalies de données en console.', tags: ['Ruby', 'SQL', 'Gems'] },
+        { name: 'Brainfuck-Ruby', desc: "Interpréteur complet avec gestion d'une bande mémoire virtuelle.", tags: ['Algorithmique', 'RSpec'] }
+      ]
+    %>
+    <% tools.each do |tool| %>
+      <article class="p-card p-card--tool">
+        <div class="p-card__header">
+          <h3 class="p-card__name"><%= tool[:name] %></h3>
+          <%= link_to '#', class: 'p-card__link p-card__link--small' do %><i class="fa-solid fa-arrow-right"></i><% end %>
         </div>
-    </div>
-    <div class="hero_buttons">
-        <div class="contact_hero_button">
-            <%= link_to 'Voir les projets', root_path %>
+        <p class="p-card__desc"><%= tool[:desc] %></p>
+        <div class="p-card__tags">
+          <% tool[:tags].each do |tag| %>
+            <span class="p-card__tag"><%= tag %></span>
+          <% end %>
         </div>
-    </div>
+      </article>
+    <% end %>
+  </div>
+  <div class="projects__footer">
+    <%= link_to 'Voir tous les projets', root_path, class: 'btn btn--outline' %>
+  </div>
 </section>
 
 <section class="contact-section">
