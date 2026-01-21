@@ -93,15 +93,12 @@
       évolutives et satisfaisantes pour ses utilisateurs.
     </p>
   </header>
-
-  <%# Grid for Major Projects %>
   <div class="projects__grid">
     <% 
       major_projects = [
         { 
           role: 'Freelance', 
           name: 'SkillEn', 
-          subtitle: "Plateforme d'aide à l'emploi",
           desc: "SaaS d’analyse prédictive connectant les candidats aux offres via une normalisation sémantique des compétences.",
           skills: ['Rails', 'PostgreSQL', 'Sidekiq', 'NLP'],
           impact: "Algorithme de scoring en temps réel et moteur d'analyse de Skill Gap."
@@ -109,35 +106,30 @@
         { 
           role: 'Fullstack', 
           name: 'Sharefriends', 
-          subtitle: "Réseau social d'affinités",
           desc: "Application de mise en relation permettant de briser l’isolement social via un algorithme de compatibilité.",
           skills: ['Rails', 'Maps API', 'ActionCable', 'Hotwire'],
           impact: "Messagerie instantanée et moteur de recherche de proximité géographique."
         }
       ]
     %>
-
     <% major_projects.each do |project| %>
       <article class="p-card p-card--featured">
         <div class="p-card__header">
           <div>
             <span class="p-card__badge"><%= project[:role] %></span>
-            <h3 class="p-card__name"><%= project[:name] %> <small class="p-card__subname"><%= project[:subtitle] %></small></h3>
+            <h3 class="p-card__name"><%= project[:name] %></h3>
           </div>
           <div class="p-card__links">
             <%= link_to '#', class: 'p-card__link' do %><i class="fa-brands fa-github"></i><% end %>
             <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-arrow-up-right-from-square"></i><% end %>
           </div>
         </div>
-
         <p class="p-card__desc"><%= project[:desc] %></p>
-
         <div class="p-card__tags">
           <% project[:skills].each do |skill| %>
             <span class="p-card__tag p-card__tag--accent"><%= skill %></span>
           <% end %>
         </div>
-
         <div class="p-card__impact">
           <strong>Impact:</strong> <span><%= project[:impact] %></span>
         </div>
@@ -160,7 +152,7 @@
         <p class="p-card__desc"><%= tool[:desc] %></p>
         <div class="p-card__tags">
           <% tool[:tags].each do |tag| %>
-            <span class="p-card__tag"><%= tag %></span>
+            <span class="p-card__tag__bis"><%= tag %></span>
           <% end %>
         </div>
       </article>
@@ -171,72 +163,82 @@
   </div>
 </section>
 
-<section class="contact-section">
-    <p class="tech-intro">Faisons connaissance</p>
-    <h2 class="tech-title">Construisons quelque chose <br>d'extraordinaire</h2>
-    <p class="tech-subtitle">A là recherche d'un développeur Ruby pour votre prochain projet ? <br>Discutons-en ensemble.</p>
-    <div class="contact-block-line">
-        <div class="contact-block">
-            <div class="contact-title">
-                <p class="contact-name">Informations de Contact</p>
+<section class="projects">
+  <header class="projects__header">
+    <p class="tech-section__intro">Faisons connaissance</p>
+    <h2 class="tech-section__title">Construisons quelque chose d'extraordinaire</h2>
+    <p class="tech-section__subtitle">À la recherche d'un développeur Ruby pour votre prochain projet ? Discutons-en ensemble.</p>
+  </header>
+
+  <div class="contact-container">
+    <div class="contact-grid">
+      <article class="contact-card">
+        <h3 class="contact-card__title">Informations de Contact</h3>
+        <div class="contact-info">
+          <div class="contact-info__item">
+            <div class="contact-info__icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <p class="contact-info__label">Email</p>
+              <p class="contact-info__value">kevin.saison91@gmail.com</p>
             </div>
-            <div class="contact-mode">
-                <div class="contact1">
-                    <i class="fa-solid fa-envelope tech-logo"></i>
-                    <div class="mail-contact">
-                        <p class="mail-title">Email</p>
-                        <p class="mail-address">kevin.saison91@gmail.com</p>
-                    </div>
-                </div>
-                <div class="contact1">
-                    <i class="fa-solid fa-location-dot tech-logo"></i>
-                    <div class="mail-contact">
-                        <p class="mail-title">Localisation</p>
-                        <p class="mail-address">France</p>
-                    </div>
-                </div>
+          </div>
+          <div class="contact-info__item">
+            <div class="contact-info__icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <p class="contact-info__label">Localisation</p>
+              <p class="contact-info__value">France / Remote</p>
             </div>
-            <hr class="line">
-            <p class="project-desc">Me retrouver en ligne</p>
-            <div class="links">
-                <i class="fa-brands fa-github project-links"></i>
-                <i class="fa-brands fa-linkedin project-links"></i>
-            </div>
+          </div>
         </div>
-        <div class="contact-block">
-            <div class="contact-title">
-                <p class="contact-name">Disponibilités</p>
-            </div>
-            <div class="opp-contact">
-                <i class="fa-solid fa-circle"></i><p>Ouvert à toutes missions en freelance</p>
-            </div>
-            <div class="opp-contact">
-                <i class="fa-solid fa-circle"></i><p>Disponible pour tout contrats de travail</p>
-            </div>
-            <div class="opp-contact">
-                <i class="fa-solid fa-circle"></i><p>Missions/Contrats à plein temps ou temps partiels </p>
-            </div>
-            <p class="project-desc">Je réponds à tous mes messages sous 24-48h. Pour des requêtes urgentes, n'hésitez pas à prendre contact avec moi sur Linkedin.</p>
-            <div class="send_message_button">
-                <%= link_to 'Envoyer un message', root_path %>
-            </div>
+        
+        <div class="contact-card__footer">
+          <p class="contact-card__footer-title">Me retrouver en ligne</p>
+          <div class="contact-socials">
+            <%= link_to '#', class: 'contact-socials__link' do %><i class="fa-brands fa-github"></i><% end %>
+            <%= link_to '#', class: 'contact-socials__link' do %><i class="fa-brands fa-linkedin"></i><% end %>
+          </div>
         </div>
+      </article>
+
+      <article class="contact-card">
+        <h3 class="contact-card__title">Disponibilités</h3>
+        <ul class="contact-availability">
+          <li class="contact-availability__item">
+            <i class="fa-solid fa-circle-check"></i> Ouvert aux missions freelance
+          </li>
+          <li class="contact-availability__item">
+            <i class="fa-solid fa-circle-check"></i> Disponible pour CDI / Contrats
+          </li>
+          <li class="contact-availability__item">
+            <i class="fa-solid fa-circle-check"></i> Temps plein ou partiel
+          </li>
+        </ul>
+        <p class="contact-card__desc">
+          Je réponds généralement sous 24-48h. Pour une urgence, privilégiez LinkedIn.
+        </p>
+        <div class="contact-card__action">
+          <%= link_to 'Envoyer un message ➫', "mailto:kevin.saison91@gmail.com", class: 'btn hero--btn--primary' %>
+        </div>
+      </article>
     </div>
-    <div class="contact-block-line">
-        <div class="contact-block2">
-            <div class="points">
-                <i class="fa-solid fa-circle point1"></i>
-                <i class="fa-solid fa-circle point2"></i>
-                <i class="fa-solid fa-circle point3"></i>
-            </div>
-            <p class="code1"># Travaillons ensemble !</p>
-            <p class="code">developer = Developer.new(</p>
-            <p class="code code2">skills: [:ruby, :rails, :postgresql],</p>
-            <p class="code code2">availability: :open,</p>
-            <p class="code code2">passion: :high</p>
-            <p class="code">)</p>
-            <p></p>
-            <p class="code">developer.contact! if project.needs_expertise?</p>
-        </div>
+
+    <div class="contact-terminal">
+      <div class="contact-terminal__header">
+        <span class="terminal-dot terminal-dot--red"></span>
+        <span class="terminal-dot terminal-dot--yellow"></span>
+        <span class="terminal-dot terminal-dot--green"></span>
+      </div>
+      <div class="contact-terminal__body">
+        <p class="code--comment"># Recruter un expert</p>
+        <p class="code--main">
+          developer = <span class="text--accent">Developer</span>.new(<br>
+          &nbsp;&nbsp;skills: [<span class="text--highlight">:ruby, :rails, :postgresql</span>],<br>
+          &nbsp;&nbsp;availability: <span class="text--highlight">:open</span>,<br>
+          &nbsp;&nbsp;passion: <span class="text--highlight">:high</span><br>
+          )
+        </p>
+        <p class="code--main">developer.contact! <span class="text--accent">if</span> project.needs_expertise?</p>
+      </div>
     </div>
+  </div>
 </section>
