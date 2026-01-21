@@ -66,18 +66,20 @@
   border-bottom-color: var(--co-1);
 }
 
-.btn--primary {
+.nav-btn--primary {
   display: inline-block;
-  background-color: var(--co-1);
+  background: linear-gradient(90deg, var(--co-3), var(--co-1));
   color: var(--co-2);
+  box-shadow: var(--shadow-sm);
   padding: 10px var(--spacing);
   border-radius: var(--radius);
   text-decoration: none;
-  transition: background var(--transition-speed);
 }
 
-.btn--primary:hover {
-  background-color: var(--co-3);
+.nav-btn--primary:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+  box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
 }
 
 /* MEDIA QUERIES (RESPONSIVE) */
