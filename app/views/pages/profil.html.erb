@@ -1,2 +1,18 @@
-<h1>Pages#profil</h1>
-<p>Find me in app/views/pages/profil.html.erb</p>
+<section class="hero">
+    <div class="block_left">
+        <header class="tech-section__header">
+            <p class="tech-section__intro">Mon profil</p>
+            <h2 class="tech-section__title">Concevoir des logiciels avec sens et précision</h2>
+            <p class="tech-section__subtitle">
+                Développeur Ruby, je conçois des applications web appréciées des utilisateurs et faciles à maintenir pour les équipes. Je suis convaincu que les meilleurs logiciels naissent de la rencontre entre l'excellence technique et une compréhension profonde du produit.
+            </p>
+        </header>
+        <div class="hero__actions">
+            <%= link_to 'Collaborons ensemble ➫', root_path, class: 'btn hero--btn--primary' %>
+            <%= link_to 'Mes projets', root_path, class: 'btn btn--outline' %>
+        </div>
+    </div>
+    <div class="block_right">
+        <%= image_tag "profile.png", class: "logo-img", alt: "Kevin Saison" %>
+    </div>
+</section>
