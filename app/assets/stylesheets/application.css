@@ -1,5 +1,6 @@
 @import 'navbar';
 @import 'footer';
+@import 'profil';
 
 :root {
   --co-1: #ff0000;

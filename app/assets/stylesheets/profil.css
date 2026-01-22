@@ -1,0 +1,534 @@
+.hero-profil {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.block_left {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-profil-section__header {
+  margin-bottom: 40px;
+}
+
+.hero-profil-section__subtitle {
+  color: var(--text);
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 550px;
+}
+
+.profil__actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.block_right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-profil-card {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 10px;
+  box-shadow: 0 10px 40px rgba(119, 1, 1, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.profil-terminal__header {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  flex-direction: row-reverse;
+  padding: 10px;
+}
+
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.hero-profil-logo-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 2, 2, 0.3);
+  margin-top: 40px;
+}
+
+.out-block {
+  position: absolute;
+  bottom: -20px;
+  right: -20px; 
+  padding: 15px 25px;
+  color: var(--text);
+  background: #1e1e1e; 
+  border-radius: var(--radius);
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.out_block_text {
+  margin: 0;
+  font-family: 'Fira Code', monospace; 
+  font-size: 0.9rem;
+}
+
+.decaled {
+  padding-left: 20px;
+}
+
+.developer {
+  font-family: inherit;
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.passion {
+  color: #ffffff;
+}
+
+@media (max-width: 992px) {
+  .hero-profil {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 100px;
+  }
+  
+  .block_left, .block_right {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .profil__actions {
+    justify-content: center;
+  }
+
+  .out-block {
+    right: 10px;
+  }
+}
+
+.journey-section {
+  padding: 80px 20px;
+  background-color: #0d0d0d; /* Matching your dark theme */
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journey-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 700px;
+}
+
+.journey-pretitle {
+  color: #ff0000;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.journey-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+}
+
+.journey-intro {
+  color: #a0a0a0;
+  line-height: 1.6;
+}
+
+/* Timeline Layout */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  padding-left: 40px; /* Space for the line */
+}
+
+/* The Vertical Line */
+.timeline-line {
+  position: absolute;
+  left: 7px; /* Centered relative to the 14px dot */
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+/* The Red Dot */
+.timeline-dot {
+  position: absolute;
+  left: -40px; /* Align with the timeline-line */
+  width: 14px;
+  height: 14px;
+  background-color: #ff0000;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 24px 32px;
+  width: 100%;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.timeline-content:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(10px);
+}
+
+.timeline-year {
+  color: #ff0000;
+  font-size: 0.8rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.timeline-role {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.role--highlight {
+  color: #ff0000;
+}
+
+.timeline-description {
+  color: #888;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .timeline-container {
+    padding-left: 30px;
+  }
+  .timeline-line {
+    left: 6px;
+  }
+  .timeline-dot {
+    left: -31px;
+    width: 12px;
+    height: 12px;
+  }
+  .timeline-content {
+    padding: 20px;
+  }
+}
+
+.approach-section {
+  padding: 100px 20px;
+  background-color: #0d0d0d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.approach-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 800px;
+}
+
+.approach-pretitle {
+  color: #ff0000;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.approach-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.approach-intro {
+  color: #888;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Grid Layout */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 80px;
+}
+
+.approach-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.approach-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 0, 0, 0.3);
+  transform: translateY(-5px);
+}
+
+.approach-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 0, 0, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 1.5rem;
+}
+
+.approach-card-title {
+  color: #fff;
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+
+.approach-card-text {
+  color: #a0a0a0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Quote Section */
+.approach-quote {
+  text-align: center;
+  max-width: 800px;
+  margin-top: 40px;
+}
+
+.approach-quote blockquote {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: #fff;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  font-family: serif; /* Gives that premium "quote" look */
+}
+
+.text--italic-red {
+  color: #ff0000;
+  font-style: italic;
+}
+
+.approach-quote cite {
+  color: #555;
+  font-style: normal;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .approach-card {
+    padding: 30px;
+  }
+}
+
+.vision-section {
+  padding: 120px 20px;
+  background-color: #0d0d0d;
+  color: #fff;
+  text-align: center;
+}
+
+.vision-header {
+  margin-bottom: 80px;
+}
+
+.vision-pretitle {
+  color: #ff0000;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.vision-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 20px;
+}
+
+.vision-intro {
+  color: #888;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Three Column Grid */
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto 120px auto;
+}
+
+.vision-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vision-icon {
+  width: 60px;
+  height: 60px;
+  background: #ff0000;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.vision-item:hover .vision-icon {
+  transform: scale(1.1);
+}
+
+.vision-item-title {
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+}
+
+.vision-item-text {
+  color: #888;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* CTA Section */
+.cta-container {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 100px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 24px;
+}
+
+.text--red {
+  color: #ff0000;
+}
+
+.cta-text {
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Button Styles */
+.cta-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.btn-primary--red {
+  background: #ff0000;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-primary--red:hover {
+  background: #cc0000;
+}
+
+.btn-secondary--ghost {
+  background: transparent;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary--ghost:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .vision-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn-primary--red, .btn-secondary--ghost {
+    width: 100%;
+    max-width: 300px;
+  }
+}
