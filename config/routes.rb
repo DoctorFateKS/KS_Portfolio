@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get "pages/profil"
   get "pages/skills"
+  get "pages/method"
+  get "pages/contact"
   get "home/index"
   get "projects/index"
   get "blogs/index"

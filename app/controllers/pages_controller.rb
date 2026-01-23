@@ -4,4 +4,10 @@ class PagesController < ApplicationController
 
   def skills
   end
+
+  def method
+  end
+
+  def contact
+  end
 end

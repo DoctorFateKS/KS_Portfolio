@@ -1,0 +1,436 @@
+.methodology-hero {
+  padding: 120px 20px 60px;
+  background-color: #0d0d0d;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.methodology-container {
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Badge Style */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 0, 0, 0.05);
+  color: #ff0000;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+/* Title Styling */
+.methodology-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem); /* Responsive font size */
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.text-highlight-red {
+  color: #ff0000;
+  position: relative;
+  display: inline-block;
+}
+
+/* Optional: Subtle glow behind the highlighted word */
+.text-highlight-red::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+/* Subtitle Styling */
+.methodology-subtitle {
+  color: #888888;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .methodology-hero {
+    padding: 80px 20px 40px;
+  }
+  
+  .methodology-subtitle {
+    font-size: 1rem;
+  }
+}
+
+.methodologies-detailed {
+  padding: 100px 20px;
+  background-color: #0d0d0d;
+  color: #fff;
+}
+
+.methodologies-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.methodologies-main-title { font-size: 2.5rem; margin-bottom: 10px; }
+.methodologies-subtitle { color: #666; font-size: 1.1rem; }
+
+/* The Methodology Row Container */
+.methodology-rows {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.method-row {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 50px;
+  display: flex;
+  gap: 60px;
+  transition: transform 0.3s ease;
+}
+
+.method-row:hover {
+  border-color: rgba(255, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Left Column: Meta & Info */
+.method-meta { flex: 1.2; }
+
+.method-icon-wrap {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+}
+
+.icon--red { background: rgba(255, 0, 0, 0.1); color: #ff0000; }
+.icon--orange { background: rgba(255, 100, 0, 0.1); color: #ff6400; }
+
+.method-name { font-size: 1.75rem; margin-bottom: 20px; color: #fff; }
+.method-text { color: #aaa; line-height: 1.6; margin-bottom: 25px; font-size: 1.05rem; }
+
+.method-quote {
+  border-left: 2px solid #ff0000;
+  padding-left: 20px;
+  color: #888;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* Right Column: Practices List */
+.method-practices {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  border-radius: 16px;
+  align-self: flex-start;
+}
+
+.practices-label {
+  color: #ff0000;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+  display: block;
+}
+
+.practices-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.practices-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+.check {
+  font-family: 'Material Icons'; /* Or use an SVG */
+  color: #00ff82;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .method-row { flex-direction: column; padding: 30px; gap: 30px; }
+  .method-practices { width: 100%; }
+}
+
+.collaboration-principles {
+  padding: 100px 20px;
+  background-color: #0d0d0d;
+}
+
+.collaboration-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.collaboration-badge {
+  display: inline-flex;
+  gap: 8px;
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff0000;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.collaboration-title {
+  color: #fff;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.collaboration-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Collaboration Grid */
+.collaboration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.collab-card {
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Thematic Color Variations */
+.card--design { background: rgba(147, 51, 234, 0.05); }      /* Purple */
+.card--product { background: rgba(59, 130, 246, 0.05); }     /* Blue */
+.card--engineering { background: rgba(34, 197, 94, 0.05); }  /* Green */
+
+.collab-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.collab-role-title {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.collab-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.collab-list li {
+  color: #888;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  display: flex;
+  gap: 12px;
+}
+
+.arrow {
+  color: #ff0000; /* Red arrow for brand consistency */
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .collaboration-grid { grid-template-columns: 1fr; max-width: 500px; }
+}
+
+.philosophy-quote-section {
+  padding: 120px 20px;
+  background-color: #0d0d0d;
+  display: flex;
+  justify-content: center;
+}
+
+.quote-container {
+  max-width: 900px;
+  text-align: center;
+}
+
+.quote-icon-wrap {
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 0, 0, 0.1);
+  color: #ff0000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 40px;
+}
+
+.quote-svg {
+  width: 30px;
+  height: 30px;
+}
+
+.manifesto-quote {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  line-height: 1.5;
+  color: #666; /* Muted base color */
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+/* Highlights the core impact areas */
+.text-white {
+  color: #ffffff;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.quote-attribution {
+  display: block;
+  color: #444;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-style: normal;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .philosophy-quote-section {
+    padding: 80px 20px;
+  }
+}
+
+.final-cta-section {
+  padding: 100px 20px 140px;
+  background-color: #0d0d0d;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-glass-card {
+  width: 100%;
+  max-width: 900px;
+  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.03) 0%, rgba(255, 0, 0, 0.01) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 80px 40px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cta-badge {
+  color: #ff0000;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  padding: 6px 16px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 24px;
+}
+
+.cta-title {
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.cta-text {
+  color: #888;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+/* Button Group */
+.cta-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.btn-primary-red {
+  background: #ff0000;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-red:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
+}
+
+.btn-secondary-outline {
+  background: transparent;
+  color: #fff;
+  padding: 16px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .cta-glass-card { padding: 50px 20px; }
+  .cta-actions { flex-direction: column; }
+  .btn-primary-red, .btn-secondary-outline { width: 100%; text-align: center; }
+}
