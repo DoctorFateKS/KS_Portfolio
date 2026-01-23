@@ -1,0 +1,165 @@
+<section class="contact-hero">
+  <div class="contact-hero-container">
+    <span class="contact-badge">Get In Touch</span>
+    
+    <h1 class="contact-main-title">
+      Let's Build Something <span class="text-highlight-red">Extraordinary</span>
+    </h1>
+    
+    <p class="contact-subtitle">
+      Looking for a senior Ruby developer who cares about code quality and product impact? 
+      Let's discuss your project.
+    </p>
+  </div>
+</section>
+
+<section class="contact-grid-section">
+  <div class="contact-main-grid">
+    
+    <div class="contact-card form-card">
+      <header class="card-header">
+        <h2 class="card-title">Send a Message</h2>
+        <p class="card-subtitle">Fill out the form below and I'll get back to you as soon as possible.</p>
+      </header>
+
+      <%= form_with url: "#", class: "contact-form" do |f| %>
+        <div class="form-row">
+          <div class="field">
+            <%= f.label :name, "Name *" %>
+            <%= f.text_field :name, placeholder: "John Doe", required: true %>
+          </div>
+          <div class="field">
+            <%= f.label :email, "Email *" %>
+            <%= f.email_field :email, placeholder: "john@company.com", required: true %>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="field">
+            <%= f.label :company, "Company" %>
+            <%= f.text_field :company, placeholder: "Your Company" %>
+          </div>
+          <div class="field">
+            <%= f.label :project_type, "Project Type" %>
+            <%= f.select :project_type, ["Select a type", "New Project", "Consulting", "Long-term Contract"], {}, class: "custom-select" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :message, "Message *" %>
+          <%= f.text_area :message, placeholder: "Tell me about your project, timeline, and any specific requirements...", rows: 5, required: true %>
+        </div>
+
+        <button type="submit" class="btn-send">
+          <span>Send Message</span>
+          <span class="icon-arrow">→</span>
+        </button>
+      <% end %>
+    </div>
+
+    <div class="contact-sidebar">
+      
+      <div class="contact-card info-card">
+        <h3 class="sidebar-title">Contact Information</h3>
+        <ul class="info-list">
+          <li>
+            <div class="info-icon">✉️</div>
+            <div>
+              <p class="info-label">Email</p>
+              <p class="info-value">hello@rubydev.com</p>
+            </div>
+          </li>
+          <li>
+            <div class="info-icon">📍</div>
+            <div>
+              <p class="info-label">Location</p>
+              <p class="info-value">Remote • Europe / Americas</p>
+            </div>
+          </li>
+          <li>
+            <div class="info-icon">🕒</div>
+            <div>
+              <p class="info-label">Response Time</p>
+              <p class="info-value">Within 24 hours</p>
+            </div>
+          </li>
+        </ul>
+        
+        <div class="social-links-minimal">
+          <p class="social-label">Find me online</p>
+          <div class="social-buttons">
+            <a href="#" class="social-btn">GitHub</a>
+            <a href="#" class="social-btn">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-card availability-card">
+        <h3 class="sidebar-title">Current Availability</h3>
+        <div class="availability-item active">
+          <span class="status-dot green"></span>
+          <div class="item-text">
+            <p class="item-title">Freelance Projects</p>
+            <p class="item-desc">Taking on new projects</p>
+          </div>
+          <span class="check-icon">✓</span>
+        </div>
+        <div class="availability-item active">
+          <span class="status-dot green"></span>
+          <div class="item-text">
+            <p class="item-title">Contract Work</p>
+            <p class="item-desc">3-6 month engagements</p>
+          </div>
+          <span class="check-icon">✓</span>
+        </div>
+        <div class="availability-item busy">
+          <span class="status-dot orange"></span>
+          <div class="item-text">
+            <p class="item-title">Full-time Roles</p>
+            <p class="item-desc">Remote-first companies</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="code-contact-footer">
+  <div class="editor-window">
+    <div class="editor-header">
+      <div class="window-controls">
+        <span class="control close"></span>
+        <span class="control minimize"></span>
+        <span class="control expand"></span>
+      </div>
+      <div class="file-name">contact.rb</div>
+    </div>
+
+    <div class="editor-body">
+      <pre class="ruby-code">
+<code><span class="comment"># Let's work together</span>
+<span class="keyword">class</span> <span class="class-name">Collaboration</span>
+  <span class="keyword">def</span> <span class="method">initialize</span>(your_project)
+    <span class="variable">@project</span> = your_project
+    <span class="variable">@developer</span> = <span class="constant">Developer</span>.find_by(passion: <span class="symbol">:high</span>, skills: [<span class="symbol">:ruby</span>, <span class="symbol">:rails</span>])
+  <span class="keyword">end</span>
+
+  <span class="keyword">def</span> <span class="method">start!</span>
+    <span class="keyword">return unless</span> <span class="variable">@project</span>.needs_expertise?
+
+    <span class="variable">@developer</span>.contact!(
+      via: [<span class="symbol">:email</span>, <span class="symbol">:linkedin</span>],
+      availability: <span class="symbol">:open</span>
+    )
+
+    build_something_amazing!
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="comment"># Ready when you are</span>
+<span class="constant">Collaboration</span>.new(your_project).start!</code>
+      </pre>
+    </div>
+  </div>
+</section>
