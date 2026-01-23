@@ -1,2 +1,119 @@
-<h1>Pages#skills</h1>
-<p>Find me in app/views/pages/skills.html.erb</p>
+<section class="skills-section">
+  <header class="skills-header">
+    <p class="skills-pretitle"><span>< ></span> Technical Expertise</p>
+    <h2 class="skills-title">Skills & <span class="text--red">Technologies</span></h2>
+    <p class="skills-intro">
+      A comprehensive overview of my technical toolkit, refined over years of building production applications and contributing to the Ruby ecosystem.
+    </p>
+  </header>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon">♢</div>
+      <div class="stat-value">10+</div>
+      <div class="stat-label">Years with Ruby</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⚙️</div>
+      <div class="stat-value">50+</div>
+      <div class="stat-label">Production Apps</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⚡</div>
+      <div class="stat-value">15+</div>
+      <div class="stat-label">Gems Contributed</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⚓</div>
+      <div class="stat-value">200+</div>
+      <div class="stat-label">Open Source PRs</div>
+    </div>
+  </div>
+
+  <div class="expertise-container">
+    <div class="expertise-card ruby-rails-card">
+      <div class="expertise-card__header">
+        <div class="expertise-card__icon">♢</div>
+        <div class="expertise-card__title-group">
+          <h3>Ruby & Rails</h3>
+          <p>Deep expertise in Ruby language and Rails framework</p>
+        </div>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="skill-group">
+          <div class="skill-info">
+            <span>Ruby</span>
+            <span class="skill-percent">95%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+          <ul class="skill-list">
+            <li>OOP & FP paradigms</li>
+            <li>Metaprogramming</li>
+            <li>Performance optimization</li>
+            <li>Gems development</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-info">
+            <span>Rails</span>
+            <span class="skill-percent">95%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
+          <ul class="skill-list">
+            <li>MVC architecture</li>
+            <li>ActiveRecord mastery</li>
+            <li>ActiveJob & Sidekiq</li>
+            <li>ActionCable real-time</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-info">
+            <span>Rails APIs</span>
+            <span class="skill-percent">90%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+          <ul class="skill-list">
+            <li>RESTful design</li>
+            <li>JSON:API specification</li>
+            <li>GraphQL integration</li>
+            <li>API versioning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-detailed-section">
+  <div class="tools-cloud-container">
+    <div class="quote-block">
+      <div class="quote-icon">📦</div>
+      <p class="quote-text">"The key to growing as a developer is not just learning new technologies, but understanding when and why to use them."</p>
+      <span class="quote-subline">— A principle I live by</span>
+    </div>
+
+    <div class="tech-cloud-header">
+      <h3 class="cloud-title">Tools & Technologies</h3>
+      <p class="cloud-subtitle">A selection of tools and technologies I work with regularly</p>
+    </div>
+
+    <div class="tech-tags">
+      <% %w[Ruby Rails PostgreSQL Redis Sidekiq RSpec Capybara Docker Git GitHub\ Actions AWS Heroku Fly.io Nginx Linux Turbo Stimulus Tailwind\ CSS Webpack esbuild GraphQL REST\ APIs WebSockets OAuth JWT].each do |tool| %>
+        <span class="tech-tag"><%= tool %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="skills-footer-cta">
+    <div class="footer-cta-icon">☁️</div>
+    <h2 class="footer-cta-title">Let's Build Something <span class="text--white">Great Together</span></h2>
+    <p class="footer-cta-text">Looking for a senior Ruby developer who can bring technical excellence and product thinking to your project?</p>
+    <div class="footer-cta-actions">
+      <%= link_to 'Get In Touch', "#contact", class: "btn-red-filled" %>
+      <%= link_to 'View My Work', "#work", class: "btn-outline-red" %>
+    </div>
+  </div>
+</section>
