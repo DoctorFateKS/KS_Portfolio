@@ -1,0 +1,259 @@
+<section class="projects-impact">
+  <header class="impact-header">
+    <p class="impact-pretitle"><span>📚</span> Case Studies</p>
+    <h2 class="impact-title">Projects & <span class="text--red">Impact</span></h2>
+    <p class="impact-intro">
+      Real-world applications where I've designed, built, and scaled Ruby on Rails solutions that deliver measurable business value.
+    </p>
+  </header>
+
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.71-2.13 0-2.97l-3-3.03a2.1 2.1 0 0 0-2.97 0z"/><path d="m15 15 6 6m-6-6 1.15-1.15a6.06 6.06 0 0 0 0-8.57L12.58 1.7a1.05 1.05 0 0 0-1.49 0L1.7 11.09a1.05 1.05 0 0 0 0 1.49l3.57 3.57a6.06 6.06 0 0 0 8.57 0L15 15z"/></svg>
+      </div>
+      <div class="impact-value">50+</div>
+      <div class="impact-label">Projects Delivered</div>
+    </div>
+
+    <div class="impact-card">
+      <div class="impact-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="impact-value">1M+</div>
+      <div class="impact-label">Users Impacted</div>
+    </div>
+
+    <div class="impact-card">
+      <div class="impact-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
+      <div class="impact-value">$10M+</div>
+      <div class="impact-label">Revenue Generated</div>
+    </div>
+
+    <div class="impact-card">
+      <div class="impact-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="impact-value">10+</div>
+      <div class="impact-label">Years Experience</div>
+    </div>
+  </div>
+</section>
+
+<section class="featured-projects">
+  <header class="section-header">
+    <h2 class="section-title">Featured Projects</h2>
+    <p class="section-subtitle">In-depth case studies of significant projects</p>
+  </header>
+
+  <article class="project-case-study">
+    <div class="project-banner">
+      <div class="project-banner__overlay">
+        <span class="badge badge--featured">🛒 Featured</span>
+        <h3 class="project-main-title">E-Commerce Platform</h3>
+        <p class="project-tagline">High-Performance Multi-Tenant Marketplace</p>
+      </div>
+    </div>
+
+    <div class="project-body">
+      <div class="project-section">
+        <h4 class="project-label"><span class="icon-red">🎯</span> Context & Problem</h4>
+        <p class="project-text">
+          A rapidly growing e-commerce startup needed to scale their monolithic Rails application to handle 10x traffic growth while adding multi-tenant capabilities for their new B2B marketplace offering.
+        </p>
+      </div>
+
+      <div class="project-details-grid">
+        <div class="detail-column">
+          <h4 class="project-label"><span class="icon-red">👤</span> Role: Lead Backend Developer</h4>
+          <ul class="check-list">
+            <li>Architected the multi-tenant data isolation strategy</li>
+            <li>Led a team of 3 developers through the migration</li>
+            <li>Designed and implemented the new API layer</li>
+            <li>Established performance monitoring and alerting</li>
+          </ul>
+        </div>
+        <div class="detail-column">
+          <h4 class="project-label"><span class="icon-red">🛠️</span> Tech Stack</h4>
+          <div class="tech-stack-tags">
+            <% %w[Ruby\ 3.2 Rails\ 7 PostgreSQL Redis Sidekiq Elasticsearch Docker AWS].each do |tech| %>
+              <span class="stack-tag"><%= tech %></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-section">
+        <h4 class="project-label"><span class="icon-red">🏗️</span> Architectural Decisions</h4>
+        <div class="decisions-grid">
+          <div class="decision-pill">Implemented schema-based multi-tenancy with PostgreSQL</div>
+          <div class="decision-pill">Designed event-driven architecture using Sidekiq for async processing</div>
+          <div class="decision-pill">Built a RESTful API following JSON:API specification</div>
+          <div class="decision-pill">Introduced service objects and interactors for business logic</div>
+        </div>
+      </div>
+
+      <div class="project-two-col">
+        <div class="col">
+          <h4 class="project-label"><span class="icon-red">⚡</span> Challenges</h4>
+          <ul class="bullet-list">
+            <li>Migrating 5M+ records without downtime</li>
+            <li>Ensuring data isolation between tenants</li>
+            <li>Maintaining backward compatibility during transition</li>
+            <li>Optimizing search across tenant boundaries</li>
+          </ul>
+        </div>
+        <div class="col">
+          <h4 class="project-label"><span class="icon-green">✅</span> Solutions</h4>
+          <ul class="bullet-list list--green">
+            <li>Implemented dual-write strategy with gradual migration</li>
+            <li>Used PostgreSQL Row-Level Security for tenant isolation</li>
+            <li>Built a comprehensive API versioning system</li>
+            <li>Deployed Elasticsearch with proper tenant filtering</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-results">
+        <h4 class="project-label"><span class="icon-red">📈</span> Results & Impact</h4>
+        <div class="results-grid">
+          <div class="result-item">
+            <span class="result-value">99.99%</span>
+            <span class="result-desc">Uptime achieved</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">300ms</span>
+            <span class="result-desc">Average API response</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">10x</span>
+            <span class="result-desc">Traffic capacity</span>
+          </div>
+          <div class="result-item">
+            <span class="result-value">50+</span>
+            <span class="result-desc">Active tenants</span>
+          </div>
+        </div>
+        <div class="impact-quote">
+          "The platform now handles over 100,000 daily transactions with sub-second response times, enabling the company to secure Series B funding."
+        </div>
+      </div>
+
+      <div class="project-actions">
+        <%= link_to "#", class: "btn-action" do %> <span>📂</span> View Code <% end %>
+        <%= link_to "#", class: "btn-action btn-action--red" do %> <span>🚀</span> Live Demo <% end %>
+      </div>
+    </div>
+  </article>
+</section>
+
+<section class="more-projects-section">
+  <header class="more-projects-header">
+    <h2 class="more-projects-title">More Projects</h2>
+    <p class="more-projects-subtitle">Additional projects showcasing diverse expertise</p>
+  </header>
+
+  <div class="projects-grid">
+    <article class="mini-project-card">
+      <div class="mini-project-image">
+        <div class="mini-project-icon">🛡️</div>
+      </div>
+      <div class="mini-project-content">
+        <h3 class="mini-project-name">Healthcare API Platform</h3>
+        <p class="mini-project-type">HIPAA-Compliant Integration Layer</p>
+        <p class="mini-project-desc">A healthcare technology company needed a secure, HIPAA-compliant API platform to integrate multiple Electronic Health Records (EHR)...</p>
+        
+        <div class="mini-project-tags">
+          <span class="mini-tag">Ruby 3.0</span>
+          <span class="mini-tag">Rails 6.1</span>
+          <span class="mini-tag">PostgreSQL</span>
+          <span class="mini-tag">Redis</span>
+          <span class="mini-tag">+4</span>
+        </div>
+
+        <div class="mini-project-stats">
+          <div class="mini-stat">
+            <span class="mini-stat-value">100%</span>
+            <span class="mini-stat-label">HIPAA compliance</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat-value">5</span>
+            <span class="mini-stat-label">EHR integrations</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="mini-project-card">
+      <div class="mini-project-image">
+        <div class="mini-project-icon">💬</div>
+      </div>
+      <div class="mini-project-content">
+        <h3 class="mini-project-name">Team Collaboration Suite</h3>
+        <p class="mini-project-type">Slack-Inspired Real-Time Messaging</p>
+        <p class="mini-project-desc">A startup building a team collaboration tool needed a scalable messaging system with real-time updates, file sharing, and thread support.</p>
+        
+        <div class="mini-project-tags">
+          <span class="mini-tag">Ruby 3.2</span>
+          <span class="mini-tag">Rails 7</span>
+          <span class="mini-tag">PostgreSQL</span>
+          <span class="mini-tag">Redis</span>
+          <span class="mini-tag">+4</span>
+        </div>
+
+        <div class="mini-project-stats">
+          <div class="mini-stat">
+            <span class="mini-stat-value">50ms</span>
+            <span class="mini-stat-label">Message delivery</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat-value">100K+</span>
+            <span class="mini-stat-label">Daily messages</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="mini-project-card">
+      <div class="mini-project-image">
+        <div class="mini-project-icon">🏦</div>
+      </div>
+      <div class="mini-project-content">
+        <h3 class="mini-project-name">SaaS Billing Engine</h3>
+        <p class="mini-project-type">Subscription Management & Revenue Platform</p>
+        <p class="mini-project-desc">A B2B SaaS company needed a flexible billing engine to handle complex subscription models, usage-based pricing, and multi-currency support.</p>
+        
+        <div class="mini-project-tags">
+          <span class="mini-tag">Ruby 3.1</span>
+          <span class="mini-tag">Rails 7</span>
+          <span class="mini-tag">PostgreSQL</span>
+          <span class="mini-tag">Stripe</span>
+          <span class="mini-tag">+3</span>
+        </div>
+
+        <div class="mini-project-stats">
+          <div class="mini-stat">
+            <span class="mini-stat-value">99.9%</span>
+            <span class="mini-stat-label">Billing accuracy</span>
+          </div>
+          <div class="mini-stat">
+            <span class="mini-stat-value">15%</span>
+            <span class="mini-stat-label">Churn reduction</span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <footer class="final-contact-cta">
+    <div class="final-cta-icon">📮</div>
+    <h2 class="final-cta-title">Have a Project in Mind?</h2>
+    <p class="final-cta-text">I'm always interested in challenging projects that push the boundaries of what's possible with Ruby on Rails.</p>
+    <div class="final-cta-actions">
+      <%= link_to 'Start a Conversation', "#contact", class: "btn-red-filled" %>
+      <%= link_to 'View My Skills', "#skills", class: "btn-outline-red" %>
+    </div>
+  </footer>
+</section>

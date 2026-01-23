@@ -2,6 +2,7 @@
 @import 'footer';
 @import 'profil';
 @import 'skills';
+@import 'projects';
 
 :root {
   --co-1: #ff0000;
