@@ -3,6 +3,7 @@
 @import 'profil';
 @import 'skills';
 @import 'projects';
+@import 'blogs';
 
 :root {
   --co-1: #ff0000;

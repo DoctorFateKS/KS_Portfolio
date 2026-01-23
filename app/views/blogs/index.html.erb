@@ -1,0 +1,232 @@
+<section class="blog-header-section">
+  <header class="blog-hero">
+    <div class="blog-badge">
+      <span class="icon-book">📖</span> Technical Blog
+    </div>
+    <h1 class="blog-title">Insights & <span class="text--red">Deep Dives</span></h1>
+    <p class="blog-subtitle">
+      In-depth articles on Ruby, Rails, and software engineering. Practical guides, performance tips, and lessons learned from real-world projects.
+    </p>
+  </header>
+
+  <div class="blog-controls">
+    <div class="search-wrapper">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" placeholder="Search articles, topics, tags...">
+    </div>
+
+    <nav class="filter-nav">
+      <ul class="filter-list">
+        <li><%= link_to 'All', "#", class: "filter-item filter-item--active" %></li>
+        <% %w[Performance Architecture Tutorial Deep\ Dive Testing Database Refactoring DevOps].each do |category| %>
+          <li><%= link_to category, "#", class: "filter-item" %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<section class="featured-articles">
+  <header class="articles-section-header">
+    <h2 class="articles-section-title">
+      <span class="icon-trending">📈</span> Featured Articles
+    </h2>
+  </header>
+
+  <div class="articles-grid">
+    <article class="article-card border-red">
+      <div class="article-card__header">
+        <div class="article-visual visual--performance">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+        </div>
+        <span class="badge-featured">Featured</span>
+      </div>
+
+      <div class="article-card__body">
+        <span class="category-pill">Performance</span>
+        <h3 class="article-title title--red">Deep Dive into Rails ActiveRecord Query Optimization</h3>
+        <p class="article-excerpt">
+          Learn how to identify and fix N+1 queries, leverage eager loading strategies, and use database indexes effectively to achieve 10x performance improvements.
+        </p>
+        
+        <div class="article-tags">
+          <span class="tag">Rails</span>
+          <span class="tag">ActiveRecord</span>
+          <span class="tag">PostgreSQL</span>
+        </div>
+      </div>
+
+      <footer class="article-card__footer">
+        <div class="meta-left">
+          <span>📅 Jan 15, 2024</span>
+          <span>⏱️ 12 min read</span>
+        </div>
+        <div class="meta-right">
+          <span class="view-count">2,847 views</span>
+        </div>
+      </footer>
+    </article>
+
+    <article class="article-card border-grey">
+      <div class="article-card__header">
+        <div class="article-visual visual--architecture">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M13 21V11l4-2v12"/></svg>
+        </div>
+        <span class="badge-featured">Featured</span>
+      </div>
+
+      <div class="article-card__body">
+        <span class="category-pill">Architecture</span>
+        <h3 class="article-title">Implementing Domain-Driven Design in Rails Applications</h3>
+        <p class="article-excerpt">
+          A practical guide to structuring complex Rails applications using DDD principles. Learn how to identify bounded contexts, create value objects, and implement aggregates.
+        </p>
+        
+        <div class="article-tags">
+          <span class="tag">DDD</span>
+          <span class="tag">Rails</span>
+          <span class="tag">Clean Architecture</span>
+        </div>
+      </div>
+
+      <footer class="article-card__footer">
+        <div class="meta-left">
+          <span>📅 Jan 8, 2024</span>
+          <span>⏱️ 18 min read</span>
+        </div>
+        <div class="meta-right">
+          <span class="view-count">1,923 views</span>
+        </div>
+      </footer>
+    </article>
+  </div>
+</section>
+
+<section class="all-articles-section">
+  <header class="all-articles-header">
+    <h2 class="all-articles-title">
+      <span class="icon-code">< ></span> All Articles
+    </h2>
+    <span class="article-count">8 articles</span>
+  </header>
+
+  <div class="all-articles-grid">
+    <%# This would be @articles.each do |article| in your real app %>
+    
+    <article class="mini-article-card">
+      <div class="mini-article-top">
+        <div class="mini-article-icon icon--yellow">⚡</div>
+        <span class="mini-article-category">Tutorial</span>
+      </div>
+      <h3 class="mini-article-title">Building Real-Time Features with Hotwire and ActionCable</h3>
+      <p class="mini-article-excerpt">Step-by-step tutorial on implementing live updates, notifications, and collaborative features...</p>
+      
+      <div class="mini-article-tags">
+        <span class="mini-tag">Hotwire</span>
+        <span class="mini-tag">Turbo</span>
+        <span class="mini-tag">+2</span>
+      </div>
+
+      <footer class="mini-article-footer">
+        <span>📅 Jan 2</span>
+        <span>⏱️ 15 min</span>
+      </footer>
+    </article>
+
+    <article class="mini-article-card">
+      <div class="mini-article-top">
+        <div class="mini-article-icon icon--purple">🔮</div>
+        <span class="mini-article-category">Deep Dive</span>
+      </div>
+      <h3 class="mini-article-title">Mastering Ruby Metaprogramming: A Practical Guide</h3>
+      <p class="mini-article-excerpt">Explore the power of Ruby's metaprogramming capabilities with real-world examples. Learn when to...</p>
+      
+      <div class="mini-article-tags">
+        <span class="mini-tag">Ruby</span>
+        <span class="mini-tag">Metaprogramming</span>
+        <span class="mini-tag">+2</span>
+      </div>
+
+      <footer class="mini-article-footer">
+        <span>📅 Dec 20</span>
+        <span>⏱️ 14 min</span>
+      </footer>
+    </article>
+
+    <article class="mini-article-card">
+      <div class="mini-article-top">
+        <div class="mini-article-icon icon--green">🧪</div>
+        <span class="mini-article-category">Testing</span>
+      </div>
+      <h3 class="mini-article-title">Testing Strategies for Complex Rails Applications</h3>
+      <p class="mini-article-excerpt">A comprehensive look at testing strategies including unit tests, integration tests, and system...</p>
+      
+      <div class="mini-article-tags">
+        <span class="mini-tag">RSpec</span>
+        <span class="mini-tag">TDD</span>
+        <span class="mini-tag">+2</span>
+      </div>
+
+      <footer class="mini-article-footer">
+        <span>📅 Dec 15</span>
+        <span>⏱️ 16 min</span>
+      </footer>
+    </article>
+
+    </div>
+</section>
+
+<section class="writing-philosophy">
+  <header class="philosophy-header">
+    <h2 class="philosophy-title">Writing Philosophy</h2>
+    <p class="philosophy-subtitle">Every article follows these principles to maximize educational value</p>
+  </header>
+
+  <div class="philosophy-grid">
+    <div class="philosophy-card">
+      <div class="philosophy-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <h3 class="principle-name">Clear Code Examples</h3>
+      <p class="principle-desc">Well-commented, production-ready code snippets that you can use directly in your projects.</p>
+    </div>
+
+    <div class="philosophy-card">
+      <div class="philosophy-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <h3 class="principle-name">Practical Focus</h3>
+      <p class="principle-desc">Real-world problems and solutions, not theoretical exercises or "hello world" demos.</p>
+    </div>
+
+    <div class="philosophy-card">
+      <div class="philosophy-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      </div>
+      <h3 class="principle-name">Educational Tone</h3>
+      <p class="principle-desc">Concepts explained from first principles, making complex topics accessible to all skill levels.</p>
+    </div>
+  </div>
+</section>
+
+<section class="newsletter-section">
+  <div class="newsletter-card">
+    <header class="newsletter-header">
+      <span class="newsletter-badge">Stay Updated</span>
+      <h2 class="newsletter-title">Get New Articles Delivered</h2>
+      <p class="newsletter-subtitle">
+        Subscribe to receive notifications about new articles, tutorials, and deep dives into Ruby, Rails, and software engineering.
+      </p>
+    </header>
+
+    <%= form_with url: "#", class: "newsletter-form" do |f| %>
+      <div class="input-group">
+        <%= f.email_field :email, placeholder: "your@email.com", class: "newsletter-input", required: true %>
+        <%= f.submit "Subscribe", class: "btn-subscribe" %>
+      </div>
+      <p class="newsletter-disclaimer">
+        No spam, unsubscribe anytime. Usually 1-2 emails per month.
+      </p>
+    <% end %>
+  </div>
+</section>
