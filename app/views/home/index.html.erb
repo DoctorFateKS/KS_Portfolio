@@ -15,15 +15,21 @@
   </p>
 
   <div class="hero__actions">
-    <%= link_to 'Mes projets ➫', root_path, class: 'btn hero--btn--primary' %>
-    <%= link_to 'Prendre contact', root_path, class: 'btn btn--outline' %>
+    <%= link_to 'Mes projets ➫', projects_index_path, class: 'btn hero--btn--primary' %>
+    <%= link_to 'Prendre contact', pages_contact_path, class: 'btn btn--outline' %>
   </div>
 
   <nav class="hero__socials" aria-label="Social media links">
-    <% ['github', 'linkedin', 'envelope'].each do |platform| %>
-      <%= link_to "#", class: "hero__social-link", aria: { label: platform.capitalize } do %>
-        <i class="fa-<%= platform == 'envelope' ? 'regular' : 'brands' %> fa-<%= platform %>"></i>
-      <% end %>
+    <%= link_to 'https://github.com/DoctorFateKS', class: "hero__social-link", aria: { label: 'Github' } do %>
+      <i class="fa-brands fa-github"></i>
+    <% end %>
+
+    <%= link_to 'https://www.linkedin.com/in/kevin-saison17/', class: "hero__social-link", aria: { label: 'Linkedin' } do %>
+      <i class="fa-brands fa-linkedin"></i>
+    <% end %>
+
+    <%= link_to pages_contact_path, class: "hero__social-link", aria: { label: 'Contact' } do %>
+      <i class="fa-solid fa-envelope"></i>
     <% end %>
   </nav>
 
@@ -94,47 +100,49 @@
     </p>
   </header>
   <div class="projects__grid">
-    <% 
-      major_projects = [
-        { 
-          role: 'Freelance', 
-          name: 'SkillEn', 
-          desc: "SaaS d’analyse prédictive connectant les candidats aux offres via une normalisation sémantique des compétences.",
-          skills: ['Rails', 'PostgreSQL', 'Sidekiq', 'NLP'],
-          impact: "Algorithme de scoring en temps réel et moteur d'analyse de Skill Gap."
-        },
-        { 
-          role: 'Fullstack', 
-          name: 'Sharefriends', 
-          desc: "Application de mise en relation permettant de briser l’isolement social via un algorithme de compatibilité.",
-          skills: ['Rails', 'Maps API', 'ActionCable', 'Hotwire'],
-          impact: "Messagerie instantanée et moteur de recherche de proximité géographique."
-        }
-      ]
-    %>
-    <% major_projects.each do |project| %>
       <article class="p-card p-card--featured">
         <div class="p-card__header">
           <div>
-            <span class="p-card__badge"><%= project[:role] %></span>
-            <h3 class="p-card__name"><%= project[:name] %></h3>
+            <span class="p-card__badge">Freelance</span>
+            <h3 class="p-card__name">SkillEn</h3>
           </div>
           <div class="p-card__links">
-            <%= link_to '#', class: 'p-card__link' do %><i class="fa-brands fa-github"></i><% end %>
-            <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-arrow-up-right-from-square"></i><% end %>
+            <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-right-from-bracket"></i><% end %>
           </div>
         </div>
-        <p class="p-card__desc"><%= project[:desc] %></p>
+        <p class="p-card__desc">SaaS d’analyse prédictive connectant les candidats aux offres via une normalisation sémantique des compétences.</p>
         <div class="p-card__tags">
-          <% project[:skills].each do |skill| %>
-            <span class="p-card__tag p-card__tag--accent"><%= skill %></span>
-          <% end %>
+            <span class="p-card__tag p-card__tag--accent">Ruby on Rails</span>
+            <span class="p-card__tag p-card__tag--accent">PostgreSQL</span>
+            <span class="p-card__tag p-card__tag--accent">Sidekiq</span>
+            <span class="p-card__tag p-card__tag--accent">NLP</span>
         </div>
         <div class="p-card__impact">
-          <strong>Impact:</strong> <span><%= project[:impact] %></span>
+          <strong>Impact:</strong> <span>Algorithme de scoring en temps réel et moteur d'analyse de Skill Gap.</span>
         </div>
       </article>
-    <% end %>
+      <article class="p-card p-card--featured">
+        <div class="p-card__header">
+          <div>
+            <span class="p-card__badge">Fullstack</span>
+            <h3 class="p-card__name">Sharefriends</h3>
+          </div>
+          <div class="p-card__links">
+            <%= link_to 'https://github.com/DoctorFateKS/Sharefriends', class: 'p-card__link' do %><i class="fa-brands fa-github"></i><% end %>
+            <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-right-from-bracket"></i><% end %>
+          </div>
+        </div>
+        <p class="p-card__desc">Application de mise en relation permettant de briser l’isolement social via un algorithme de compatibilité.</p>
+        <div class="p-card__tags">
+            <span class="p-card__tag p-card__tag--accent">Ruby on Rails</span>
+            <span class="p-card__tag p-card__tag--accent">Maps API</span>
+            <span class="p-card__tag p-card__tag--accent">Action Cable</span>
+            <span class="p-card__tag p-card__tag--accent">Hotwire</span>
+        </div>
+        <div class="p-card__impact">
+          <strong>Impact:</strong> <span>Messagerie instantanée et moteur de recherche de proximité géographique.</span>
+        </div>
+      </article>
   </div>
   <div class="projects__grid projects__grid--secondary">
     <% 
@@ -159,7 +167,7 @@
     <% end %>
   </div>
   <div class="projects__footer">
-    <%= link_to 'Voir tous les projets', root_path, class: 'btn btn--outline' %>
+    <%= link_to 'Voir tous les projets', projects_index_path, class: 'btn btn--outline' %>
   </div>
 </section>
 
@@ -194,8 +202,8 @@
         <div class="contact-card__footer">
           <p class="contact-card__footer-title">Me retrouver en ligne</p>
           <div class="contact-socials">
-            <%= link_to '#', class: 'contact-socials__link' do %><i class="fa-brands fa-github"></i><% end %>
-            <%= link_to '#', class: 'contact-socials__link' do %><i class="fa-brands fa-linkedin"></i><% end %>
+            <%= link_to 'https://github.com/DoctorFateKS', class: 'contact-socials__link' do %><i class="fa-brands fa-github"></i><% end %>
+            <%= link_to 'https://www.linkedin.com/in/kevin-saison17/', class: 'contact-socials__link' do %><i class="fa-brands fa-linkedin"></i><% end %>
           </div>
         </div>
       </article>
@@ -217,7 +225,7 @@
           Je réponds généralement sous 24-48h. Pour une urgence, privilégiez LinkedIn.
         </p>
         <div class="contact-card__action">
-          <%= link_to 'Envoyer un message ➫', "mailto:kevin.saison91@gmail.com", class: 'btn hero--btn--primary' %>
+          <%= link_to 'Envoyer un message ➫', pages_contact_path, class: 'btn hero--btn--primary' %>
         </div>
       </article>
     </div>
@@ -229,7 +237,7 @@
         <span class="terminal-dot terminal-dot--green"></span>
       </div>
       <div class="contact-terminal__body">
-        <p class="code--comment"># Recruter un expert</p>
+        <p class="code--comment"># Recruter un dev Ruby & Ruby on Rails</p>
         <p class="code--main">
           developer = <span class="text--accent">Developer</span>.new(<br>
           &nbsp;&nbsp;skills: [<span class="text--highlight">:ruby, :rails, :postgresql</span>],<br>

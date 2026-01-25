@@ -21,12 +21,12 @@
           <li class="nav-item"><%= link_to "Projets", projects_index_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Blog", blogs_index_path, class: "nav-link" %></li>
           <!--<li class="nav-item"><%= link_to "Open Source", root_path, class: "nav-link" %></li>-->
-          <li class="nav-item"><%= link_to "Méthodologie", pages_method_path, class: "nav-link" %></li>
+          <!--<li class="nav-item"><%= link_to "Méthodologie", pages_method_path, class: "nav-link" %></li>-->
           <li class="nav-item"><%= link_to "Contact", pages_contact_path, class: "nav-link" %></li>
       </ul>
     </nav>
     <div class="navbar__actions">
-      <%= link_to "Un projet ?", root_path, class: "btn nav-btn--primary" %>
+      <%= link_to "Un projet ?", pages_contact_path, class: "btn nav-btn--primary" %>
     </div>
   </div>
 </header>
