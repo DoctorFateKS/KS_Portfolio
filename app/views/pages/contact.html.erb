@@ -138,27 +138,28 @@
 
     <div class="editor-body">
       <pre class="ruby-code">
-<code><span class="comment"># Let's work together</span>
-<span class="keyword">class</span> <span class="class-name">Collaboration</span>
-  <span class="keyword">def</span> <span class="method">initialize</span>(your_project)
-    <span class="variable">@project</span> = your_project
-    <span class="variable">@developer</span> = <span class="constant">Developer</span>.find_by(passion: <span class="symbol">:high</span>, skills: [<span class="symbol">:ruby</span>, <span class="symbol">:rails</span>])
-  <span class="keyword">end</span>
+        <code><span class="comment"># Let's work together</span>
+          <span class="keyword">class</span> <span class="class-name">Collaboration</span>
+          <span class="keyword">def</span> <span class="method">initialize</span>(your_project)
+          <span class="variable">@project</span> = your_project
+          <span class="variable">@developer</span> = <span class="constant">Developer</span>.find_by(passion: <span class="symbol">:high</span>, skills: [<span class="symbol">:ruby</span>, <span class="symbol">:rails</span>])
+          <span class="keyword">end</span>
 
-  <span class="keyword">def</span> <span class="method">start!</span>
-    <span class="keyword">return unless</span> <span class="variable">@project</span>.needs_expertise?
+          <span class="keyword">def</span> <span class="method">start!</span>
+          <span class="keyword">return unless</span> <span class="variable">@project</span>.needs_expertise?
 
-    <span class="variable">@developer</span>.contact!(
-      via: [<span class="symbol">:email</span>, <span class="symbol">:linkedin</span>],
-      availability: <span class="symbol">:open</span>
-    )
+          <span class="variable">@developer</span>.contact!(
+            via: [<span class="symbol">:email</span>, <span class="symbol">:linkedin</span>],
+            availability: <span class="symbol">:open</span>
+          )
 
-    build_something_amazing!
-  <span class="keyword">end</span>
-<span class="keyword">end</span>
+          build_something_amazing!
+          <span class="keyword">end</span>
+          <span class="keyword">end</span>
 
-<span class="comment"># Ready when you are</span>
-<span class="constant">Collaboration</span>.new(your_project).start!</code>
+          <span class="comment"># Ready when you are</span>
+          <span class="constant">Collaboration</span>.new(your_project).start!
+        </code>
       </pre>
     </div>
   </div>

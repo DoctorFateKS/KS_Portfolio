@@ -107,7 +107,7 @@
             <h3 class="p-card__name">SkillEn</h3>
           </div>
           <div class="p-card__links">
-            <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-right-from-bracket"></i><% end %>
+            <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-arrow-right"></i><% end %>
           </div>
         </div>
         <p class="p-card__desc">SaaS d’analyse prédictive connectant les candidats aux offres via une normalisation sémantique des compétences.</p>
@@ -129,7 +129,7 @@
           </div>
           <div class="p-card__links">
             <%= link_to 'https://github.com/DoctorFateKS/Sharefriends', class: 'p-card__link' do %><i class="fa-brands fa-github"></i><% end %>
-            <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-right-from-bracket"></i><% end %>
+            <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-arrow-right"></i><% end %>
           </div>
         </div>
         <p class="p-card__desc">Application de mise en relation permettant de briser l’isolement social via un algorithme de compatibilité.</p>
@@ -147,7 +147,7 @@
   <div class="projects__grid projects__grid--secondary">
     <% 
       tools = [
-        { name: 'ActiveRecord::Summary', desc: 'Extraction instantanée de structure et anomalies de données en console.', tags: ['Ruby', 'SQL', 'Gems'] },
+        { name: 'ActiveRecord::Summary', desc: 'Gem Rails console-first qui donne une vision fiable des données ActiveRecord afin de révéler les anomalies du modèle.', tags: ['Ruby', 'SQL', 'Gems'] },
         { name: 'Brainfuck-Ruby', desc: "Interpréteur complet avec gestion d'une bande mémoire virtuelle.", tags: ['Algorithmique', 'RSpec'] }
       ]
     %>
@@ -230,23 +230,23 @@
       </article>
     </div>
 
-    <div class="contact-terminal">
-      <div class="contact-terminal__header">
-        <span class="terminal-dot terminal-dot--red"></span>
-        <span class="terminal-dot terminal-dot--yellow"></span>
-        <span class="terminal-dot terminal-dot--green"></span>
+    <div class="editor-window-homepage">
+      <div class="editor-header">
+        <div class="window-controls">
+          <span class="control close"></span>
+          <span class="control minimize"></span>
+          <span class="control expand"></span>
+        </div>
+        <div class="file-name">recruit.rb</div>
       </div>
-      <div class="contact-terminal__body">
-        <p class="code--comment"># Recruter un dev Ruby & Ruby on Rails</p>
-        <p class="code--main">
-          developer = <span class="text--accent">Developer</span>.new(<br>
-          &nbsp;&nbsp;skills: [<span class="text--highlight">:ruby, :rails, :postgresql</span>],<br>
-          &nbsp;&nbsp;availability: <span class="text--highlight">:open</span>,<br>
-          &nbsp;&nbsp;passion: <span class="text--highlight">:high</span><br>
-          )
-        </p>
-        <p class="code--main">developer.contact! <span class="text--accent">if</span> project.needs_expertise?</p>
+
+      <div class="editor-body">
+        <pre class="ruby-code">
+          <code><span class="comment"># Recruit an awesome Ruby & Ruby on Rails dev</span>
+            <span class="constant"><span class="variable">dev</span> = Developer</span>.new()
+            <span class="constant">dev</span>.contact! <span class="keyword">if</span> <span class ="constant">project</span>.nedds_expertise?
+          </code>
+        </pre>
       </div>
     </div>
-  </div>
 </section>

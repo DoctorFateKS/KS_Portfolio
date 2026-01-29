@@ -529,15 +529,15 @@ body {
 .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  gap: 20px;
   margin-bottom: 30px;
 }
 
 .contact-card {
   background: #131313;
   border: 1px solid var(--co-border);
-  border-radius: 12px;
-  padding: 40px;
+  border-radius: var(--radius);
+  padding: 20px;
   display: flex;
   flex-direction: column;
   transition: all var(--transition-speed);
@@ -559,7 +559,7 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .contact-info__icon {
@@ -567,7 +567,7 @@ body {
   height: 50px;
   background: rgba(255, 0, 0, 0.1);
   color: var(--co-1);
-  border-radius: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -580,7 +580,7 @@ body {
   font-size: 0.8rem;
   margin: 0;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .contact-info__value {
@@ -592,19 +592,19 @@ body {
 /* Socials & Footer */
 .contact-card__footer {
   margin-top: auto;
-  padding-top: 25px;
+  padding-top: 20px;
   border-top: 1px solid var(--co-border);
 }
 
 .contact-card__footer-title {
   color: var(--text);
   font-size: 0.85rem;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
 }
 
 .contact-socials {
   display: flex;
-  gap: 12px;
+  gap: 20px;
 }
 
 .contact-socials__link {
@@ -629,16 +629,16 @@ body {
 .contact-availability {
   list-style: none;
   padding: 0;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .contact-availability__item {
   color: var(--text);
   font-size: 0.95rem;
-  margin-bottom: 12px;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
 .contact-availability__item i {
@@ -657,7 +657,7 @@ body {
 .contact-terminal {
   background: #0d0d0d;
   border: 1px solid var(--co-border);
-  border-radius: 12px;
+  border-radius: 8px;
   overflow: hidden;
   font-family: 'Fira Code', monospace;
 }
@@ -666,7 +666,7 @@ body {
   background: #1a1a1a;
   padding: 12px 20px;
   display: flex;
-  gap: 8px;
+  gap: 20px;
 }
 
 .terminal-dot {
@@ -680,7 +680,7 @@ body {
 .terminal-dot--green { background: #27c93f; }
 
 .contact-terminal__body {
-  padding: 30px;
+  padding: 20px;
   font-size: 0.95rem;
   line-height: 1.7;
 }
@@ -689,6 +689,15 @@ body {
 .code--main { color: #e1e4e8; margin: 0; }
 
 .w-100 { width: 100%; text-align: center; }
+
+.editor-window-homepage {
+  width: 100%;
+  background: #161616;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
 
 @media (max-width: 768px) {
   .contact-grid { grid-template-columns: 1fr; }
