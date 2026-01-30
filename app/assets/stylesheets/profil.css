@@ -83,10 +83,10 @@
 .out-block {
   position: absolute;
   bottom: -20px;
-  right: -20px; 
+  right: -20px;
   padding: 15px 25px;
   color: var(--text);
-  background: #1e1e1e; 
+  background: #1e1e1e;
   border-radius: var(--radius);
   z-index: 10;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -95,7 +95,7 @@
 
 .out_block_text {
   margin: 0;
-  font-family: 'Fira Code', monospace; 
+  font-family: 'Fira Code', monospace;
   font-size: 0.9rem;
 }
 
@@ -119,7 +119,7 @@
     text-align: center;
     padding-top: 100px;
   }
-  
+
   .block_left, .block_right {
     width: 100%;
     margin-left: 0;
@@ -132,39 +132,6 @@
   .out-block {
     right: 10px;
   }
-}
-
-.journey-section {
-  padding: 80px 20px;
-  background-color: #0d0d0d; /* Matching your dark theme */
-  color: #ffffff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.journey-header {
-  text-align: center;
-  margin-bottom: 60px;
-  max-width: 700px;
-}
-
-.journey-pretitle {
-  color: #ff0000;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.journey-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 16px;
-}
-
-.journey-intro {
-  color: #a0a0a0;
-  line-height: 1.6;
 }
 
 /* Timeline Layout */
@@ -229,6 +196,7 @@
 .timeline-role {
   font-size: 1.25rem;
   margin-bottom: 12px;
+  color: white;
 }
 
 .role--highlight {
@@ -329,6 +297,14 @@
   font-size: 1.5rem;
 }
 
+.icon-heart, .icon-target {
+  color: var(--co-1);
+}
+
+.icon-lightbulb, .icon-star {
+  color: rgb(212, 212, 11);
+}
+
 .approach-card-title {
   color: #fff;
   font-size: 1.25rem;
@@ -375,29 +351,30 @@
   .approach-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .approach-card {
     padding: 30px;
   }
 }
 
 .vision-section {
-  padding: 120px 20px;
-  background-color: #0d0d0d;
+  padding: 80px 20px;
+  background-color: var(--bg1);
   color: #fff;
   text-align: center;
 }
 
 .vision-header {
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 .vision-pretitle {
-  color: #ff0000;
-  font-size: 0.75rem;
+  color: var(--co-1);
+  text-transform: uppercase;
+  font-size: 0.9rem;
   letter-spacing: 3px;
-  font-weight: 700;
-  margin-bottom: 15px;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 
 .vision-title {
@@ -447,29 +424,32 @@
 .vision-item-title {
   font-size: 1.25rem;
   margin-bottom: 16px;
+  color: var(--co-2);
 }
 
 .vision-item-text {
   color: #888;
   font-size: 0.95rem;
   line-height: 1.6;
+  text-align: center;
 }
 
 /* CTA Section */
 .cta-container {
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 100px;
+  border-top: 1px solid rgb(61, 57, 57);
+  padding-top: 30px;
   max-width: 800px;
   margin: 0 auto;
 }
 
 .cta-title {
   font-size: clamp(2rem, 5vw, 3.5rem);
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .text--red {
-  color: #ff0000;
+  color: var(--co-1);
 }
 
 .cta-text {
@@ -477,6 +457,7 @@
   font-size: 1.1rem;
   margin-bottom: 40px;
   line-height: 1.6;
+  text-align: center;
 }
 
 /* Button Styles */
@@ -521,12 +502,12 @@
     grid-template-columns: 1fr;
     gap: 60px;
   }
-  
+
   .cta-actions {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .btn-primary--red, .btn-secondary--ghost {
     width: 100%;
     max-width: 300px;

@@ -30,24 +30,24 @@
   </div>
 </section>
 
-<section class="journey-section">
-  <header class="journey-header">
-    <p class="journey-pretitle">PARCOURS PROFESSIONNEL</p>
-    <h2 class="journey-title">Mon Aventure</h2>
-    <p class="journey-intro">
+<section class="tech-section">
+  <header class="tech-section__header">
+    <p class="tech-section__intro">PARCOURS PROFESSIONNEL</p>
+    <h2 class="tech-section__title">Mon Aventure</h2>
+    <p class="tech-section__subtitle">
       De l'écriture de mon premier script Ruby à l'architecture de systèmes, chaque étape a façonné ma vision du développement d'applications
     </p>
   </header>
 
   <div class="timeline-container">
     <div class="timeline-line"></div>
-    
+
     <div class="timeline-item">
       <div class="timeline-dot"></div>
       <div class="timeline-content">
         <span class="timeline-year">2026</span>
         <h3 class="timeline-role role--highlight">Freelance</h3>
-        <p class="timeline-description">Passage en Freelance pour lancement de la SaaS SkillEn prochainement</p>
+        <p class="timeline-description">Passage en Freelance pour acquérir de l'expérience sur des missions diverses et variées</p>
       </div>
     </div>
 
@@ -80,11 +80,11 @@
   </div>
 </section>
 
-<section class="approach-section">
-  <header class="approach-header">
-    <p class="approach-pretitle">Vision du développement</p>
-    <h2 class="approach-title">Mon approche du code</h2>
-    <p class="approach-intro">
+<section class="tech-section">
+  <header class="tech-section__header">
+    <p class="tech-section__intro">Vision du développement</p>
+    <h2 class="tech-section__title">Mon approche du code</h2>
+    <p class="tech-section__subtitle">
       Inspirés par la philosophie de Ruby, ces principes guident chaque ligne de code que j'écris.
     </p>
   </header>
@@ -92,7 +92,7 @@
   <div class="approach-grid">
     <div class="approach-card">
       <div class="approach-icon-wrapper">
-        <i class="icon-heart">❤️</i> </div>
+        <i class="fa-solid fa-heart icon-heart"></i></div>
       <h3 class="approach-card-title">Le bonheur du développeur</h3>
       <p class="approach-card-text">
         Le code doit être un plaisir à lire et à écrire. Je privilégie la clarté, l'expressivité et la maintenabilité au détriment de l'ingéniosité technique.
@@ -101,17 +101,17 @@
 
     <div class="approach-card">
       <div class="approach-icon-wrapper">
-        <i class="icon-lightbulb">💡</i>
+        <i class="fa-solid fa-lightbulb icon-lightbulb"></i>
       </div>
       <h3 class="approach-card-title">La convention plutôt que la configuration</h3>
       <p class="approach-card-text">
-        Des conventions solides libèrent l'esprit pour la résolution créative de problèmes. J'adopte pleinement les standards de Rails et j'établis des normes au sein de l'équipe.
+        Des conventions solides libèrent l'esprit pour la résolution créative de problèmes. J'adopte pleinement les standards de Rails.
       </p>
     </div>
 
     <div class="approach-card">
       <div class="approach-icon-wrapper">
-        <i class="icon-target">🎯</i>
+        <i class="fa-solid fa-bullseye icon-target"></i>
       </div>
       <h3 class="approach-card-title">La culture produit avant tout</h3>
       <p class="approach-card-text">
@@ -121,7 +121,7 @@
 
     <div class="approach-card">
       <div class="approach-icon-wrapper">
-        <i class="icon-sparkles">✨</i>
+        <i class="fa-solid fa-star icon-star"></i>
       </div>
       <h3 class="approach-card-title">L'amélioration continue</h3>
       <p class="approach-card-text">
@@ -138,11 +138,11 @@
   </footer>
 </section>
 
-<section class="vision-section">
-  <header class="vision-header">
-    <p class="vision-pretitle">VISION</p>
-    <h2 class="vision-title">Bien plus que du code</h2>
-    <p class="vision-intro">
+<section class="tech-section">
+  <header class="tech-section__header">
+    <p class="tech-section__intro">VISION</p>
+    <h2 class="tech-section__title">Bien plus que du code</h2>
+    <p class="tech-section__subtitle">
       Le rôle d'un développeur va bien au-delà de l'écriture de code. Voici comment je conçois ma place dans une vision d'ensemble.
     </p>
   </header>
@@ -185,8 +185,8 @@
       Que vous ayez besoin d'un développeur pour renforcer votre équipe ou d'un consultant pour votre prochain projet Rails, je serais ravi d'échanger sur vos défis.
     </p>
     <div class="cta-actions">
-      <%= link_to 'Contactez-moi →', pages_contact_path, class: "btn-primary--red" %>
-      <%= link_to 'Découvrir mes projets', projects_index_path, class: "btn-secondary--ghost" %>
+      <%= link_to 'Contactez-moi →', pages_contact_path, class: "btn hero--btn--primary" %>
+      <%= link_to 'Découvrir mes projets', projects_index_path, class: "btn btn--outline" %>
     </div>
   </div>
 </section>
