@@ -1,5 +1,5 @@
-<header class="navbar" 
-        data-controller="navbar" 
+<header class="navbar"
+        data-controller="navbar"
         data-navbar-scrolled-class="navbar--scrolled"
         data-action="scroll@window->navbar#toggleNavbarStyles">
   <div class="container">
@@ -18,7 +18,7 @@
       <ul class="nav-list">
           <li class="nav-item"><%= link_to "Profil", pages_profil_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Skills", pages_skills_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Projets", projects_index_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Projets", projects_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Blog", blogs_index_path, class: "nav-link" %></li>
           <!--<li class="nav-item"><%= link_to "Open Source", root_path, class: "nav-link" %></li>-->
           <!--<li class="nav-item"><%= link_to "Méthodologie", pages_method_path, class: "nav-link" %></li>-->

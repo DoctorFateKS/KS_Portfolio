@@ -5,17 +5,17 @@
   </div>
 
   <h1 class="hero__title">
-    Développeur <br> 
+    Développeur <br>
     <span class="text--accent">Ruby</span> & <span class="text--accent">Rails</span>
   </h1>
 
   <p class="hero__subtitle">
-    Création d'applications web <span class="text--highlight">évolutives</span>, 
+    Création d'applications web <span class="text--highlight">évolutives</span>,
     <span class="text--highlight">maintenables</span> et <span class="text--highlight">élégantes</span> alliant un code propre et une vision produit.
   </p>
 
   <div class="hero__actions">
-    <%= link_to 'Mes projets ➫', projects_index_path, class: 'btn hero--btn--primary' %>
+    <%= link_to 'Mes projets ➫', projects_path, class: 'btn hero--btn--primary' %>
     <%= link_to 'Prendre contact', pages_contact_path, class: 'btn btn--outline' %>
   </div>
 
@@ -55,7 +55,7 @@
     </p>
   </header>
   <div class="tech-grid">
-    <% 
+    <%
       expertise = [
         { icon: 'code', title: 'Ruby & Rails', desc: 'Expertise approfondie de Ruby et Rails. Des monolithes aux microservices.', skills: ['POO', 'Active Record', 'Action Cable', 'APIs REST'] },
         { icon: 'sitemap', title: 'Architecture', desc: "Systèmes maintenables s'appuyant sur SOLID, DDD et design patterns.", skills: ['DDD', 'SOLID', 'Design Patterns', 'Refactoring'] },
@@ -143,7 +143,7 @@
       </article>
   </div>
   <div class="projects__grid projects__grid--secondary">
-    <% 
+    <%
       tools = [
         { name: 'ActiveRecord::Summary', desc: 'Gem Rails console-first qui donne une vision fiable des données ActiveRecord afin de révéler les anomalies du modèle.', tags: ['Ruby', 'SQL', 'Gems'] },
         { name: 'Brainfuck-Ruby', desc: "Interpréteur complet avec gestion d'une bande mémoire virtuelle.", tags: ['Algorithmique', 'RSpec'] }
@@ -165,7 +165,7 @@
     <% end %>
   </div>
   <div class="projects__footer">
-    <%= link_to 'Voir tous les projets', projects_index_path, class: 'btn btn--outline' %>
+    <%= link_to 'Voir tous les projets', projects_path, class: 'btn btn--outline' %>
   </div>
 </section>
 
@@ -196,7 +196,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="contact-card__footer">
           <p class="contact-card__footer-title">Me retrouver en ligne</p>
           <div class="contact-socials">

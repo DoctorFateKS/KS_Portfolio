@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  resources :projects
   get "pages/profil"
   get "pages/skills"
   get "pages/method"
   get "pages/contact"
   get "home/index"
-  get "projects/index"
   get "blogs/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
