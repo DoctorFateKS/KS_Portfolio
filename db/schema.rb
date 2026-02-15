@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_02_113030) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_15_144427) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -37,6 +37,22 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_02_113030) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "excerpt", null: false
+    t.text "content", null: false
+    t.string "category", default: "Other", null: false
+    t.string "tags"
+    t.boolean "published", default: false
+    t.integer "view_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category"], name: "index_blogs_on_category"
+    t.index ["created_at"], name: "index_blogs_on_created_at"
+    t.index ["published"], name: "index_blogs_on_published"
+    t.index ["title"], name: "index_blogs_on_title", unique: true
   end
 
   create_table "projects", force: :cascade do |t|

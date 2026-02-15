@@ -9,20 +9,37 @@
     </p>
   </header>
 
-  <div class="blog-controls">
-    <div class="search-wrapper">
-      <span class="search-icon">🔍</span>
-      <input type="text" class="search-input" placeholder="Search articles, topics, tags...">
-    </div>
+  <!-- Create New Article Button -->
+  <div class="blog-admin-bar">
+    <%= link_to '✨ Create New Article', new_blog_path, class: 'btn btn--create' %>
+  </div>
 
-    <nav class="filter-nav">
-      <ul class="filter-list">
-        <li><%= link_to 'All', "#", class: "filter-item filter-item--active" %></li>
-        <% %w[Performance Architecture Tutorial Deep\ Dive Testing Database Refactoring DevOps].each do |category| %>
-          <li><%= link_to category, "#", class: "filter-item" %></li>
-        <% end %>
-      </ul>
-    </nav>
+  <!-- Search & Filter Controls -->
+  <div class="blog-controls">
+    <%= form_with url: blogs_path, method: :get, local: true, class: 'search-form' do |f| %>
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <%= f.text_field :q, placeholder: 'Search articles, topics, tags...', class: 'search-input', value: @search_query %>
+      </div>
+
+      <nav class="filter-nav">
+        <ul class="filter-list">
+          <li>
+            <%= link_to 'All', blogs_path(q: @search_query), class: "filter-item #{'filter-item--active' if @category_filter.blank?}" %>
+          </li>
+          <% @categories.each do |category| %>
+            <li>
+              <%= link_to category, blogs_path(category: category, q: @search_query),
+                  class: "filter-item #{'filter-item--active' if @category_filter == category}" %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+
+      <div class="search-submit">
+        <%= f.submit 'Search', class: 'btn btn--search' %>
+      </div>
+    <% end %>
   </div>
 </section>
 
@@ -33,73 +50,60 @@
     </h2>
   </header>
 
-  <div class="articles-grid">
-    <article class="article-card border-red">
-      <div class="article-card__header">
-        <div class="article-visual visual--performance">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-        </div>
-        <span class="badge-featured">Featured</span>
-      </div>
+  <% if @featured_blogs.any? %>
+    <div class="articles-grid">
+      <% @featured_blogs.first(2).each_with_index do |blog, index| %>
+        <article class="article-card <%= index == 0 ? 'border-red' : 'border-grey' %>">
+          <div class="article-card__header">
+            <% if blog.banner.attached? %>
+              <div class="article-visual" style="background-image: url('<%= url_for(blog.banner) %>')">
+              </div>
+            <% else %>
+              <div class="article-visual">
+                <span>📑</span>
+              </div>
+            <% end %>
+            <span class="badge-featured">Featured</span>
+          </div>
 
-      <div class="article-card__body">
-        <span class="category-pill">Performance</span>
-        <h3 class="article-title title--red">Deep Dive into Rails ActiveRecord Query Optimization</h3>
-        <p class="article-excerpt">
-          Learn how to identify and fix N+1 queries, leverage eager loading strategies, and use database indexes effectively to achieve 10x performance improvements.
-        </p>
-        
-        <div class="article-tags">
-          <span class="tag">Rails</span>
-          <span class="tag">ActiveRecord</span>
-          <span class="tag">PostgreSQL</span>
-        </div>
-      </div>
+          <div class="article-card__body">
+            <span class="category-pill"><%= link_to blog.category, blogs_path(category: blog.category) %></span>
+            <h3 class="article-title"><%= link_to blog.title, blog_path(blog) %></h3>
+            <p class="article-excerpt"><%= blog.excerpt_display %></p>
 
-      <footer class="article-card__footer">
-        <div class="meta-left">
-          <span>📅 Jan 15, 2024</span>
-          <span>⏱️ 12 min read</span>
-        </div>
-        <div class="meta-right">
-          <span class="view-count">2,847 views</span>
-        </div>
-      </footer>
-    </article>
+            <% if blog.tags_list.any? %>
+              <div class="article-tags">
+                <% blog.tags_list.first(3).each do |tag| %>
+                  <span class="tag"><%= link_to tag, blogs_path(q: tag) %></span>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
 
-    <article class="article-card border-grey">
-      <div class="article-card__header">
-        <div class="article-visual visual--architecture">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M13 21V11l4-2v12"/></svg>
-        </div>
-        <span class="badge-featured">Featured</span>
-      </div>
+          <footer class="article-card__footer">
+            <div class="meta-left">
+              <span>📅 <%= blog.published_date %></span>
+              <span>⏱️ <%= blog.reading_time_minutes %> min read</span>
+            </div>
+            <div class="meta-right">
+              <span class="view-count"><%= number_with_delimiter(blog.view_count) %> views</span>
+            </div>
+          </footer>
 
-      <div class="article-card__body">
-        <span class="category-pill">Architecture</span>
-        <h3 class="article-title">Implementing Domain-Driven Design in Rails Applications</h3>
-        <p class="article-excerpt">
-          A practical guide to structuring complex Rails applications using DDD principles. Learn how to identify bounded contexts, create value objects, and implement aggregates.
-        </p>
-        
-        <div class="article-tags">
-          <span class="tag">DDD</span>
-          <span class="tag">Rails</span>
-          <span class="tag">Clean Architecture</span>
-        </div>
-      </div>
-
-      <footer class="article-card__footer">
-        <div class="meta-left">
-          <span>📅 Jan 8, 2024</span>
-          <span>⏱️ 18 min read</span>
-        </div>
-        <div class="meta-right">
-          <span class="view-count">1,923 views</span>
-        </div>
-      </footer>
-    </article>
-  </div>
+          <div class="article-card__actions">
+            <%= link_to 'Read', blog_path(blog), class: 'action-link action-link--read' %>
+            <%= link_to 'Edit', edit_blog_path(blog), class: 'action-link action-link--edit' %>
+            <%= button_to 'Delete', blog_path(blog), method: :delete, data: { confirm: 'Are you sure?' }, class: 'action-link action-link--delete' %>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="empty-state">
+      <p class="empty-state-icon">📝</p>
+      <p class="empty-state-text">No featured articles yet. <%= link_to 'Create one!', new_blog_path %></p>
+    </div>
+  <% end %>
 </section>
 
 <section class="all-articles-section">
@@ -107,73 +111,97 @@
     <h2 class="all-articles-title">
       <span class="icon-code">< ></span> All Articles
     </h2>
-    <span class="article-count">8 articles</span>
+    <span class="article-count"><%= @total_count %> article<%= 's' if @total_count != 1 %></span>
   </header>
 
-  <div class="all-articles-grid">
-    <%# This would be @articles.each do |article| in your real app %>
-    
-    <article class="mini-article-card">
-      <div class="mini-article-top">
-        <div class="mini-article-icon icon--yellow">⚡</div>
-        <span class="mini-article-category">Tutorial</span>
-      </div>
-      <h3 class="mini-article-title">Building Real-Time Features with Hotwire and ActionCable</h3>
-      <p class="mini-article-excerpt">Step-by-step tutorial on implementing live updates, notifications, and collaborative features...</p>
-      
-      <div class="mini-article-tags">
-        <span class="mini-tag">Hotwire</span>
-        <span class="mini-tag">Turbo</span>
-        <span class="mini-tag">+2</span>
-      </div>
+  <% if @blogs.any? %>
+    <div class="all-articles-grid">
+      <% @blogs.each do |blog| %>
+        <article class="mini-article-card">
+          <div class="mini-article-top">
+            <% if blog.published %>
+              <span class="published-indicator">🟢</span>
+            <% else %>
+              <span class="published-indicator unpublished">🔴</span>
+            <% end %>
+            <span class="mini-article-category"><%= link_to blog.category, blogs_path(category: blog.category) %></span>
+          </div>
 
-      <footer class="mini-article-footer">
-        <span>📅 Jan 2</span>
-        <span>⏱️ 15 min</span>
-      </footer>
-    </article>
+          <h3 class="mini-article-title"><%= link_to blog.title, blog_path(blog) %></h3>
+          <p class="mini-article-excerpt"><%= blog.excerpt_display %></p>
 
-    <article class="mini-article-card">
-      <div class="mini-article-top">
-        <div class="mini-article-icon icon--purple">🔮</div>
-        <span class="mini-article-category">Deep Dive</span>
-      </div>
-      <h3 class="mini-article-title">Mastering Ruby Metaprogramming: A Practical Guide</h3>
-      <p class="mini-article-excerpt">Explore the power of Ruby's metaprogramming capabilities with real-world examples. Learn when to...</p>
-      
-      <div class="mini-article-tags">
-        <span class="mini-tag">Ruby</span>
-        <span class="mini-tag">Metaprogramming</span>
-        <span class="mini-tag">+2</span>
-      </div>
+          <% if blog.tags_list.any? %>
+            <div class="mini-article-tags">
+              <% blog.tags_list.first(2).each do |tag| %>
+                <span class="mini-tag"><%= link_to tag, blogs_path(q: tag) %></span>
+              <% end %>
+              <% if blog.tags_list.size > 2 %>
+                <span class="mini-tag">+<%= blog.tags_list.size - 2 %></span>
+              <% end %>
+            </div>
+          <% end %>
 
-      <footer class="mini-article-footer">
-        <span>📅 Dec 20</span>
-        <span>⏱️ 14 min</span>
-      </footer>
-    </article>
+          <footer class="mini-article-footer">
+            <div class="footer-left">
+              <span>📅 <%= blog.published_date %></span>
+              <span>⏱️ <%= blog.reading_time_minutes %> min</span>
+            </div>
+            <div class="footer-right">
+              <span>👁️ <%= number_with_delimiter(blog.view_count) %></span>
+            </div>
+          </footer>
 
-    <article class="mini-article-card">
-      <div class="mini-article-top">
-        <div class="mini-article-icon icon--green">🧪</div>
-        <span class="mini-article-category">Testing</span>
-      </div>
-      <h3 class="mini-article-title">Testing Strategies for Complex Rails Applications</h3>
-      <p class="mini-article-excerpt">A comprehensive look at testing strategies including unit tests, integration tests, and system...</p>
-      
-      <div class="mini-article-tags">
-        <span class="mini-tag">RSpec</span>
-        <span class="mini-tag">TDD</span>
-        <span class="mini-tag">+2</span>
-      </div>
-
-      <footer class="mini-article-footer">
-        <span>📅 Dec 15</span>
-        <span>⏱️ 16 min</span>
-      </footer>
-    </article>
-
+          <div class="mini-article-actions">
+            <%= link_to 'Read', blog_path(blog), class: 'mini-action-btn mini-action-btn--read' %>
+            <%= link_to 'Edit', edit_blog_path(blog), class: 'mini-action-btn mini-action-btn--edit' %>
+            <%= button_to 'Delete', blog_path(blog), method: :delete, data: { confirm: 'Are you sure?' }, class: 'mini-action-btn mini-action-btn--delete', form: { style: 'display: inline;' } %>
+          </div>
+        </article>
+      <% end %>
     </div>
+
+    <!-- Pagination -->
+    <% if @total_pages > 1 %>
+      <div class="pagination-wrapper">
+        <nav class="pagination">
+          <% if @current_page > 1 %>
+            <%= link_to '← Previous', blogs_path(q: @search_query, category: @category_filter, page: @current_page - 1), class: 'pagination-link pagination-link--prev' %>
+          <% end %>
+
+          <div class="pagination-numbers">
+            <% (1..@total_pages).each do |page| %>
+              <% if page == @current_page %>
+                <span class="pagination-number pagination-number--active"><%= page %></span>
+              <% elsif (page == 1) || (page == @total_pages) || (page >= @current_page - 1 && page <= @current_page + 1) %>
+                <%= link_to page, blogs_path(q: @search_query, category: @category_filter, page: page), class: 'pagination-number' %>
+              <% elsif page == 2 || page == @total_pages - 1 %>
+                <span class="pagination-ellipsis">...</span>
+              <% end %>
+            <% end %>
+          </div>
+
+          <% if @current_page < @total_pages %>
+            <%= link_to 'Next →', blogs_path(q: @search_query, category: @category_filter, page: @current_page + 1), class: 'pagination-link pagination-link--next' %>
+          <% end %>
+        </nav>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="empty-state">
+      <% if @search_query.present? || @category_filter.present? %>
+        <p class="empty-state-icon">🔍</p>
+        <p class="empty-state-text">
+          No articles found matching your search.
+          <%= link_to 'Clear filters', blogs_path, class: 'empty-state-link' %>
+        </p>
+      <% else %>
+        <p class="empty-state-icon">✍️</p>
+        <p class="empty-state-text">
+          No articles yet. <%= link_to 'Start writing!', new_blog_path, class: 'empty-state-link' %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
 </section>
 
 <section class="writing-philosophy">
