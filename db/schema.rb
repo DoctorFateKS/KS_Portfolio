@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_15_144427) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_15_150634) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -53,6 +53,20 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_15_144427) do
     t.index ["created_at"], name: "index_blogs_on_created_at"
     t.index ["published"], name: "index_blogs_on_published"
     t.index ["title"], name: "index_blogs_on_title", unique: true
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "company"
+    t.string "project_type"
+    t.text "message", null: false
+    t.string "ip_address", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["created_at"], name: "index_contacts_on_created_at"
+    t.index ["email"], name: "index_contacts_on_email"
+    t.index ["ip_address"], name: "index_contacts_on_ip_address"
   end
 
   create_table "projects", force: :cascade do |t|

@@ -1,0 +1,14 @@
+New Contact Form Submission!
+
+Name: <%= @contact.name %>
+Email: <%= @contact.email %>
+Company: <%= @contact.company.present? ? @contact.company : 'Not provided' %>
+Project Type: <%= @contact.project_type.humanize %>
+IP Address: <%= @contact.ip_address %>
+Submitted at: <%= @contact.created_at.strftime('%B %d, %Y at %H:%M') %>
+
+Message:
+<%= @contact.message %>
+
+---
+Reply to: <%= @contact.email %>
