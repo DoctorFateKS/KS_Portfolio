@@ -1,160 +1,315 @@
+/* ===== CSS VARIABLES (DESIGN SYSTEM) ===== */
+:root {
+  --primary-red: #ca0028;
+  --primary-red-hover: #d1405d;
+  --text-dark: hsl(0, 0%, 7.5%);
+  --text-secondary: #888;
+  --border-dark: #444;
+  --transition-smooth: all 0.3s ease;
+  --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+/* ===== Z-INDEX STRATEGY ===== */
+/* navbar base: 100, mobile menu: 99, toggle button: 101 */
+
+/* ===== PREVENT BACKGROUND SCROLL WHEN MENU OPEN ===== */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* ===== NAVBAR MAIN ===== */
 .navbar {
-  padding: var(--spacing) 0;
-  background-color: transparent;
   position: fixed;
-  width: 100%;
-  border-bottom: 1px solid transparent;
-  transition: all var(--transition-speed);
-  z-index: 1000;
-}
-
-.navbar--scrolled {
-  background-color: #1a1a1adc;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-bottom: 3px solid var(--border-dark);
+  background: transparent;
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgb(61, 57, 57); 
+  transition: var(--transition-smooth);
 }
 
-.container {
+/* ===== NAVBAR CONTAINER ===== */
+.navbar__container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 var(--spacing);
+  padding: 1rem 1.5rem;
 }
 
-.navbar__brand .logo-link {
+/* ===== NAVBAR BRAND/LOGO ===== */
+.navbar__brand {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-weight: bold;
-  font-size: var(--m-size);
+  color: inherit;
+  transition: all 0.3s ease;
 }
 
-.logo-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 15px;
-  transition: transform var(--transition-speed) ease;
+.navbar__logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  font-family: var(--font-sans);
+  letter-spacing: 0.05em;
 }
 
-.logo-link:hover .logo-img {
-  transform: scale(1.1);
+.navbar__logo-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-family: var(--font-sans);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
-.first-name { color: var(--co-2); margin-right: 5px; }
-.last-name { color: var(--co-1); }
+/* ===== NAVBAR MENU ===== */
+.navbar__menu {
+  display: none;
+  gap: 0.25rem;
+}
 
-.nav-list {
+/* Mobile menu opens to full height */
+.navbar__menu.is-open {
   display: flex;
-  list-style: none;
-  gap: 2rem;
+  height: calc(100vh - 70px);
 }
 
-.nav-link {
-  color: var(--text);
+@media (min-width: 768px) {
+  .navbar__menu {
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  /* Reset mobile menu styles on desktop */
+  .navbar__menu.is-open {
+    display: flex;
+    height: auto;
+  }
+}
+
+/* ===== NAVBAR LINKS ===== */
+.navbar__link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
   text-decoration: none;
-  padding-bottom: 5px;
-  transition: all var(--transition-speed);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition-smooth);
   border-bottom: 3px solid transparent;
 }
 
-.nav-link:hover {
-  color: var(--co-2);
-  border-bottom-color: var(--co-1);
+.navbar__link-jp {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  margin-bottom: 0.125rem;
+  transition: var(--transition-smooth);
 }
 
-.nav-btn--primary {
+.navbar__link-en {
+  display: block;
+  color: var(--text-dark);
+}
+
+.navbar__link:hover {
+  color: var(--primary-red);
+  border-bottom-color: var(--primary-red);
+}
+
+.navbar__link:hover .navbar__link-jp {
+  color: var(--primary-red);
+}
+
+.navbar__link:hover .navbar__link-en {
+  color: var(--primary-red);
+}
+
+/* ===== NAVBAR CTA BUTTON ===== */
+.navbar__cta {
   display: inline-block;
-  background: linear-gradient(90deg, var(--co-3), var(--co-1));
-  color: var(--co-2);
-  box-shadow: var(--shadow-sm);
-  padding: 10px var(--spacing);
-  border-radius: var(--radius);
+  background-color: var(--primary-red);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   text-decoration: none;
+  transition: var(--transition-smooth);
+  border: none;
+  cursor: pointer;
 }
 
-.nav-btn--primary:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.1);
-  box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
+.navbar__cta:hover {
+  background-color: var(--primary-red-hover);
 }
 
-/* MEDIA QUERIES (RESPONSIVE) */
+/* Loading state for CTA button */
+.navbar__cta.is-loading {
+  opacity: 0.7;
+  pointer-events: none;
+  position: relative;
+}
 
+.navbar__cta.is-loading::after {
+  content: '';
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+/* Manga slash effect */
+.manga-slash {
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(8% 0%,100% 0%,92% 100%,0% 100%);
+}
+
+.manga-slash::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  bottom: -50%;
+  left: -50%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  transform: skewX(-12deg);
+  transition: all 0.3s ease;
+}
+
+.manga-slash:hover::before {
+  right: 150%;
+  left: -150%;
+  animation: slash 0.5s ease;
+}
+
+@keyframes slash {
+  0% {
+    right: -50%;
+    left: -50%;
+  }
+  100% {
+    right: 150%;
+    left: 150%;
+  }
+}
+
+/* ===== NAVBAR TOGGLE (MOBILE) ===== */
 .navbar__toggle {
   display: block;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px;
-  z-index: 1001;
+  padding: 0.625rem;
+  z-index: 101;
+}
+
+@media (min-width: 768px) {
+  .navbar__toggle {
+    display: none;
+  }
 }
 
 .hamburger {
   display: block;
-  width: 25px;
-  height: 3px;
-  background: var(--co-2);
+  width: 1.5625rem;
+  height: 0.1875rem;
+  background: var(--primary-red);
   position: relative;
+  transition: var(--transition-smooth);
 }
 
-.hamburger::before, .hamburger::after {
+.hamburger::before,
+.hamburger::after {
   content: '';
   position: absolute;
-  width: 25px;
-  height: 3px;
-  background: var(--co-2);
+  width: 1.5625rem;
+  height: 0.1875rem;
+  background: var(--primary-red);
   left: 0;
+  transition: var(--transition-smooth);
 }
-.hamburger::before { top: -8px; }
-.hamburger::after { bottom: -8px; }
 
-.navbar__nav {
-  position: fixed;
+.hamburger::before {
+  top: -0.5rem;
+}
+
+.hamburger::after {
+  bottom: -0.5rem;
+}
+
+.navbar__toggle.is-open .hamburger {
+  background: transparent;
+}
+
+.navbar__toggle.is-open .hamburger::before {
   top: 0;
+  transform: rotate(45deg);
+}
+
+.navbar__toggle.is-open .hamburger::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+/* ===== MOBILE MENU ===== */
+.navbar__menu.is-open {
+  position: fixed;
+  top: 70px;
   left: 0;
   right: 0;
   bottom: 0;
-  background: #1a1a1a;
-  display: none;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: hsl(60, 12%, 95%);
+  backdrop-filter: blur(12px);
   padding: 2rem;
-  gap: 2rem;
+  gap: 1rem;
+  z-index: 99;
+  overflow-y: auto;
+  height: calc(100vh - 70px);
 }
 
-.navbar__nav.is-open {
-  display: flex;
-}
-
-.nav-list {
-  display: flex;
-  flex-direction: column; /* Vertical sur mobile */
-  list-style: none;
-  gap: 2rem;
-  padding: 0;
-}
-
-@media (min-width: 1200px) {
-  .navbar__toggle {
-    display: none;
-  }
-
-  .navbar__nav {
+@media (min-width: 768px) {
+  .navbar__menu.is-open {
     position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
     display: flex;
-    flex-direction: row;
     background: transparent;
+    backdrop-filter: none;
     padding: 0;
-    height: auto;
-    width: auto;
-  }
-
-  .nav-list {
     flex-direction: row;
+    gap: 0.25rem;
+    height: auto;
+    overflow-y: visible;
   }
 }

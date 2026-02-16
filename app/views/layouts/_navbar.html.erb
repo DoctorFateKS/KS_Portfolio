@@ -1,32 +1,37 @@
-<header class="navbar"
-        data-controller="navbar"
-        data-navbar-scrolled-class="navbar--scrolled"
-        data-action="scroll@window->navbar#toggleNavbarStyles">
-  <div class="container">
-    <div class="navbar__brand">
-      <%= link_to root_path, class: "logo-link" do %>
-        <%= image_tag "profile.png", class: "logo-img", alt: "Kevin Saison" %>
-        <span class="first-name">Kevin</span><span class="last-name">Saison</span>
-      <% end %>
+<nav class="navbar" data-controller="navbar" data-action="scroll@window->navbar#toggleNavbarStyles">
+  <div class="navbar__container">
+    <a href="<%= root_path %>" class="navbar__brand">
+      <span class="navbar__logo-text">ルビー</span>
+      <span class="navbar__logo-subtitle">Dev</span>
+    </a>
+
+    <div class="navbar__menu" data-navbar-target="menu" role="navigation" aria-label="Main navigation">
+      <a href="#" class="navbar__link">
+        <span class="navbar__link-jp">ホーム</span>
+        <span class="navbar__link-en">Home</span>
+      </a>
+      <a href="#about" class="navbar__link">
+        <span class="navbar__link-jp">紹介</span>
+        <span class="navbar__link-en">About</span>
+      </a>
+      <a href="#skills" class="navbar__link">
+        <span class="navbar__link-jp">技術</span>
+        <span class="navbar__link-en">Skills</span>
+      </a>
+      <a href="#projects" class="navbar__link">
+        <span class="navbar__link-jp">作品</span>
+        <span class="navbar__link-en">Projects</span>
+      </a>
+      <a href="#contact" class="navbar__link">
+        <span class="navbar__link-jp">連絡</span>
+        <span class="navbar__link-en">Contact</span>
+      </a>
     </div>
 
-    <button class="navbar__toggle" data-action="click->navbar#toggleMenu" aria-label="Toggle menu">
+    <a href="<%= pages_contact_path %>" class="navbar__cta manga-slash" data-navbar-target="cta">Hire Me</a>
+
+    <button class="navbar__toggle" data-action="click->navbar#toggleMenu" aria-label="Toggle menu" aria-expanded="false">
       <span class="hamburger"></span>
     </button>
-
-    <nav class="navbar__nav" data-navbar-target="menu" aria-label="Main Navigation">
-      <ul class="nav-list">
-          <li class="nav-item"><%= link_to "Profil", pages_profil_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Skills", pages_skills_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Projets", projects_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Blog", blogs_path, class: "nav-link" %></li>
-          <!--<li class="nav-item"><%= link_to "Open Source", root_path, class: "nav-link" %></li>-->
-          <!--<li class="nav-item"><%= link_to "Méthodologie", pages_method_path, class: "nav-link" %></li>-->
-          <li class="nav-item"><%= link_to "Contact", pages_contact_path, class: "nav-link" %></li>
-      </ul>
-    </nav>
-    <div class="navbar__actions">
-      <%= link_to "Un projet ?", pages_contact_path, class: "btn nav-btn--primary" %>
-    </div>
   </div>
-</header>
+</nav>
