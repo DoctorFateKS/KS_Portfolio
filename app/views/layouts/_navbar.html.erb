@@ -2,15 +2,15 @@
   <div class="navbar__container">
     <a href="<%= root_path %>" class="navbar__brand">
       <span class="navbar__logo-text">ルビー</span>
-      <span class="navbar__logo-subtitle">Dev</span>
+      <span class="navbar__logo-subtitle">KS</span>
     </a>
 
     <div class="navbar__menu" data-navbar-target="menu" role="navigation" aria-label="Main navigation">
-      <a href="#" class="navbar__link">
-        <span class="navbar__link-jp">ホーム</span>
-        <span class="navbar__link-en">Home</span>
+      <a href="<%= root_path %>" class="navbar__link">
+        <span class="navbar__link-jp">ホームページ</span>
+        <span class="navbar__link-en">Accueil</span>
       </a>
-      <a href="#about" class="navbar__link">
+      <%# <a href="#about" class="navbar__link">
         <span class="navbar__link-jp">紹介</span>
         <span class="navbar__link-en">About</span>
       </a>
@@ -25,10 +25,10 @@
       <a href="#contact" class="navbar__link">
         <span class="navbar__link-jp">連絡</span>
         <span class="navbar__link-en">Contact</span>
-      </a>
+      </a> %>
     </div>
 
-    <a href="<%= pages_contact_path %>" class="navbar__cta manga-slash" data-navbar-target="cta">Hire Me</a>
+    <a href="mailto:kevin.saison91@gmail.com" class="navbar__cta manga-slash" data-navbar-target="cta">Embauchez-moi !</a>
 
     <button class="navbar__toggle" data-action="click->navbar#toggleMenu" aria-label="Toggle menu" aria-expanded="false">
       <span class="hamburger"></span>
