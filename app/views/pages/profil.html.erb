@@ -1,192 +1,91 @@
-<section class="hero-profil">
-  <div class="block_left">
-    <header class="hero-profil-section__header">
-      <p class="tech-section__intro">Mon profil</p>
-      <h2 class="tech-section__title">Concevoir des Applications avec <span class="developer">Sens & Précision</span></h2>
-      <p class="hero-profil-section__subtitle">
-        Développeur Ruby, je conçois des applications web appréciées des utilisateurs et faciles à maintenir pour les équipes. Je suis convaincu que les meilleurs logiciels naissent de la rencontre entre <span class="text--highlight">l'excellence technique</span> et une <span class="text--highlight">compréhension profonde du produit</span>.
-      </p>
-    </header>
+<section class="profil-section">
+  <div class="profil-halftone"></div>
+  <div class="profil-action-lines"></div>
 
-    <div class="profil__actions">
-      <%= link_to 'Collaborons ensemble ➫', pages_contact_path, class: 'btn hero--btn--primary' %>
-      <%= link_to 'Mes projets', projects_path, class: 'btn btn--outline' %>
+  <div class="profil-container">
+    <!-- Header -->
+    <div class="profil-header">
+      <div class="profil-header-line"></div>
+      <span class="profil-header-jp">私は誰ですか</span>
+      <span class="profil-header-en">Qui suis-je ?</span>
     </div>
-  </div>
 
-  <div class="block_right">
-    <div class="hero-profil-card">
-      <div class="profil-terminal__header">
-        <span class="terminal-dot terminal-dot--red"></span>
-        <span class="terminal-dot terminal-dot--yellow"></span>
-        <span class="terminal-dot terminal-dot--green"></span>
+    <!-- Hero Section -->
+    <div class="profil-hero">
+      <!-- Avatar Card -->
+      <div class="profil-avatar-wrapper">
+        <div class="profil-avatar-card">
+          <%= image_tag "profile.png", alt: "Manga-style developer portrait", class: "profil-avatar-image" %>
+          <div class="profil-avatar-text">
+            <div class="profil-avatar-title">Votre Futur Dev</div>
+            <div class="profil-avatar-jp">あなたの将来の開発者</div>
+          </div>
+        </div>
+        <div class="profil-avatar-glow glow-top-right"></div>
+        <div class="profil-avatar-glow glow-bottom-left"></div>
       </div>
-      <%= image_tag "profile.png", class: "hero-profil-logo-img", alt: "Kevin Saison" %>
-      <div class="out-block">
-        <p class="out_block_text">class <span class="developer">Developer</span></p>
-        <p class="out_block_text decaled">include <span class="passion">Passion</span></p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="tech-section">
-  <header class="tech-section__header">
-    <p class="tech-section__intro">PARCOURS PROFESSIONNEL</p>
-    <h2 class="tech-section__title">Mon Aventure</h2>
-    <p class="tech-section__subtitle">
-      De l'écriture de mon premier script Ruby à l'architecture de systèmes, chaque étape a façonné ma vision du développement d'applications
-    </p>
-  </header>
+      <!-- Content -->
+      <div class="profil-hero-content">
+        <h1 class="profil-hero-title">
+          <span>Lié à</span>
+          <span class="profil-highlight">Ruby</span>
+          <span>depuis</span>
+          <br>
+          <span>une</span>
+          <span class="profil-highlight">année</span>
+        </h1>
 
-  <div class="timeline-container">
-    <div class="timeline-line"></div>
+        <p class="profil-paragraph">
+          C’était il y a un an. J’étais assis au fond d’une taverne brumeuse, une chope d’hydromel à la main, quand j’ai croisé leur regard : <span class="profil-emphasis">Ruby</span> et son inséparable compagnon, <span class="profil-emphasis">Ruby on Rails</span>.
+        </p>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <span class="timeline-year">2026</span>
-        <h3 class="timeline-role role--highlight">Freelance</h3>
-        <p class="timeline-description">Passage en Freelance pour acquérir de l'expérience sur des missions diverses et variées</p>
+        <p class="profil-paragraph">
+          Ce fut le coup de foudre instantané. Et oui, j'ai choisi de m'engager avec les deux en même temps. Ne jugez pas, chacun gère ses relations comme il l'entend. Depuis ce jour, nous formons une guilde soudée par un pacte de sang (ou du moins, par un bundle install).
+        </p>
       </div>
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <span class="timeline-year">2025</span>
-        <h3 class="timeline-role">Formation SQL chez ENI Services</h3>
-        <p class="timeline-description">Approfondissement du langage SQL pour une meilleure utilisation dans le framework Ruby on Rails</p>
+    <!-- Journey Section -->
+    <div class="profil-journey">
+      <h2 class="profil-section-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profil-icon">
+          <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+          <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+        </svg>
+        <span>Mon Aventure</span>
+        <span class="profil-section-jp">私の冒険</span>
+      </h2>
+
+      <div class="profil-journey-timeline">
+        <div class="profil-timeline-line"></div>
+
+        <div class="profil-journey-grid">
+          <div class="profil-timeline-item">
+            <div class="profil-timeline-year">Fevrier 2025</div>
+            <div class="profil-timeline-label">Reconversion Professionnelle</div>
+            <div class="profil-timeline-jp">再訓練</div>
+          </div>
+
+          <div class="profil-timeline-item">
+            <div class="profil-timeline-year">Mai 2025</div>
+            <div class="profil-timeline-label">Certification Ruby - Le Wagon</div>
+            <div class="profil-timeline-jp">認証</div>
+          </div>
+
+          <div class="profil-timeline-item">
+            <div class="profil-timeline-year">Novembre 2025</div>
+            <div class="profil-timeline-label">Certification SQL - ENI Services</div>
+            <div class="profil-timeline-jp">認証</div>
+          </div>
+
+          <div class="profil-timeline-item">
+            <div class="profil-timeline-year">Année 2026</div>
+            <div class="profil-timeline-label">Projet SkillEn en cours</div>
+            <div class="profil-timeline-jp">プロジェクト</div>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <span class="timeline-year">2025</span>
-        <h3 class="timeline-role">Developpement ShareFriends + Obtention certification Le Wagon</h3>
-        <p class="timeline-description">Développement de la plateforme ShareFriends en équipe pour le projet de fin d'études & obtention de la certification "Concepteur Développeur d'Application"</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <span class="timeline-year">2025</span>
-        <h3 class="timeline-role">Reconversion</h3>
-        <p class="timeline-description">Anciennement Assistant Chargé d'Affaires en télécommunications, début de la reconversion en tant que dévellopeur Web</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="tech-section">
-  <header class="tech-section__header">
-    <p class="tech-section__intro">Vision du développement</p>
-    <h2 class="tech-section__title">Mon approche du code</h2>
-    <p class="tech-section__subtitle">
-      Inspirés par la philosophie de Ruby, ces principes guident chaque ligne de code que j'écris.
-    </p>
-  </header>
-
-  <div class="approach-grid">
-    <div class="approach-card">
-      <div class="approach-icon-wrapper">
-        <i class="fa-solid fa-heart icon-heart"></i></div>
-      <h3 class="approach-card-title">Le bonheur du développeur</h3>
-      <p class="approach-card-text">
-        Le code doit être un plaisir à lire et à écrire. Je privilégie la clarté, l'expressivité et la maintenabilité au détriment de l'ingéniosité technique.
-      </p>
-    </div>
-
-    <div class="approach-card">
-      <div class="approach-icon-wrapper">
-        <i class="fa-solid fa-lightbulb icon-lightbulb"></i>
-      </div>
-      <h3 class="approach-card-title">La convention plutôt que la configuration</h3>
-      <p class="approach-card-text">
-        Des conventions solides libèrent l'esprit pour la résolution créative de problèmes. J'adopte pleinement les standards de Rails.
-      </p>
-    </div>
-
-    <div class="approach-card">
-      <div class="approach-icon-wrapper">
-        <i class="fa-solid fa-bullseye icon-target"></i>
-      </div>
-      <h3 class="approach-card-title">La culture produit avant tout</h3>
-      <p class="approach-card-text">
-        La technologie est au service du produit, et non l'inverse. Chaque décision technique est pesée en fonction de son impact sur l'utilisateur et sur le business.
-      </p>
-    </div>
-
-    <div class="approach-card">
-      <div class="approach-icon-wrapper">
-        <i class="fa-solid fa-star icon-star"></i>
-      </div>
-      <h3 class="approach-card-title">L'amélioration continue</h3>
-      <p class="approach-card-text">
-        Le meilleur code est un code qui évolue. Je refactorise sans relâche, j'apprends constamment et je partage mes connaissances ouvertement.
-      </p>
-    </div>
-  </div>
-
-  <footer class="approach-quote">
-    <blockquote>
-      "Je vais essayer de rendre Ruby naturel, pas simple, <span class="text--italic-red">d'une manière qui reflète la vie."</span>
-    </blockquote>
-    <cite>— Yukihiro "Matz" Matsumoto, Créateur de Ruby</cite>
-  </footer>
-</section>
-
-<section class="tech-section">
-  <header class="tech-section__header">
-    <p class="tech-section__intro">VISION</p>
-    <h2 class="tech-section__title">Bien plus que du code</h2>
-    <p class="tech-section__subtitle">
-      Le rôle d'un développeur va bien au-delà de l'écriture de code. Voici comment je conçois ma place dans une vision d'ensemble.
-    </p>
-  </header>
-
-  <div class="vision-grid">
-    <div class="vision-item">
-      <div class="vision-icon icon--red">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-      </div>
-      <h3 class="vision-item-title">Collaborateur engagé</h3>
-      <p class="vision-item-text">
-        Je travaille en étroite collaboration avec toutes les parties prenantes d'un projet pour comprendre le "pourquoi" de chaque fonctionnalité.
-      </p>
-    </div>
-
-    <div class="vision-item">
-      <div class="vision-icon icon--red">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/></svg>
-      </div>
-      <h3 class="vision-item-title">Pédagogue technique</h3>
-      <p class="vision-item-text">
-        Je rédige des articles techniques et je contribue au maximum à la communauté pour enrichir mes connaissances auprès d'autres développeurs.
-      </p>
-    </div>
-
-    <div class="vision-item">
-      <div class="vision-icon icon--red">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-      </div>
-      <h3 class="vision-item-title">L'esprit artisan</h3>
-      <p class="vision-item-text">
-        Tel un maître artisan, je cultive l'amour du détail : des API claires, un nommage réfléchi, des tests complets et des solutions élégantes.
-      </p>
-    </div>
-  </div>
-
-  <div class="cta-container">
-    <h2 class="cta-title">Bâtissons votre prochain projet <span class="text--red">ensemble</span></h2>
-    <p class="cta-text">
-      Que vous ayez besoin d'un développeur pour renforcer votre équipe ou d'un consultant pour votre prochain projet Rails, je serais ravi d'échanger sur vos défis.
-    </p>
-    <div class="cta-actions">
-      <%= link_to 'Contactez-moi →', pages_contact_path, class: "btn hero--btn--primary" %>
-      <%= link_to 'Découvrir mes projets', projects_path, class: "btn btn--outline" %>
     </div>
   </div>
 </section>

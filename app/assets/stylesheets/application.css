@@ -6,10 +6,10 @@
 @import 'blogs';
 
 body {
-    margin: 0;
-    font-family: 'Space Grotesk', 'Noto Sans JP' ,sans-serif;
-    color: hsl(0, 0%, 7.5%);
-    background-color: hsl(60, 12%, 95%);
+  margin: 0;
+  font-family: 'Space Grotesk', 'Noto Sans JP' ,sans-serif;
+  color: hsl(0, 0%, 7.5%);
+  background-color: hsl(60, 12%, 95%);
 }
 
 /* ===== HERO SECTION ===== */
