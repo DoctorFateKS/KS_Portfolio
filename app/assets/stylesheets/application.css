@@ -210,3 +210,46 @@ body {
   padding-top: calc(1rem - 2px);
   padding-bottom: calc(1rem - 2px);
 }
+/* ===== HERO ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Badge animation */
+.hero__badge {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Title lines animation */
+.hero__title-line {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+.hero__title-line:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.hero__title-line:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.hero__title-line:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+/* Description animation */
+.hero__description {
+  animation: fadeInUp 0.8s ease-out 1s both;
+}
+
+/* CTA Buttons animation */
+.hero__cta-buttons {
+  animation: fadeInUp 0.8s ease-out 1.2s both;
+}

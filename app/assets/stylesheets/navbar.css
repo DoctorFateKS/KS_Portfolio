@@ -78,6 +78,7 @@ body.no-scroll {
 .navbar__menu.is-open {
   display: flex;
   height: calc(100vh - 70px);
+  animation: slideDownMenu 0.4s ease-out;
 }
 
 @media (min-width: 768px) {
@@ -313,3 +314,66 @@ body.no-scroll {
     overflow-y: visible;
   }
 }
+
+/* ===== MOBILE MENU ANIMATIONS ===== */
+@keyframes slideDownMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInMenuItem {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animate menu links on mobile when menu opens */
+@media (max-width: 767px) {
+  .navbar__menu.is-open .navbar__link {
+    animation: slideInMenuItem 0.4s ease-out both;
+  }
+
+  .navbar__menu.is-open .navbar__link:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .navbar__menu.is-open .navbar__link:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .navbar__menu.is-open .navbar__link:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .navbar__menu.is-open .navbar__link:nth-child(4) {
+    animation-delay: 0.25s;
+  }
+
+  .navbar__menu.is-open .navbar__link:nth-child(5) {
+    animation-delay: 0.3s;
+  }
+
+  .navbar__menu.is-open .navbar__link:nth-child(6) {
+    animation-delay: 0.35s;
+  }
+
+  .navbar__menu.is-open .navbar__link:nth-child(n+7) {
+    animation-delay: 0.4s;
+  }
+
+  .navbar__menu.is-open .navbar__cta {
+    animation: slideInMenuItem 0.4s ease-out 0.45s both;
+  }
+}
+
