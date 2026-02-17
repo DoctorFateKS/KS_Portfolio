@@ -1,35 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= content_for(:lang) || 'fr' %>">
   <head>
-    <title><%= content_for(:title) || "Ks Portfolio" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Essential Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Title & Description -->
+    <title><%= content_for(:title) || "Kevin Saison - Développeur Ruby & Ruby on Rails" %></title>
+    <meta name="description" content="<%= content_for(:description) || "Bienvenue dans la Kamé House d'un jeune développeur Ruby à la puissance infini." %>">
+    <meta name="keywords" content="<%= content_for(:keywords) || "développement web, ruby, ruby on rails" %>">
+
+    <!-- Canonical URL -->
+    <% if content_for?(:canonical) %>
+      <link rel="canonical" href="<%= content_for(:canonical) %>">
+    <% end %>
+
+    <!-- Open Graph Tags (Social Media) -->
+    <meta property="og:type" content="<%= content_for(:og_type) || 'website' %>">
+    <meta property="og:title" content="<%= content_for(:og_title) || content_for(:title) || 'Kevin Saison - Développeur Ruby & Ruby on Rails' %>">
+    <meta property="og:description" content="<%= content_for(:og_description) || content_for(:description) || "Bienvenue dans la Kamé House d'un jeune développeur Ruby à la puissance infini." %>">
+    <meta property="og:image" content="<%= content_for(:og_image) || "#{request.protocol}#{request.host}/profile.png" %>">
+    <meta property="og:url" content="<%= content_for(:og_url) || "#{request.protocol}#{request.host}#{request.path}" %>">
+    <meta property="og:site_name" content="Kevin Saison">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="<%= content_for(:twitter_card) || 'summary_large_image' %>">
+    <meta name="twitter:title" content="<%= content_for(:twitter_title) || content_for(:title) || 'Kevin Saison - Développeur Ruby & Ruby on Rails' %>">
+    <meta name="twitter:description" content="<%= content_for(:twitter_description) || content_for(:description) || "Bienvenue dans la Kamé House d'un jeune développeur Ruby à la puissance infini." %>">
+    <meta name="twitter:image" content="<%= content_for(:twitter_image) || "#{request.protocol}#{request.host}/profile.png" %>">
+
+    <!-- Search Engine & Bot Control -->
+    <meta name="robots" content="<%= content_for(:robots) || 'index, follow' %>">
+    <meta name="googlebot" content="<%= content_for(:robots) || 'index, follow' %>">
+    <meta name="bingbot" content="<%= content_for(:robots) || 'index, follow' %>">
+
+    <!-- Author & Copyright -->
+    <meta name="author" content="<%= content_for(:author) || 'Kevin Saison' %>">
+    <meta name="copyright" content="&copy; <%= Time.current.year %> Kevin Saison. All rights reserved.">
+    <meta name="creator" content="<%= content_for(:creator) || 'Kevin Saison' %>">
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="<%= content_for(:theme_color) || '#000000' %>">
+    <meta name="color-scheme" content="light dark">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- PWA & App Metadata -->
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Kevin Saison">
     <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Preconnect for Performance (affects SEO via Core Web Vitals) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://kit.fontawesome.com">
+
+    <!-- Font Loading -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+    <!-- CSRF & CSP Protection -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <!-- External Scripts -->
     <script src="https://kit.fontawesome.com/ffd5e622f6.js" crossorigin="anonymous"></script>
 
+    <!-- Custom Head Content per Page -->
     <%= yield :head %>
 
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <!-- PWA Manifest (uncomment when enabled in config/routes.rb) -->
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
+    <!-- Favicons -->
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="shortcut icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <!-- Stylesheets & JavaScript -->
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <!-- JSON-LD Structured Data (Organization) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Kevin Saison",
+        "url": "<%= "#{request.protocol}#{request.host}" %>",
+        "logo": "<%= "#{request.protocol}#{request.host}/icon.png" %>",
+        "description": "Portfolio de Kevin Saison, développeur Ruby & Ruby on Rails",
+        "sameAs": [
+          <%= content_for(:social_links) || "" %>
+        ]
+      }
+    </script>
   </head>
 
-  <body>
+  <body itemscope itemtype="https://schema.org/WebPage">
+    <!-- Skip to Main Content Link (Accessibility + SEO) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
     <%= render "layouts/navbar" %>
-    <%= yield %>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <%= yield %>
+    </main>
+
+    <!-- Page-Specific JSON-LD Structured Data -->
+    <%= yield :json_ld %>
+
+    <!-- Footer with SEO Elements -->
+    <footer role="contentinfo">
+      <%= yield :footer %>
+    </footer>
   </body>
 </html>
