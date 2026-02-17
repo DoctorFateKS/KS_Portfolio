@@ -1,250 +1,37 @@
 <section class="hero">
-  <div class="hero__status">
-    <i class="fa-solid fa-circle hero__status-dot" aria-hidden="true"></i>
-    <span>Disponible pour de nouvelles opportunités</span>
+
+  <div class="hero__image-container">
+    <div class="hero__image-gradient"></div>
+    <%= image_tag "hero-background.jpeg", alt: "Ruby gemstone manga art", class: "hero__image" %>
   </div>
 
-  <h1 class="hero__title">
-    Développeur <br>
-    <span class="text--accent">Ruby</span> & <span class="text--accent">Rails</span>
-  </h1>
-
-  <p class="hero__subtitle">
-    Création d'applications web <span class="text--highlight">évolutives</span>,
-    <span class="text--highlight">maintenables</span> et <span class="text--highlight">élégantes</span> alliant un code propre et une vision produit.
-  </p>
-
-  <div class="hero__actions">
-    <%= link_to 'Mes projets ➫', projects_path, class: 'btn hero--btn--primary' %>
-    <%= link_to 'Prendre contact', pages_contact_path, class: 'btn btn--outline' %>
-  </div>
-
-  <nav class="hero__socials" aria-label="Social media links">
-    <%= link_to 'https://github.com/DoctorFateKS', class: "hero__social-link", aria: { label: 'Github' } do %>
-      <i class="fa-brands fa-github"></i>
-    <% end %>
-
-    <%= link_to 'https://www.linkedin.com/in/kevin-saison17/', class: "hero__social-link", aria: { label: 'Linkedin' } do %>
-      <i class="fa-brands fa-linkedin"></i>
-    <% end %>
-
-    <%= link_to pages_contact_path, class: "hero__social-link", aria: { label: 'Contact' } do %>
-      <i class="fa-solid fa-envelope"></i>
-    <% end %>
-  </nav>
-
-  <div class="hero__stack">
-    <p class="hero__stack-title">Principales technologies</p>
-    <ul class="hero__stack-list">
-      <% %w[Ruby Rails PostgreSQL Redis Hotwire RSpec].each do |tech| %>
-        <li class="hero__stack-item"><%= tech %></li>
-      <% end %>
-    </ul>
-  </div>
-
-  <i class="fa-solid fa-chevron-down hero__scroll-icon"></i>
-</section>
-
-<section class="tech-section">
-  <header class="tech-section__header">
-    <p class="tech-section__intro">Expertise Technique</p>
-    <h2 class="tech-section__title">L'excellence Full-Stack Ruby</h2>
-    <p class="tech-section__subtitle">
-      Expérience dans la création d'applications avec
-      Ruby on Rails et son écosystème.
-    </p>
-  </header>
-  <div class="tech-grid">
-    <%
-      expertise = [
-        { icon: 'code', title: 'Ruby & Rails', desc: 'Expertise approfondie de Ruby et Rails. Des monolithes aux microservices.', skills: ['POO', 'Active Record', 'Action Cable', 'APIs REST'] },
-        { icon: 'sitemap', title: 'Architecture', desc: "Systèmes maintenables s'appuyant sur SOLID, DDD et design patterns.", skills: ['DDD', 'SOLID', 'Design Patterns', 'Refactoring'] },
-        { icon: 'database', title: 'Bases de Données', desc: 'Optimisation de PostgreSQL pour la performance et l\'intégrité.', skills: ['Requêtes Avancées', 'Indexation', 'Migrations', 'Performance'] },
-        { icon: 'brush', title: 'Frontend Moderne', desc: 'Expériences réactives avec Hotwire et les outils modernes.', skills: ['Turbo', 'Stimulus', 'CSS', 'Accessibilité'] },
-        { icon: 'brands fa-dev', title: 'DevOps', desc: 'Déploiement fiable via CI/CD et infrastructures robustes.', skills: ['Docker', 'CI/CD', 'Sidekiq', 'AWS'] },
-        { icon: 'flask-vial', title: 'Tests & Qualité', desc: 'Garantir la fiabilité grâce à une stratégie de tests complète.', skills: ['RSpec', 'Capybara', 'TDD', 'Code Reviews'] }
-      ]
-    %>
-    <% expertise.each do |item| %>
-      <article class="tech-card">
-        <div class="tech-card__icon">
-          <i class="fa-solid fa-<%= item[:icon] %>"></i>
-        </div>
-        <h3 class="tech-card__title"><%= item[:title] %></h3>
-        <p class="tech-card__desc"><%= item[:desc] %></p>
-        <div class="tech-card__skills">
-          <% item[:skills].each do |skill| %>
-            <span class="tech-card__skill-tag"><%= skill %></span>
-          <% end %>
-        </div>
-      </article>
-    <% end %>
-  </div>
-  <footer class="approach-quote">
-    <blockquote>
-      "Optimiser pour le bonheur du développeur. <span class="text--italic-red">La convention plutôt que la configuration."</span>
-    </blockquote>
-    <cite>— Philosophie Ruby</cite>
-  </footer>
-</section>
-
-<section class="projects">
-  <header class="projects__header">
-    <p class="tech-section__intro ">Mon travail</p>
-    <h2 class="tech-section__title">Des Projets qui Comptent</h2>
-    <p class="tech-section__subtitle">
-      Chaque projet est une opportunité de développer des solutions
-      évolutives et satisfaisantes pour ses utilisateurs.
-    </p>
-  </header>
-  <div class="projects__grid">
-      <article class="p-card p-card--featured">
-        <div class="p-card__header">
-          <div>
-            <span class="p-card__badge">Freelance</span>
-            <h3 class="p-card__name">SkillEn</h3>
-          </div>
-          <div class="p-card__links">
-            <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-arrow-right"></i><% end %>
-          </div>
-        </div>
-        <p class="p-card__desc">SaaS d’analyse prédictive connectant les candidats aux offres via une normalisation sémantique des compétences.</p>
-        <div class="p-card__tags">
-            <span class="p-card__tag p-card__tag--accent">Ruby on Rails</span>
-            <span class="p-card__tag p-card__tag--accent">PostgreSQL</span>
-            <span class="p-card__tag p-card__tag--accent">Sidekiq</span>
-            <span class="p-card__tag p-card__tag--accent">NLP</span>
-        </div>
-        <div class="p-card__impact">
-          <strong>Impact:</strong> <span>Algorithme de scoring en temps réel et moteur d'analyse de Skill Gap.</span>
-        </div>
-      </article>
-      <article class="p-card p-card--featured">
-        <div class="p-card__header">
-          <div>
-            <span class="p-card__badge">Fullstack</span>
-            <h3 class="p-card__name">Sharefriends</h3>
-          </div>
-          <div class="p-card__links">
-            <%= link_to 'https://github.com/DoctorFateKS/Sharefriends', class: 'p-card__link' do %><i class="fa-brands fa-github"></i><% end %>
-            <%= link_to '#', class: 'p-card__link' do %><i class="fa-solid fa-arrow-right"></i><% end %>
-          </div>
-        </div>
-        <p class="p-card__desc">Application de mise en relation permettant de briser l’isolement social via un algorithme de compatibilité.</p>
-        <div class="p-card__tags">
-            <span class="p-card__tag p-card__tag--accent">Ruby on Rails</span>
-            <span class="p-card__tag p-card__tag--accent">Maps API</span>
-            <span class="p-card__tag p-card__tag--accent">Action Cable</span>
-            <span class="p-card__tag p-card__tag--accent">Hotwire</span>
-        </div>
-        <div class="p-card__impact">
-          <strong>Impact:</strong> <span>Messagerie instantanée et moteur de recherche de proximité géographique.</span>
-        </div>
-      </article>
-  </div>
-  <div class="projects__grid projects__grid--secondary">
-    <%
-      tools = [
-        { name: 'ActiveRecord::Summary', desc: 'Gem Rails console-first qui donne une vision fiable des données ActiveRecord afin de révéler les anomalies du modèle.', tags: ['Ruby', 'SQL', 'Gems'] },
-        { name: 'Brainfuck-Ruby', desc: "Interpréteur complet avec gestion d'une bande mémoire virtuelle.", tags: ['Algorithmique', 'RSpec'] }
-      ]
-    %>
-    <% tools.each do |tool| %>
-      <article class="p-card p-card--tool">
-        <div class="p-card__header">
-          <h3 class="p-card__name"><%= tool[:name] %></h3>
-          <%= link_to '#', class: 'p-card__link p-card__link--small' do %><i class="fa-solid fa-arrow-right"></i><% end %>
-        </div>
-        <p class="p-card__desc"><%= tool[:desc] %></p>
-        <div class="p-card__tags">
-          <% tool[:tags].each do |tag| %>
-            <span class="p-card__tag__bis"><%= tag %></span>
-          <% end %>
-        </div>
-      </article>
-    <% end %>
-  </div>
-  <div class="projects__footer">
-    <%= link_to 'Voir tous les projets', projects_path, class: 'btn btn--outline' %>
-  </div>
-</section>
-
-<section class="projects">
-  <header class="projects__header">
-    <p class="tech-section__intro">Faisons connaissance</p>
-    <h2 class="tech-section__title">Construisons quelque chose d'extraordinaire</h2>
-    <p class="tech-section__subtitle">À la recherche d'un développeur Ruby pour votre prochain projet ? Discutons-en ensemble.</p>
-  </header>
-
-  <div class="contact-container">
-    <div class="contact-grid">
-      <article class="contact-card">
-        <h3 class="contact-card__title">Informations de Contact</h3>
-        <div class="contact-info">
-          <div class="contact-info__item">
-            <div class="contact-info__icon"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <p class="contact-info__label">Email</p>
-              <p class="contact-info__value">kevin.saison91@gmail.com</p>
-            </div>
-          </div>
-          <div class="contact-info__item">
-            <div class="contact-info__icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <p class="contact-info__label">Localisation</p>
-              <p class="contact-info__value">France / Remote</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-card__footer">
-          <p class="contact-card__footer-title">Me retrouver en ligne</p>
-          <div class="contact-socials">
-            <%= link_to 'https://github.com/DoctorFateKS', class: 'contact-socials__link' do %><i class="fa-brands fa-github"></i><% end %>
-            <%= link_to 'https://www.linkedin.com/in/kevin-saison17/', class: 'contact-socials__link' do %><i class="fa-brands fa-linkedin"></i><% end %>
-          </div>
-        </div>
-      </article>
-
-      <article class="contact-card">
-        <h3 class="contact-card__title">Disponibilités</h3>
-        <ul class="contact-availability">
-          <li class="contact-availability__item">
-            <i class="fa-solid fa-circle-check"></i> Ouvert aux missions freelance
-          </li>
-          <li class="contact-availability__item">
-            <i class="fa-solid fa-circle-check"></i> Disponible pour CDI / Contrats
-          </li>
-          <li class="contact-availability__item">
-            <i class="fa-solid fa-circle-check"></i> Temps plein ou partiel
-          </li>
-        </ul>
-        <p class="contact-card__desc">
-          Je réponds généralement sous 24-48h. Pour une urgence, privilégiez LinkedIn.
-        </p>
-        <div class="contact-card__action">
-          <%= link_to 'Envoyer un message ➫', pages_contact_path, class: 'btn hero--btn--primary' %>
-        </div>
-      </article>
-    </div>
-
-    <div class="editor-window-homepage">
-      <div class="editor-header">
-        <div class="window-controls">
-          <span class="control close"></span>
-          <span class="control minimize"></span>
-          <span class="control expand"></span>
-        </div>
-        <div class="file-name">recruit.rb</div>
+  <div class="hero__container">
+    <div class="hero__content">
+      <div class="hero__badge">
+        <div class="hero__badge-line"></div>
+        <span class="hero__badge-text">開発者</span>
       </div>
 
-      <div class="editor-body">
-        <pre class="ruby-code">
-          <code><span class="comment"># Recruit an awesome Ruby & Ruby on Rails dev</span>
-            <span class="constant"><span class="variable">dev</span> = Developer</span>.new()
-            <span class="constant">dev</span>.contact! <span class="keyword">if</span> <span class ="constant">project</span>.nedds_expertise?
-          </code>
-        </pre>
+      <h1 class="hero__title">
+        <span class="hero__title-line">Kevin</span>
+        <span class="hero__title-line hero__title-primary">Saison</span>
+        <span class="hero__title-line">Ruby & Rails</span>
+      </h1>
+
+      <p class="hero__description">
+        Le <span class="hero__highlight">FUTUR</span> du développement Ruby & Ruby on Rails. Et ce n'est pas seulement <span class="hero__highlight">MOI</span> qui le dit. <span class="hero__highlight">GOOGLE</span> le dit !  <span class="hero__highlight">APPLE</span> le dit ! (ou pas... encore !)
+      </p>
+
+      <div class="hero__cta-buttons">
+        <a href="#projects" class="hero__btn hero__btn--primary manga-slash">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__icon">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+          Voir mes talents
+        </a>
+        <a href="mailto:saisonkevin@protonmail.com" class="hero__btn hero__btn--secondary manga-panel">Un p'tit message ?</a>
       </div>
     </div>
+  </div>
 </section>
