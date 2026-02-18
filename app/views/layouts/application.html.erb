@@ -20,7 +20,7 @@
     <meta property="og:type" content="<%= content_for(:og_type) || 'website' %>">
     <meta property="og:title" content="<%= content_for(:og_title) || content_for(:title) || 'Kevin Saison - Développeur Ruby & Ruby on Rails' %>">
     <meta property="og:description" content="<%= content_for(:og_description) || content_for(:description) || "Bienvenue dans la Kamé House d'un jeune développeur Ruby à la puissance infini." %>">
-    <meta property="og:image" content='<%= image_tag(profile.png) %>'/>
+    <meta property="og:image" content="<%= asset_path('profile.png') %>" />
     <meta property="og:url" content="<%= content_for(:og_url) || "#{request.protocol}#{request.host}#{request.path}" %>">
     <meta property="og:site_name" content="Kevin Saison">
 
