@@ -344,7 +344,6 @@
 /* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 767px) {
   .profil-section {
-    padding-top: 4rem;
     padding-bottom: 2rem;
   }
 
