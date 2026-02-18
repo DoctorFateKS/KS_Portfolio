@@ -20,7 +20,7 @@
     <meta property="og:type" content="<%= content_for(:og_type) || 'website' %>">
     <meta property="og:title" content="<%= content_for(:og_title) || content_for(:title) || 'Kevin Saison - Développeur Ruby & Ruby on Rails' %>">
     <meta property="og:description" content="<%= content_for(:og_description) || content_for(:description) || "Bienvenue dans la Kamé House d'un jeune développeur Ruby à la puissance infini." %>">
-    <meta property="og:image" content="<%= asset_path('profile.png') %>" />
+    <meta property="og:image" content="<%= image_url('profile.png') %>" />
     <meta property="og:url" content="<%= content_for(:og_url) || "#{request.protocol}#{request.host}#{request.path}" %>">
     <meta property="og:site_name" content="Kevin Saison">
 
@@ -28,7 +28,7 @@
     <meta name="twitter:card" content="<%= content_for(:twitter_card) || 'summary_large_image' %>">
     <meta name="twitter:title" content="<%= content_for(:twitter_title) || content_for(:title) || 'Kevin Saison - Développeur Ruby & Ruby on Rails' %>">
     <meta name="twitter:description" content="<%= content_for(:twitter_description) || content_for(:description) || "Bienvenue dans la Kamé House d'un jeune développeur Ruby à la puissance infini." %>">
-    <meta name="twitter:image" content="<%= content_for(:twitter_image) || "#{request.protocol}#{request.host}/profile.png" %>">
+    <meta property="twitter:image" content="<%= image_url('profile.png') %>" />
 
     <!-- Search Engine & Bot Control -->
     <meta name="robots" content="<%= content_for(:robots) || 'index, follow' %>">
