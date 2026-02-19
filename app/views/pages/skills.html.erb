@@ -1,350 +1,112 @@
 <section class="skills-section">
-  <header class="skills-header">
-    <h2 class="skills-title">Skills & <span class="text--red">Technologies</span></h2>
-    <p class="skills-intro">
-      Un aperçu complet de mes compétences techniques, affinées en développant des applications et en contribuant à l'écosystème Ruby.
-    </p>
-  </header>
+	<div class="profil-halftone"></div>
+	<div class="profil-action-lines"></div>
+	<div class="skills-container">
+		<div class="skills-header">
+			<div class="header-line"></div>
+			<span class="header-jp">私の才能</span>
+			<span class="header-en">Mes Talents</span>
+		</div>
 
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-icon">💍</div>
-      <div class="stat-value">1</div>
-      <div class="stat-label">Année d'amour avec Ruby</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon">📆</div>
-      <div class="stat-value">365+</div>
-      <div class="stat-label">Jours consécutifs de coding</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon">📁</div>
-      <div class="stat-value">1</div>
-      <div class="stat-label">Projet réalisé</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-icon">☕️</div>
-      <div class="stat-value">∞</div>
-      <div class="stat-label">Curiosité & Café</div>
-    </div>
-  </div>
+		<h1 class="skills-title"><span class="fg">Arbre</span> de <span class="accent">Compétences</span></h1>
+		<p class="skills-intro">Au fil des quêtes en compagnie de Ruby et Ruby on Rails, ma palette de compétences s'est largement développée. Il m'est possible désormais d'affronter n'importe quel ennemi, du faible bug aux plus gros boss !</p>
 
-  <div class="expertise-container">
-    <div class="expertise-card ruby-rails-card">
-      <div class="expertise-card__header">
-        <div class="expertise-card__icon">💎</div>
-        <div class="expertise-card__title-group">
-          <h3>Ruby & Rails</h3>
-          <p>Expertise dans le langage Ruby et le framework Ruby on Rails</p>
-        </div>
-      </div>
+		<div class="skills-grid">
+			<article class="skills-card">
+				<div class="card-ribbon"></div>
+				<header class="card-head">
+					<div class="card-icon">♦︎</div>
+					<div>
+						<h3>Ruby & Rails</h3>
+						<div class="jp">ルビー＆レールズ</div>
+					</div>
+				</header>
+				<div class="card-body">
+					<div class="skill-item"><span class="dot"></span><div><b>Ruby</b><div class="muted">OOP, FP, Metaprogramming, Performance</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>Rails</b><div class="muted">MVC, ActiveRecord, ActiveJob, ActionCable</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>Rails APIs</b><div class="muted">REST, JSON:API, GraphQL</div></div></div>
+				</div>
+			</article>
 
-      <div class="expertise-grid">
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>Ruby</span>
-            <span class="skill-percent">90%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
-          <ul class="skill-list">
-            <li>Blocks, Procs & Lambdas</li>
-            <li>Métaprogrammation</li>
-            <li>Modules avancés & Mixin Patterns</li>
-            <li>Duck Typing & Polymorphisme Ruby</li>
-            <li>Garbage Collection & Object Model</li>
-            <li>Threading, Fibers & Concurrency</li>
-            <li>Refinements</li>
-            <li>DSL Design</li>
-            <li>Pattern Matching</li>
-            <li>C Extensions & FFI</li>
-          </ul>
-        </div>
+			<article class="skills-card">
+				<div class="card-ribbon"></div>
+				<header class="card-head">
+					<div class="card-icon">☑</div>
+					<div>
+						<h3>Architecture & Qualité</h3>
+						<div class="jp">設計と品質</div>
+					</div>
+				</header>
+				<div class="card-body">
+					<div class="skill-item"><span class="dot"></span><div><b>Clean Architecture</b><div class="muted">Hexagonal, Ports & Adapters</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>DDD</b><div class="muted">Bounded contexts, Aggregates, Value objects</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>SOLID & Patterns</b><div class="muted">Design patterns, Refactoring</div></div></div>
+				</div>
+			</article>
 
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>Ruby on Rails</span>
-            <span class="skill-percent">80%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
-          <ul class="skill-list">
-            <li>ActiveRecord</li>
-            <li>Architecture Rails</li>
-            <li>Performance & Optimisation</li>
-            <li>Callbacks, Validations & Lifecycle</li>
-            <li>Sécurité Rails</li>
-            <li>Background Jobs & Async</li>
-            <li>Testing</li>
-            <li>Engines & Modularisation</li>
-            <li>API Mode & JSON</li>
-            <li>Déploiement</li>
-          </ul>
-        </div>
+			<article class="skills-card">
+				<div class="card-ribbon"></div>
+				<header class="card-head">
+					<div class="card-icon">⛁</div>
+					<div>
+						<h3>Base de Données</h3>
+						<div class="jp">データベース</div>
+					</div>
+				</header>
+				<div class="card-body">
+					<div class="skill-item"><span class="dot"></span><div><b>PostgreSQL</b><div class="muted">Advanced queries, CTEs, Window functions</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>Indexing</b><div class="muted">B-tree, GIN, GiST, Partial indexes</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>Performance</b><div class="muted">Query optimization, Migrations, Tuning</div></div></div>
+				</div>
+			</article>
 
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>Rails APIs</span>
-            <span class="skill-percent">70%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
-          <ul class="skill-list">
-            <li>Design d’API</li>
-            <li>Sérialisation & Représentation JSON</li>
-            <li>Authentification & Autorisation</li>
-            <li>Gestion globale des erreurs</li>
-            <li>Performance API</li>
-            <li>Versioning & Backward Compatibility</li>
-            <li>Sécurité API</li>
-            <li>Observabilité & Monitoring</li>
-            <li>Documentation & Spécification</li>
-            <li>Tests d’API</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="expertise-card ruby-rails-card">
-      <div class="expertise-card__header">
-        <div class="expertise-card__icon">💾</div>
-        <div class="expertise-card__title-group">
-          <h3>Base de Données</h3>
-          <p>Modélisation efficace des données et optimisation des requêtes</p>
-        </div>
-      </div>
+			<article class="skills-card">
+				<div class="card-ribbon"></div>
+				<header class="card-head">
+					<div class="card-icon">✎</div>
+					<div>
+						<h3>Frontend</h3>
+						<div class="jp">フロントエンド</div>
+					</div>
+				</header>
+				<div class="card-body">
+					<div class="skill-item"><span class="dot"></span><div><b>Hotwire</b><div class="muted">Turbo Frames, Turbo Streams, Stimulus</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>CSS</b><div class="muted">Cascade-based, Responsive, Custom properties</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>JavaScript</b><div class="muted">ES6+, TypeScript, Modern tooling</div></div></div>
+				</div>
+			</article>
 
-      <div class="expertise-grid">
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>PostgreSQL</span>
-            <span class="skill-percent">80%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
-          <ul class="skill-list">
-            <li>Indexation avancée</li>
-            <li>EXPLAIN / ANALYZE & Query Planning</li>
-            <li>Transactions & Isolation Levels</li>
-            <li>Verrouillage (Locks & Concurrency)</li>
-            <li>Normalisation & Modélisation</li>
-            <li>JSONB & Colonnes semi-structurées</li>
-            <li>CTE & Requêtes avancées</li>
-            <li>Partitionnement</li>
-            <li>Maintenance & Autovacuum</li>
-            <li>Sauvegarde & Restauration</li>
-          </ul>
-        </div>
+			<article class="skills-card">
+				<div class="card-ribbon"></div>
+				<header class="card-head">
+					<div class="card-icon">☁</div>
+					<div>
+						<h3>DevOps & Infra</h3>
+						<div class="jp">インフラ</div>
+					</div>
+				</header>
+				<div class="card-body">
+					<div class="skill-item"><span class="dot"></span><div><b>Docker</b><div class="muted">Containerization, Multi-stage builds</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>CI/CD</b><div class="muted">GitHub Actions, Automated pipelines</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>Cloud</b><div class="muted">AWS, Heroku, Fly.io, Redis, Sidekiq</div></div></div>
+				</div>
+			</article>
 
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>Indexing & Queries</span>
-            <span class="skill-percent">80%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
-          <ul class="skill-list">
-            <li>Fonctionnement Index</li>
-            <li>Execution Plan</li>
-            <li>Index composés</li>
-            <li>Index partiels & conditionnels</li>
-            <li>SARGable Queries (Search ARGument Able)</li>
-            <li>Covering Index (Index Only Scan)</li>
-            <li>Éviter les anti-patterns</li>
-            <li>Pagination performante (Keyset)</li>
-            <li>Statistiques & cardinalité</li>
-            <li>Benchmarks & charge réelle</li>
-          </ul>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>Migrations & Performances</span>
-            <span class="skill-percent">75%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
-          <ul class="skill-list">
-            <li>Migrations non bloquantes (Zero-Downtime)</li>
-            <li>Index Concurrently</li>
-            <li>Rollback Safety</li>
-            <li>Split Schema Change vs Data Migration</li>
-            <li>Locking & Table Rewrite</li>
-            <li>Validation progressive</li>
-            <li>Foreign Keys en production</li>
-            <li>Vérifier taille & durée</li>
-            <li>Timeouts & Lock Timeout</li>
-            <li>Outils & Audits</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="expertise-card ruby-rails-card">
-      <div class="expertise-card__header">
-        <div class="expertise-card__icon">🎨</div>
-        <div class="expertise-card__title-group">
-          <h3>Front-end</h3>
-          <p>Interface utilisateur moderne et responsive</p>
-        </div>
-      </div>
-
-      <div class="expertise-grid">
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>Hotwire</span>
-            <span class="skill-percent">70%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
-          <ul class="skill-list">
-            <li>Turbo Frames</li>
-            <li>Turbo Streams</li>
-            <li>Stimulus Controllers</li>
-            <li>Forms avec Turbo</li>
-            <li>Progressive Enhancement</li>
-            <li>Morphing & Diffing</li>
-            <li>Turbo Drive & Navigation</li>
-            <li>Broadcasting & WebSockets</li>
-            <li>Performance Front</li>
-            <li>Debugging Hotwire</li>
-          </ul>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>HTML5 & CSS3</span>
-            <span class="skill-percent">80%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
-          <ul class="skill-list">
-            <li>Flexbox & Grid</li>
-            <li>Responsive Design</li>
-            <li>Sémantique HTML5 & Accessibilité (a11y)</li>
-            <li>Architecture CSS</li>
-            <li>Performances CSS</li>
-            <li>États, Animations & Transitions</li>
-            <li>Modern Selectors</li>
-            <li>Variables CSS (Custom Properties)</li>
-            <li>Forms modernes</li>
-            <li>Dark Mode & Theming</li>
-          </ul>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>Javasript</span>
-            <span class="skill-percent">60%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
-          <ul class="skill-list">
-            <li>Event Loop & Asynchronisme</li>
-            <li>Closures & Scope</li>
-            <li>DOM Manipulation</li>
-            <li>Modules & Bundling</li>
-            <li>Fetch API & HTTP</li>
-            <li>This, Bind, Call, Arrow Functions</li>
-            <li>Immutabilité & Structures</li>
-            <li>Performance JS</li>
-            <li>Security côté client</li>
-            <li>Tooling & Debugging</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="expertise-card ruby-rails-card">
-      <div class="expertise-card__header">
-        <div class="expertise-card__icon">🕵🏽‍♂️</div>
-        <div class="expertise-card__title-group">
-          <h3>Testing</h3>
-          <p>Stratégies de test exhaustives pour un code robuste</p>
-        </div>
-      </div>
-
-      <div class="expertise-grid">
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>RSpec/Minitest</span>
-            <span class="skill-percent">60%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
-          <ul class="skill-list">
-            <li>Stratégie de tests (pyramide & rôles)</li>
-            <li>Isolation & Doubles (Mock / Stub / Spy)</li>
-            <li>Factories & Données de test</li>
-            <li>Shared Examples & Helpers</li>
-            <li>Tests de requêtes (API & Controllers)</li>
-            <li>Tests système (UI)</li>
-            <li>Time, Randomness & External Services</li>
-            <li>Performance de la suite de tests</li>
-            <li>Flaky tests & stabilité</li>
-            <li>Couverture & Qualité</li>
-          </ul>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>Capybara</span>
-            <span class="skill-percent">50%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div>
-          <ul class="skill-list">
-            <li>Synchronisation & Attentes implicites</li>
-            <li>Sélecteurs robustes</li>
-            <li>Navigation & Scénarios réalistes</li>
-            <li>Drivers & Headless Browsers</li>
-            <li>Gestion du JavaScript</li>
-            <li>Scoping & Within</li>
-            <li>Auth Helpers & Setup</li>
-            <li>Stubbing & Isolation partielle</li>
-            <li>Performance des tests système</li>
-            <li>Debugging</li>
-          </ul>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-info">
-            <span>TDD & BDD</span>
-            <span class="skill-percent">60%</span>
-          </div>
-          <div class="progress-bar"><div class="progress-fill" style="width: 60%;"></div></div>
-          <ul class="skill-list">
-            <li>Red → Green → Refactor</li>
-            <li>Tester le comportement, pas l’implémentation</li>
-            <li>Découpage du problème par petits pas</li>
-            <li>Outside-In vs Inside-Out</li>
-            <li>Design émergent</li>
-            <li>BDD : Scénarios lisibles métier</li>
-            <li>Doubles comme outil de design</li>
-            <li>Test First pour bugs</li>
-            <li>Refactor sans peur</li>
-            <li>Limites de TDD</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="skills-section-bis">
-  <div class="tools-cloud-container">
-    <div class="approach-quote-bis">
-      <blockquote>
-        "La clé pour progresser en tant que développeur n'est pas seulement d'apprendre de nouvelles technologies, mais de comprendre <span class="text--italic-red">quand et pourquoi</span> les utiliser."
-      </blockquote>
-      <cite>— Kevin Saison ©️ 2026</cite>
-    </div>
-
-    <div class="tech-cloud-header">
-      <h3 class="cloud-title">Outils & Technologies</h3>
-      <p class="cloud-subtitle">Une séléction d'outils et de technologies que j'utilise régulièrement</p>
-    </div>
-
-    <div class="tech-tags">
-      <% %w[Ruby Rails PostgreSQL RSpec Devise ActiveJob Git Github Docker Bundler Minitest Pundit Sidekiq JWT Redis Linux VSCode].each do |tool| %>
-        <span class="tech-tag"><%= tool %></span>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="skills-footer-cta">
-    <div class="footer-cta-icon">🤝🏼</div>
-    <h2 class="footer-cta-title">Concevons votre projet <span class="text--white">ensemble</span></h2>
-    <p class="footer-cta-text">En recherche d'un développeur Ruby & Ruby on Rails ?</p>
-    <div class="footer-cta-actions">
-      <%= link_to 'Me contacter', pages_contact_path, class: "btn hero--btn--primary" %>
-      <%= link_to 'Voir mes réalisations', projects_path, class: "btn btn--outline" %>
-    </div>
-  </div>
+			<article class="skills-card">
+				<div class="card-ribbon"></div>
+				<header class="card-head">
+					<div class="card-icon">⚖</div>
+					<div>
+						<h3>Test & QA</h3>
+						<div class="jp">テスト</div>
+					</div>
+				</header>
+				<div class="card-body">
+					<div class="skill-item"><span class="dot"></span><div><b>RSpec</b><div class="muted">Unit, Integration, Request specs</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>TDD / BDD</b><div class="muted">Test-first development, Capybara</div></div></div>
+					<div class="skill-item"><span class="dot"></span><div><b>Coverage</b><div class="muted">90%+ coverage, FactoryBot, Fixtures</div></div></div>
+				</div>
+			</article>
+		</div>
+	</div>
 </section>

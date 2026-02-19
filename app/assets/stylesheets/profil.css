@@ -51,7 +51,6 @@
   z-index: 1;
 }
 
-/* ===== CONTAINER ===== */
 .profil-container {
   width: 100%;
   max-width: 1400px;
@@ -62,7 +61,6 @@
   z-index: 10;
 }
 
-/* ===== HEADER SECTION ===== */
 .profil-header {
   display: flex;
   align-items: center;
