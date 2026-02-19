@@ -1,84 +1,94 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "menu", "cta" ]
-  static classes = [ "scrolled" ]
-
-  // Debounce timer for scroll events
-  scrollTimeout = null
+  static targets = ["menu", "cta", "anchor"]
+  static classes = ["scrolled"]
 
   connect() {
-    // Add keyboard event listener for Escape key
+    // 1. Initialisation de l'Observer pour la performance du scroll
+    this.initObserver()
+
+    // 2. Gestion des événements clavier
     this.handleKeyboardEvent = this.handleKeyboardEvent.bind(this)
     document.addEventListener("keydown", this.handleKeyboardEvent)
+
+    // 3. Nettoyage du cache Turbo (évite les bugs visuels au retour arrière)
+    this.prepareForTurboCache = this.prepareForTurboCache.bind(this)
+    document.addEventListener("turbo:before-cache", this.prepareForTurboCache)
   }
 
   disconnect() {
-    // Clean up event listener
+    if (this.observer) this.observer.disconnect()
     document.removeEventListener("keydown", this.handleKeyboardEvent)
-    if (this.scrollTimeout) {
-      clearTimeout(this.scrollTimeout)
+    document.removeEventListener("turbo:before-cache", this.prepareForTurboCache)
+    this.cleanupState()
+  }
+
+  // --- LOGIQUE DE PERFORMANCE (SCROLL) ---
+
+  initObserver() {
+    // L'IntersectionObserver ne s'active que lorsque l'élément "anchor"
+    // entre ou sort de la vue. Pas de calculs inutiles pendant le scroll.
+    this.observer = new IntersectionObserver(([entry]) => {
+      // Si on ne voit plus l'ancre, on ajoute la classe "scrolled"
+      this.element.classList.toggle(this.scrolledClasses[0], !entry.isIntersecting)
+    }, { threshold: [1.0] })
+
+    if (this.hasAnchorTarget) {
+      this.observer.observe(this.anchorTarget)
     }
   }
 
+  // --- GESTION DU MENU ---
+
   toggleMenu() {
     const isOpen = this.menuTarget.classList.toggle("is-open")
-    document.body.classList.toggle("no-scroll")
+    document.body.classList.toggle("no-scroll", isOpen)
 
-    // Update aria-expanded for accessibility
     const toggleButton = this.element.querySelector(".navbar__toggle")
     if (toggleButton) {
       toggleButton.setAttribute("aria-expanded", isOpen)
     }
 
-    // Focus management: focus first link in menu when opened
     if (isOpen) {
       const firstLink = this.menuTarget.querySelector(".navbar__link")
-      if (firstLink) setTimeout(() => firstLink.focus(), 100)
-    }
-  }
-
-  // Handle Escape key to close mobile menu
-  handleKeyboardEvent(event) {
-    if (event.key === "Escape" && this.menuTarget.classList.contains("is-open")) {
-      this.closeMenu()
+      if (firstLink) {
+        // On attend la prochaine frame de rendu pour le focus (évite le Layout Thrashing)
+        requestAnimationFrame(() => firstLink.focus())
+      }
     }
   }
 
   closeMenu() {
-    this.menuTarget.classList.remove("is-open")
-    document.body.classList.remove("no-scroll")
+    if (this.menuTarget.classList.contains("is-open")) {
+      this.cleanupState()
 
-    // Return focus to toggle button
-    const toggleButton = this.element.querySelector(".navbar__toggle")
-    if (toggleButton) toggleButton.focus()
+      const toggleButton = this.element.querySelector(".navbar__toggle")
+      if (toggleButton) toggleButton.focus()
+    }
   }
 
-  // Debounced scroll handler to improve performance
-  toggleNavbarStyles() {
-    if (this.scrollTimeout) {
-      clearTimeout(this.scrollTimeout)
-    }
+  // --- UTILS ---
 
-    this.scrollTimeout = setTimeout(() => {
-      if (window.scrollY > 10) {
-        this.element.classList.add(this.scrolledClass)
-      } else {
-        this.element.classList.remove(this.scrolledClass)
-      }
-    }, 150)
+  cleanupState() {
+    this.menuTarget.classList.remove("is-open")
+    document.body.classList.remove("no-scroll")
+  }
+
+  handleKeyboardEvent(event) {
+    if (event.key === "Escape") this.closeMenu()
+  }
+
+  prepareForTurboCache() {
+    // On ferme le menu avant que Turbo ne prenne une photo de la page
+    this.cleanupState()
   }
 
   // Handle CTA button loading state
   setCtaLoading(isLoading = true) {
     if (this.hasCtaTarget) {
-      if (isLoading) {
-        this.ctaTarget.classList.add("is-loading")
-        this.ctaTarget.disabled = true
-      } else {
-        this.ctaTarget.classList.remove("is-loading")
-        this.ctaTarget.disabled = false
-      }
+      this.ctaTarget.classList.toggle("is-loading", isLoading)
+      this.ctaTarget.disabled = isLoading
     }
   }
 }
