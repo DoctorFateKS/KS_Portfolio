@@ -88,7 +88,7 @@ body {
 
 .hero__badge-text {
   font-size: 0.875rem;
-  color: #888;
+  color: #4F4F4F;
   font-family: 'Courier New', monospace;
   letter-spacing: 0.3em;
 }
@@ -135,7 +135,7 @@ body {
 /* Description */
 .hero__description {
   font-size: 1.125rem;
-  color: #888;
+  color: #4F4F4F;
   max-width: 32rem;
   margin-bottom: 2.5rem;
   line-height: 1.6;
