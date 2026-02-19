@@ -1,50 +1,3 @@
-/* subtle entrance animations (based on profil.css) */
-@keyframes fadeInUp {
-	from { opacity: 0; transform: translateY(18px); }
-	to { opacity: 1; transform: translateY(0); }
-}
-@keyframes popIn {
-	from { opacity: 0; transform: scale(0.95) translateY(6px); }
-	to { opacity: 1; transform: scale(1) translateY(0); }
-}
-
-/* Header & intro */
-.skills-header {
-	opacity: 0;
-	transform: translateY(8px);
-	animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
-	animation-delay: 120ms;
-}
-.skills-title {
-	opacity: 0;
-	transform: translateY(8px);
-	animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
-	animation-delay: 180ms;
-}
-.skills-intro {
-	opacity: 0;
-	transform: translateY(8px);
-	animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
-	animation-delay: 240ms;
-}
-
-/* Cards: popIn with stagger */
-.skills-card {
-	opacity: 0;
-	transform: translateY(10px) scale(0.99);
-	animation: popIn 560ms cubic-bezier(.2,.9,.2,1) forwards;
-}
-.skills-grid .skills-card:nth-child(1) { animation-delay: 260ms; }
-.skills-grid .skills-card:nth-child(2) { animation-delay: 320ms; }
-.skills-grid .skills-card:nth-child(3) { animation-delay: 380ms; }
-.skills-grid .skills-card:nth-child(4) { animation-delay: 440ms; }
-.skills-grid .skills-card:nth-child(5) { animation-delay: 500ms; }
-.skills-grid .skills-card:nth-child(6) { animation-delay: 560ms; }
-
-/* small icon pop */
-.card-icon { opacity: 0; transform: scale(0.9); animation: popIn 420ms cubic-bezier(.2,.9,.2,1) forwards; animation-delay: 360ms; }
-
-/* mark todo done */
 :root {
   --primary: #ca0028;
   --foreground: #1a1a1a;
@@ -209,3 +162,44 @@
 	.skills-grid { gap: 1rem; }
 }
 
+@keyframes fadeInUp {
+	from { opacity: 0; transform: translateY(18px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+@keyframes popIn {
+	from { opacity: 0; transform: scale(0.95) translateY(6px); }
+	to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.skills-header {
+	opacity: 0;
+	transform: translateY(8px);
+	animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
+	animation-delay: 120ms;
+}
+.skills-title {
+	opacity: 0;
+	transform: translateY(8px);
+	animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
+	animation-delay: 180ms;
+}
+.skills-intro {
+	opacity: 0;
+	transform: translateY(8px);
+	animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
+	animation-delay: 240ms;
+}
+
+.skills-card {
+	opacity: 0;
+	transform: translateY(10px) scale(0.99);
+	animation: popIn 560ms cubic-bezier(.2,.9,.2,1) forwards;
+}
+.skills-grid .skills-card:nth-child(1) { animation-delay: 260ms; }
+.skills-grid .skills-card:nth-child(2) { animation-delay: 320ms; }
+.skills-grid .skills-card:nth-child(3) { animation-delay: 380ms; }
+.skills-grid .skills-card:nth-child(4) { animation-delay: 440ms; }
+.skills-grid .skills-card:nth-child(5) { animation-delay: 500ms; }
+.skills-grid .skills-card:nth-child(6) { animation-delay: 560ms; }
+
+.card-icon { opacity: 0; transform: scale(0.9); animation: popIn 420ms cubic-bezier(.2,.9,.2,1) forwards; animation-delay: 360ms; }
