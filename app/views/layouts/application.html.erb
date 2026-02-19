@@ -54,18 +54,14 @@
     <!-- Preconnect for Performance (affects SEO via Core Web Vitals) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://kit.fontawesome.com">
 
     <!-- Font Loading -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <!-- CSRF & CSP Protection -->
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <!-- External Scripts -->
-    <script src="https://kit.fontawesome.com/ffd5e622f6.js" crossorigin="anonymous"></script>
 
     <!-- Custom Head Content per Page -->
     <%= yield :head %>
