@@ -1,9 +1,9 @@
-@import 'navbar';
-@import 'footer';
-@import 'profil';
-@import 'skills';
-@import 'projects';
-@import 'blogs';
+/*
+ *= require_self
+ *= require navbar
+ *= require profil
+ *= require skills
+ */
 
 body {
   margin: 0;
