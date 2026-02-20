@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module KsPortfolio
   class Application < Rails::Application
+    config.middleware.use Rack::Deflater
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 
