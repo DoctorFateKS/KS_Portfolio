@@ -63,5 +63,3 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-
-gem "actionpack-page_caching"
