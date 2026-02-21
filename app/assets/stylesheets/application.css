@@ -29,12 +29,15 @@ body {
   top: 0;
   width: 80%;
   height: 100%;
-  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 @media (min-width: 1024px) {
   .hero__image-container {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
+    contain: layout paint;
   }
 }
 

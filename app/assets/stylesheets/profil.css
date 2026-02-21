@@ -78,7 +78,7 @@
 
 .profil-header-jp {
   font-size: 0.875rem;
-  color: var(--muted-foreground);
+  color: #4F4F4F;
   font-family: 'Noto Sans JP', sans-serif;
   letter-spacing: 0.3em;
 }
@@ -86,7 +86,7 @@
 .profil-header-en {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--muted-foreground);
+  color: #4F4F4F;
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-family: 'Space Grotesk', sans-serif;
@@ -153,7 +153,7 @@
 
 .profil-avatar-jp {
   font-size: 0.75rem;
-  color: var(--muted-foreground);
+  color: #4F4F4F;
   font-family: 'Noto Sans JP', sans-serif;
   letter-spacing: 0.2em;
   margin-top: 0.25rem;
@@ -220,7 +220,7 @@
 }
 
 .profil-paragraph {
-  color: var(--muted-foreground);
+  color: #4F4F4F;
   font-size: 1rem;
   line-height: 1.6;
   max-width: 42rem;
@@ -267,7 +267,7 @@
 .profil-section-jp {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 0.875rem;
-  color: var(--muted-foreground);
+  color: #4F4F4F;
   font-weight: 400;
 }
 
@@ -335,7 +335,7 @@
 .profil-timeline-jp {
   font-family: 'Noto Sans JP', sans-serif;
   font-size: 0.75rem;
-  color: var(--muted-foreground);
+  color: #4F4F4F;
   margin-top: 0.25rem;
 }
 
