@@ -1,502 +1,130 @@
-<% content_for :page_title, "Get In Touch - Let's Build Something Amazing" %>
-
-<div class="contact-page">
-  <!-- Flash Messages -->
-  <% if notice %>
-    <div class="flash-message success" role="alert">
-      <div class="flash-content">
-        <span class="flash-icon">✓</span>
-        <span class="flash-text"><%= notice %></span>
-        <button type="button" class="flash-close" aria-label="Close notification" onclick="this.parentElement.parentElement.remove()">×</button>
-      </div>
-    </div>
-  <% end %>
-
-  <% if alert %>
-    <div class="flash-message error" role="alert">
-      <div class="flash-content">
-        <span class="flash-icon">!</span>
-        <span class="flash-text"><%= alert %></span>
-        <button type="button" class="flash-close" aria-label="Close notification" onclick="this.parentElement.parentElement.remove()">×</button>
-      </div>
-    </div>
-  <% end %>
-
-  <!-- Hero Section -->
-  <section class="contact-hero">
-    <div class="contact-hero-container">
-      <span class="contact-badge">Get In Touch</span>
-
-      <h1 class="contact-main-title">
-        Let's Build Something <span class="text-highlight-red">Extraordinary</span>
-      </h1>
-
-      <p class="contact-subtitle">
-        Looking for a senior Ruby developer who cares about code quality and product impact?
-        Let's discuss your project and turn your vision into reality.
-      </p>
-
-      <!-- Quick Stats -->
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number">24h</span>
-          <span class="stat-label">Response Time</span>
+<section class="contact-section">
+  <div class="profil-halftone"></div>
+	<div class="profil-action-lines"></div>
+  <div class="contact-container">
+    <div class="contact-header">
+			<div class="header-line"></div>
+			<span class="header-jp">私の才能</span>
+			<span class="header-en">Mes Talents</span>
+		</div>
+    <div class="grid">
+      <div class="space-y-4">
+        <div class="manga-panel-thick">
+          <h2 class="font-display font-bold text-foreground">
+            <span class="font-jp text-xs text-primary">連絡方法</span>
+            Contact Methods
+          </h2>
+          <div class="space-y-4">
+            <div class="manga-panel">
+              <div class="manga-slash text-primary-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+              </div>
+              <div>
+                <span class="font-jp text-xs text-muted-foreground">メール</span>
+                <span class="font-display font-bold text-foreground">Email</span>
+                <a href="mailto:hello@rubydev.com" target="_blank" rel="noopener noreferrer">hello@rubydev.com</a>
+              </div>
+            </div>
+            <div class="manga-panel">
+              <div class="manga-slash text-primary-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github">
+                  <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                  <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                </svg>
+              </div>
+              <div>
+                <span class="font-jp text-xs text-muted-foreground">ギットハブ</span>
+                <span class="font-display font-bold text-foreground">GitHub</span>
+                <a href="https://github.com/rubydev" target="_blank" rel="noopener noreferrer">github.com/rubydev</a>
+              </div>
+            </div>
+            <div class="manga-panel">
+              <div class="manga-slash text-primary-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect width="4" height="12" x="2" y="9"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </div>
+              <div>
+                <span class="font-jp text-xs text-muted-foreground">リンクドイン</span>
+                <span class="font-display font-bold text-foreground">LinkedIn</span>
+                <a href="https://linkedin.com/in/rubydev" target="_blank" rel="noopener noreferrer">linkedin.com/in/rubydev</a>
+              </div>
+            </div>
+            <div class="manga-panel">
+              <div class="manga-slash text-primary-foreground">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin">
+                  <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              </div>
+              <div>
+                <span class="font-jp text-xs text-muted-foreground">場所</span>
+                <span class="font-display font-bold text-foreground">Location</span>
+                <span class="text-muted-foreground">Remote — France / Worldwide</span>
+              </div>
+            </div>
+          </div>
+          <div class="manga-panel">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock text-primary">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <div>
+              <span class="font-jp text-xs text-muted-foreground">対応時間</span>
+              <span class="font-display font-bold text-foreground">Availability</span>
+              <span class="text-muted-foreground">Typically responds within 24h</span>
+            </div>
+          </div>
         </div>
-        <div class="stat-item">
-          <span class="stat-number">100+</span>
-          <span class="stat-label">Projects Done</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">12+</span>
-          <span class="stat-label">Years Experience</span>
-        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Main Contact Section -->
-  <section class="contact-grid-section">
-    <div class="contact-main-grid">
-
-      <!-- Contact Form -->
-      <div class="contact-card form-card">
-        <header class="card-header">
-          <h2 class="card-title">Send a Message</h2>
-          <p class="card-subtitle">Fill out the form below and I'll get back to you as soon as possible.</p>
-        </header>
-
-        <%= form_with model: @contact, url: create_contact_path, local: true, class: "contact-form", id: "contact-form" do |f| %>
-          <div class="form-status-message" id="formStatus"></div>
-
-          <!-- Name and Email Row -->
-          <div class="form-row">
-            <div class="field">
-              <%= f.label :name, "Name *" %>
-              <%= f.text_field :name,
-                  placeholder: "John Doe",
-                  required: true,
-                  class: "form-input",
-                  minlength: 2,
-                  maxlength: 100,
-                  autocomplete: "name" %>
-              <span class="field-error" id="name-error"></span>
-              <span class="field-hint">2-100 characters</span>
-            </div>
-            <div class="field">
-              <%= f.label :email, "Email *" %>
-              <%= f.email_field :email,
-                  placeholder: "john@company.com",
-                  required: true,
-                  class: "form-input",
-                  autocomplete: "email" %>
-              <span class="field-error" id="email-error"></span>
-            </div>
+      <div>
+        <form class="manga-panel-thick space-y-5">
+          <h2 class="font-display font-bold text-foreground">
+            <span class="font-jp text-xs text-primary">メッセージ</span>
+            Send a Message
+          </h2>
+          <div>
+            <label>
+              <span class="font-jp text-xs text-muted-foreground">名前</span>
+              Name
+            </label>
+            <input type="text" placeholder="Your name">
           </div>
-
-          <!-- Company and Project Type Row -->
-          <div class="form-row">
-            <div class="field">
-              <%= f.label :company, "Company (Optional)" %>
-              <%= f.text_field :company,
-                  placeholder: "Your Company",
-                  class: "form-input",
-                  maxlength: 100,
-                  autocomplete: "organization" %>
-              <span class="field-hint">Optional - helps me understand context</span>
-            </div>
-            <div class="field">
-              <%= f.label :project_type, "Project Type" %>
-              <%= f.select :project_type,
-                  [
-                    ["What's your need?", ""],
-                    ["New Project", "new_project"],
-                    ["Consulting", "consulting"],
-                    ["Long-term Contract", "long_term_contract"]
-                  ],
-                  { include_blank: false },
-                  class: "form-input form-select" %>
-              <span class="field-hint">This helps me prioritize</span>
-            </div>
+          <div>
+            <label>
+              <span class="font-jp text-xs text-muted-foreground">メール</span>
+              Email
+            </label>
+            <input type="email" placeholder="your@email.com">
           </div>
-
-          <!-- Message Field -->
-          <div class="field">
-            <%= f.label :message, "Message / Project Details *" %>
-            <%= f.text_area :message,
-                placeholder: "Tell me about your project, timeline, and any specific requirements. The more details, the better I can help!",
-                rows: 6,
-                required: true,
-                class: "form-input form-textarea",
-                minlength: 10,
-                maxlength: 5000 %>
-            <span class="field-error" id="message-error"></span>
-            <div class="field-counter">
-              <span id="charCount">0</span> / 5000
-            </div>
+          <div>
+            <label>
+              <span class="font-jp text-xs text-muted-foreground">件名</span>
+              Subject
+            </label>
+            <input type="text" placeholder="Project inquiry">
           </div>
-
-          <!-- Honeypot Field (Anti-spam) -->
-          <div class="field honeypot" style="display: none;">
-            <%= f.text_field :website, autocomplete: "off", tabindex: "-1" %>
+          <div>
+            <label>
+              <span class="font-jp text-xs text-muted-foreground">内容</span>
+              Message
+            </label>
+            <textarea rows="4" placeholder="Tell me about your project..."></textarea>
           </div>
-
-          <!-- Submit Button -->
-          <button type="submit" class="btn-send" id="submitBtn" aria-label="Send message">
-            <span class="btn-text">Send Message</span>
-            <span class="btn-spinner" style="display: none;">
-              <span class="spinner"></span>
-            </span>
-            <span class="icon-arrow">→</span>
+          <button type="submit" class="manga-slash">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send">
+              <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
+              <path d="m21.854 2.147-10.94 10.939"></path>
+            </svg>
+            Send Message
           </button>
-
-          <p class="form-notice">
-            By submitting, you agree to be contacted about your project.
-            <a href="#privacy" class="link-subtle">Privacy Policy</a>
-          </p>
-        <% end %>
-      </div>
-
-      <!-- Sidebar -->
-      <div class="contact-sidebar">
-
-        <!-- Contact Information Card -->
-        <div class="contact-card info-card">
-          <h3 class="sidebar-title">Quick Contact</h3>
-          <ul class="info-list">
-            <li class="info-item">
-              <div class="info-icon">📧</div>
-              <div class="info-content">
-                <p class="info-label">Email</p>
-                <a href="mailto:hello@example.com" class="info-value link-contact">hello@example.com</a>
-              </div>
-            </li>
-            <li class="info-item">
-              <div class="info-icon">📍</div>
-              <div class="info-content">
-                <p class="info-label">Location</p>
-                <p class="info-value">Remote • Global</p>
-              </div>
-            </li>
-            <li class="info-item">
-              <div class="info-icon">🕒</div>
-              <div class="info-content">
-                <p class="info-label">Response Time</p>
-                <p class="info-value">Within 24 hours</p>
-              </div>
-            </li>
-            <li class="info-item">
-              <div class="info-icon">⏰</div>
-              <div class="info-content">
-                <p class="info-label">Timezone</p>
-                <p class="info-value">UTC / Europe</p>
-              </div>
-            </li>
-          </ul>
-
-          <!-- Social Links -->
-          <div class="social-links-section">
-            <p class="social-label">Let's connect</p>
-            <div class="social-buttons">
-              <a href="https://github.com/yourprofile" class="social-btn-icon" title="GitHub" target="_blank" rel="noopener">
-                <span>GitHub</span>
-              </a>
-              <a href="https://linkedin.com/in/yourprofile" class="social-btn-icon" title="LinkedIn" target="_blank" rel="noopener">
-                <span>LinkedIn</span>
-              </a>
-              <a href="https://twitter.com/yourprofile" class="social-btn-icon" title="Twitter" target="_blank" rel="noopener">
-                <span>Twitter</span>
-              </a>
-              <a href="https://calendly.com/yourprofile" class="social-btn-icon" title="Calendar" target="_blank" rel="noopener">
-                <span>Calendar</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Availability Card -->
-        <div class="contact-card availability-card">
-          <h3 class="sidebar-title">Availability</h3>
-          <div class="availability-grid">
-            <div class="availability-item available">
-              <span class="status-dot green"></span>
-              <div class="item-text">
-                <p class="item-title">Freelance</p>
-                <p class="item-desc">New projects</p>
-              </div>
-            </div>
-            <div class="availability-item available">
-              <span class="status-dot green"></span>
-              <div class="item-text">
-                <p class="item-title">Contract</p>
-                <p class="item-desc">3-6 months</p>
-              </div>
-            </div>
-            <div class="availability-item limited">
-              <span class="status-dot orange"></span>
-              <div class="item-text">
-                <p class="item-title">Full-time</p>
-                <p class="item-desc">Limited</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Expertise Card -->
-        <div class="contact-card expertise-card">
-          <h3 class="sidebar-title">My Expertise</h3>
-          <div class="expertise-tags">
-            <span class="expertise-tag">Ruby on Rails</span>
-            <span class="expertise-tag">Backend Development</span>
-            <span class="expertise-tag">API Design</span>
-            <span class="expertise-tag">Database Optimization</span>
-            <span class="expertise-tag">Real-time Apps</span>
-            <span class="expertise-tag">Cloud Deployment</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FAQ Section -->
-  <section class="faq-section">
-    <div class="faq-container">
-      <div class="faq-header">
-        <h2 class="faq-title">Common Questions</h2>
-        <p class="faq-subtitle">Find answers to questions you might have</p>
-      </div>
-
-      <div class="faq-grid">
-        <div class="faq-item">
-          <h3 class="faq-question">What's your typical project scope?</h3>
-          <p class="faq-answer">
-            I work on projects ranging from quick consultations to full-scale application builds.
-            Whether you need a new Rails API, legacy code improvements, or architecture planning,
-            I'm equipped to help.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3 class="faq-question">How quickly can you start?</h3>
-          <p class="faq-answer">
-            Most projects can kick off within 2-4 weeks. For time-sensitive work,
-            I can often accommodate faster timelines. Let's discuss your needs.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3 class="faq-question">Do you work with remote teams?</h3>
-          <p class="faq-answer">
-            Absolutely! I'm 100% remote and experienced with async communication,
-            distributed teams, and global time zones. I use Git, Slack, and async-first workflows.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3 class="faq-question">What are your rates?</h3>
-          <p class="faq-answer">
-            Rates vary based on project scope, complexity, and duration.
-            I offer hourly rates for consulting and project-based pricing for larger engagements.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3 class="faq-question">Can you sign NDAs?</h3>
-          <p class="faq-answer">
-            Yes, I regularly work under NDAs and confidentiality agreements.
-            Your project details are always protected.
-          </p>
-        </div>
-
-        <div class="faq-item">
-          <h3 class="faq-question">What's your best communication channel?</h3>
-          <p class="faq-answer">
-            I'm most responsive via email and scheduled video calls.
-            Async communication works too - describe your project and I'll respond with full details.
-          </p>
-        </div>
+        </form>
       </div>
     </div>
-  </section>
-
-  <!-- Social Proof Section -->
-  <section class="social-proof-section">
-    <div class="proof-container">
-      <h2 class="proof-title">Why work with me?</h2>
-
-      <div class="proof-grid">
-        <div class="proof-card">
-          <div class="proof-icon">🎯</div>
-          <h3 class="proof-heading">Results-Oriented</h3>
-          <p class="proof-text">I focus on solving your problems, not padding timelines. Shipping is what matters.</p>
-        </div>
-
-        <div class="proof-card">
-          <div class="proof-icon">📈</div>
-          <h3 class="proof-heading">Performance Matters</h3>
-          <p class="proof-text">Optimized code that scales. Average 40% performance improvements on existing projects.</p>
-        </div>
-
-        <div class="proof-card">
-          <div class="proof-icon">🤝</div>
-          <h3 class="proof-heading">Great Communication</h3>
-          <p class="proof-text">Regular updates, clear explanations, and transparent progress. You're never left wondering.</p>
-        </div>
-
-        <div class="proof-card">
-          <div class="proof-icon">🔒</div>
-          <h3 class="proof-heading">Code Quality</h3>
-          <p class="proof-text">Clean, maintainable code with tests. Documented and ready for your team to take over.</p>
-        </div>
-
-        <div class="proof-card">
-          <div class="proof-icon">⚡</div>
-          <h3 class="proof-heading">Fast Iteration</h3>
-          <p class="proof-text">Agile approach with rapid feedback cycles. Ship features weekly, not yearly.</p>
-        </div>
-
-        <div class="proof-card">
-          <div class="proof-icon">🚀</div>
-          <h3 class="proof-heading">Production Ready</h3>
-          <p class="proof-text">From development to deployment. I handle infrastructure, monitoring, and optimization.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Code Footer -->
-  <section class="code-contact-footer">
-    <div class="editor-window">
-      <div class="editor-header">
-        <div class="window-controls">
-          <span class="control close"></span>
-          <span class="control minimize"></span>
-          <span class="control expand"></span>
-        </div>
-        <div class="file-name">collaboration.rb</div>
-      </div>
-
-      <div class="editor-body">
-        <pre class="ruby-code"><code><span class="comment"># Let's build something amazing</span>
-<span class="keyword">class</span> <span class="class-name">Collaboration</span>
-  <span class="keyword">def</span> <span class="method">initialize</span>(<span class="variable">your_project</span>)
-    <span class="variable">@project</span> = <span class="variable">your_project</span>
-    <span class="variable">@developer</span> = <span class="constant">Developer</span>.find_by(
-      passion: <span class="symbol">:high</span>,
-      skills: [<span class="symbol">:ruby</span>, <span class="symbol">:rails</span>, <span class="symbol">:delivery</span>]
-    )
-  <span class="keyword">end</span>
-
-  <span class="keyword">def</span> <span class="method">launch!</span>
-    <span class="variable">@developer</span>.contact!(
-      via: [<span class="symbol">:email</span>, <span class="symbol">:call</span>],
-      response_time: <span class="symbol">:quick</span>
-    )
-
-    build_something_extraordinary!
-  <span class="keyword">end</span>
-<span class="keyword">end</span>
-
-<span class="comment"># Ready when you are...</span>
-<span class="constant">Collaboration</span>.new(your_project).launch!</code></pre>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Banner -->
-  <section class="cta-banner">
-    <div class="cta-content">
-      <h2 class="cta-title">Ready to start?</h2>
-      <p class="cta-text">Whether you're at the ideation stage or have a fully fleshed-out project, let's chat.</p>
-      <div class="cta-buttons">
-        <a href="#contact-form" class="btn-primary">Fill the Form Above</a>
-        <a href="https://calendly.com/yourprofile" class="btn-secondary" target="_blank">Schedule a Call</a>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- Form Validation Script -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contact-form');
-    const submitBtn = document.getElementById('submitBtn');
-    const charCount = document.getElementById('charCount');
-    const messageField = form.querySelector('[name="contact[message]"]');
-    const formStatus = document.getElementById('formStatus');
-
-    // Character counter
-    messageField.addEventListener('input', function() {
-      charCount.textContent = this.value.length;
-      const percentage = (this.value.length / 5000) * 100;
-      if (percentage > 80) {
-        charCount.parentElement.style.color = '#ff6b6b';
-      } else if (percentage > 90) {
-        charCount.parentElement.style.color = '#ff0000';
-      } else {
-        charCount.parentElement.style.color = 'inherit';
-      }
-    });
-
-    // Form submission
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-
-      // Validate form
-      if (!form.checkValidity()) {
-        showFormError('Please fill in all required fields correctly.');
-        return;
-      }
-
-      // Disable button and show loading
-      submitBtn.disabled = true;
-      submitBtn.classList.add('loading');
-      submitBtn.querySelector('.btn-spinner').style.display = 'inline-block';
-      submitBtn.querySelector('.btn-text').style.display = 'none';
-
-      try {
-        const response = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: {
-            'X-Requested-With': 'XMLHttpRequest'
-          }
-        });
-
-        if (response.ok) {
-          showFormSuccess('Message sent successfully! I\'ll get back to you soon.');
-          form.reset();
-          charCount.textContent = '0';
-          setTimeout(() => {
-            form.style.display = 'none';
-          }, 2000);
-        } else {
-          const data = await response.json();
-          showFormError(data.errors ? data.errors[0] : 'Something went wrong. Please try again.');
-        }
-      } catch (error) {
-        showFormError('Network error. Please check your connection and try again.');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.classList.remove('loading');
-        submitBtn.querySelector('.btn-spinner').style.display = 'none';
-        submitBtn.querySelector('.btn-text').style.display = 'inline';
-      }
-    });
-
-    function showFormError(message) {
-      formStatus.className = 'form-status-message error';
-      formStatus.innerHTML = `<span class="error-icon">✗</span> ${message}`;
-      formStatus.style.display = 'block';
-      setTimeout(() => {
-        formStatus.style.display = 'none';
-      }, 5000);
-    }
-
-    function showFormSuccess(message) {
-      formStatus.className = 'form-status-message success';
-      formStatus.innerHTML = `<span class="success-icon">✓</span> ${message}`;
-      formStatus.style.display = 'block';
-    }
-  });
-</script>
+  </div>
+</section>

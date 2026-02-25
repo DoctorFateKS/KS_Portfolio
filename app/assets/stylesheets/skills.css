@@ -14,7 +14,7 @@
 	display: flex;
 	align-items: center;
 	overflow: hidden;
-	padding-top: 120px;
+	padding-top: 40px;
 }
 
 .skills-container {
@@ -31,7 +31,7 @@
 	display: flex;
 	align-items: center;
 	gap: 0.75rem;
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
   opacity: 1;
 }
 
