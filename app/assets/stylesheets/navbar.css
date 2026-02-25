@@ -1,24 +1,7 @@
-/* ===== CSS VARIABLES (DESIGN SYSTEM) ===== */
-:root {
-  --primary-red: #ca0028;
-  --primary-red-hover: #d1405d;
-  --text-dark: hsl(0, 0%, 7.5%);
-  --text-secondary: #4F4F4F;
-  --border-dark: #444;
-  --transition-smooth: all 0.3s ease;
-  --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-mono: 'Courier New', monospace;
-}
-
-/* ===== Z-INDEX STRATEGY ===== */
-/* navbar base: 100, mobile menu: 99, toggle button: 101 */
-
-/* ===== PREVENT BACKGROUND SCROLL WHEN MENU OPEN ===== */
 body.no-scroll {
   overflow: hidden;
 }
 
-/* ===== NAVBAR MAIN ===== */
 .navbar {
   position: fixed;
   top: 0;
@@ -31,7 +14,6 @@ body.no-scroll {
   transition: var(--transition-smooth);
 }
 
-/* ===== NAVBAR CONTAINER ===== */
 .navbar__container {
   display: flex;
   align-items: center;
@@ -41,7 +23,6 @@ body.no-scroll {
   padding: 1rem 1.5rem;
 }
 
-/* ===== NAVBAR BRAND/LOGO ===== */
 .navbar__brand {
   display: flex;
   align-items: center;
@@ -68,13 +49,11 @@ body.no-scroll {
   text-transform: uppercase;
 }
 
-/* ===== NAVBAR MENU ===== */
 .navbar__menu {
   display: none;
   gap: 0.25rem;
 }
 
-/* Mobile menu opens to full height */
 .navbar__menu.is-open {
   display: flex;
   height: calc(100vh - 70px);
@@ -87,14 +66,12 @@ body.no-scroll {
     gap: 0.25rem;
   }
 
-  /* Reset mobile menu styles on desktop */
   .navbar__menu.is-open {
     display: flex;
     height: auto;
   }
 }
 
-/* ===== NAVBAR LINKS ===== */
 .navbar__link {
   position: relative;
   display: flex;
@@ -137,7 +114,6 @@ body.no-scroll {
   color: var(--primary-red);
 }
 
-/* ===== NAVBAR CTA BUTTON ===== */
 .navbar__cta {
   display: inline-block;
   background-color: var(--primary-red);
@@ -158,7 +134,6 @@ body.no-scroll {
   background-color: var(--primary-red-hover);
 }
 
-/* Loading state for CTA button */
 .navbar__cta.is-loading {
   opacity: 0.7;
   pointer-events: none;
@@ -185,7 +160,6 @@ body.no-scroll {
   }
 }
 
-/* Manga slash effect */
 .manga-slash {
   position: relative;
   overflow: hidden;
@@ -221,7 +195,6 @@ body.no-scroll {
   }
 }
 
-/* ===== NAVBAR TOGGLE (MOBILE) ===== */
 .navbar__toggle {
   display: block;
   background: none;
@@ -279,7 +252,6 @@ body.no-scroll {
   transform: rotate(-45deg);
 }
 
-/* ===== MOBILE MENU ===== */
 .navbar__menu.is-open {
   position: fixed;
   top: 70px;
@@ -315,7 +287,6 @@ body.no-scroll {
   }
 }
 
-/* ===== MOBILE MENU ANIMATIONS ===== */
 @keyframes slideDownMenu {
   from {
     opacity: 0;
@@ -338,7 +309,6 @@ body.no-scroll {
   }
 }
 
-/* Animate menu links on mobile when menu opens */
 @media (max-width: 767px) {
   .navbar__menu.is-open .navbar__link {
     animation: slideInMenuItem 0.4s ease-out both;
