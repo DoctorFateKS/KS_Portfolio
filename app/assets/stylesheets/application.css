@@ -6,21 +6,23 @@
  */
 
  :root {
-  --primary-red: #ca0028;
-  --primary-red-hover: #d1405d;
-  --text-dark: hsl(0, 0%, 7.5%);
-  --text-secondary: #4F4F4F;
+  --primary: #ca0028;
+  --primary-hover: #d1405d;
+  --title-color: #161616;
+  --text-color: #4F4F4F;
   --border-dark: #444;
   --transition-smooth: all 0.3s ease;
-  --font-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-mono: 'Courier New', monospace;
+  --font-title: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-text: 'Courier New', monospace;
+  --card-background: #f1eded;
+  --card-border: #444;
 }
 
 body {
   margin: 0;
-  font-family: 'Space Grotesk', 'Noto Sans JP' ,sans-serif;
+  font-family: var(--font-title);
   color: hsl(0, 0%, 7.5%);
-  background-color: hsl(60, 12%, 95%);
+  background-color: #f3f1f1;
 }
 
 .main-section {
@@ -29,6 +31,94 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
+}
+
+.secondary-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 40px;
+}
+
+.halftone {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 4px,
+      transparent 4px,
+      transparent 8px
+    );
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.action-lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 2px,
+      transparent 2px,
+      transparent 4px
+    );
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+  opacity: 1;
+}
+
+.header-line {
+  width: 3rem;
+  height: 3px;
+  background-color: var(--primary-red);
+  transform: skewX(-12deg);
+}
+
+.header-jp {
+  font-size: 0.875rem;
+  color: #4F4F4F;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.3em;
+}
+
+.header-en {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4F4F4F;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.highlight {
+  color: var(--primary);
+  font-weight: 700;
+  text-shadow:
+    -2px -2px 0 rgba(0, 0, 0, 0.1),
+    2px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .background-image-container {
@@ -112,7 +202,6 @@ body {
 
 .hero__title-line {
   display: block;
-  color: #1a1a1a;
 }
 
 .hero__title-primary {

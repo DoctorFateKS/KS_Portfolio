@@ -1,98 +1,3 @@
-/* ===== PROFIL PAGE STYLES ===== */
-
-/* Root Variables */
-:root {
-  --primary: #ca0028;
-  --foreground: #1a1a1a;
-  --muted-foreground: #888;
-  --card: hsl(60, 12%, 95%);
-  --border: #ddd;
-  --background: #fff;
-  --card-border: #444;
-}
-
-/* ===== MAIN SECTION ===== */
-.profil-section {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  padding-top: 40px;
-}
-
-.profil-halftone {
-  position: absolute;
-  inset: 0;
-  background-image:
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.03) 0px,
-      rgba(0, 0, 0, 0.03) 4px,
-      transparent 4px,
-      transparent 8px
-    );
-  opacity: 0.2;
-  z-index: 1;
-}
-
-.profil-action-lines {
-  position: absolute;
-  inset: 0;
-  background-image:
-    repeating-linear-gradient(
-      45deg,
-      rgba(0, 0, 0, 0.03) 0px,
-      rgba(0, 0, 0, 0.03) 2px,
-      transparent 2px,
-      transparent 4px
-    );
-  opacity: 0.03;
-  z-index: 1;
-}
-
-.profil-container {
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  position: relative;
-  z-index: 10;
-}
-
-.profil-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 3rem;
-  opacity: 1;
-}
-
-.profil-header-line {
-  width: 3rem;
-  height: 3px;
-  background-color: var(--primary);
-  transform: skewX(-12deg);
-}
-
-.profil-header-jp {
-  font-size: 0.875rem;
-  color: #4F4F4F;
-  font-family: 'Noto Sans JP', sans-serif;
-  letter-spacing: 0.3em;
-}
-
-.profil-header-en {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #4F4F4F;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-family: 'Space Grotesk', sans-serif;
-}
-
-/* ===== HERO SECTION ===== */
 .profil-hero {
   display: grid;
   gap: 3rem;
@@ -106,7 +11,6 @@
   }
 }
 
-/* ===== AVATAR SECTION ===== */
 .profil-avatar-wrapper {
   position: relative;
   margin: 0 auto;
@@ -120,7 +24,7 @@
 
 .profil-avatar-card {
   position: relative;
-  background-color: var(--card);
+  background-color: var(--card-background);
   border: 5px solid var(--card-border);
   padding: 0.75rem;
   width: 280px;
@@ -159,7 +63,6 @@
   margin-top: 0.25rem;
 }
 
-/* Glows */
 .profil-avatar-glow {
   position: absolute;
   background-color: rgba(202, 0, 40, 0.1);
@@ -183,7 +86,6 @@
   filter: blur(16px);
 }
 
-/* ===== HERO CONTENT ===== */
 .profil-hero-content {
   display: flex;
   flex-direction: column;
@@ -211,14 +113,6 @@
   }
 }
 
-.profil-highlight {
-  color: var(--primary);
-  font-weight: 700;
-  text-shadow:
-    -2px -2px 0 rgba(0, 0, 0, 0.1),
-    2px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
 .profil-paragraph {
   color: #4F4F4F;
   font-size: 1rem;
@@ -238,7 +132,6 @@
   font-weight: 600;
 }
 
-/* ===== JOURNEY SECTION ===== */
 .profil-journey {
   margin-bottom: 5rem;
   opacity: 1;
@@ -271,7 +164,6 @@
   font-weight: 400;
 }
 
-/* ===== TIMELINE ===== */
 .profil-journey-timeline {
   position: relative;
 }
@@ -282,7 +174,7 @@
   left: 0;
   right: 0;
   height: 3px;
-  background-color: var(--border);
+  background-color: #ddd;
   transform: translateY(-50%);
   display: none;
   z-index: 0;
@@ -310,7 +202,7 @@
 }
 
 .profil-timeline-item {
-  background-color: var(--card);
+  background-color: var(--card-background);
   border: 3px solid var(--card-border);
   padding: 1rem;
   text-align: center;
@@ -339,7 +231,6 @@
   margin-top: 0.25rem;
 }
 
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 767px) {
   .profil-section {
     padding-top: 100px;
@@ -354,7 +245,6 @@
   }
 }
 
-/* ===== ANIMATIONS ===== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -377,7 +267,6 @@
   }
 }
 
-/* Header */
 .profil-header {
   opacity: 0;
   transform: translateY(8px);
@@ -385,7 +274,6 @@
   animation-delay: 120ms;
 }
 
-/* Avatar card */
 .profil-avatar-wrapper {
   opacity: 0;
   transform: translateY(10px);
@@ -399,7 +287,6 @@
   animation-delay: 320ms;
 }
 
-/* Title and paragraphs */
 .profil-hero-title {
   opacity: 0;
   transform: translateY(12px);
@@ -421,7 +308,6 @@
   animation-delay: 520ms;
 }
 
-/* Section titles */
 .profil-section-title {
   opacity: 0;
   transform: translateY(10px);
@@ -429,7 +315,6 @@
   animation-delay: 640ms;
 }
 
-/* Timeline items: staggered */
 .profil-timeline-item {
   opacity: 0;
   transform: translateY(10px);
@@ -442,7 +327,6 @@
 .profil-journey-grid .profil-timeline-item:nth-child(4) { animation-delay: 1060ms; }
 .profil-journey-grid .profil-timeline-item:nth-child(5) { animation-delay: 1160ms; }
 
-/* Reduce motion support */
 @media (prefers-reduced-motion: reduce) {
   .profil-header,
   .profil-avatar-wrapper,

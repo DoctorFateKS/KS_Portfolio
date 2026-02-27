@@ -35,16 +35,16 @@ body.no-scroll {
 .navbar__logo-text {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary-red);
-  font-family: var(--font-sans);
+  color: var(--primary);
+  font-family: var(--font-title);
   letter-spacing: 0.05em;
 }
 
 .navbar__logo-subtitle {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-secondary);
-  font-family: var(--font-sans);
+  color: var(--text-color);
+  font-family: var(--font-title);
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
@@ -80,7 +80,7 @@ body.no-scroll {
   padding: 0.5rem 1rem;
   text-decoration: none;
   color: var(--text-dark);
-  font-family: var(--font-sans);
+  font-family: var(--font-title);
   font-size: 0.875rem;
   font-weight: 500;
   transition: var(--transition-smooth);
@@ -90,36 +90,36 @@ body.no-scroll {
 .navbar__link-jp {
   display: block;
   font-size: 0.75rem;
-  color: var(--text-secondary);
-  font-family: var(--font-mono);
+  color: var(--text-color);
+  font-family: var(--font-title);
   margin-bottom: 0.125rem;
   transition: var(--transition-smooth);
 }
 
 .navbar__link-en {
   display: block;
-  color: var(--text-dark);
+  color: var(--font-text);
 }
 
 .navbar__link:hover {
-  color: var(--primary-red);
-  border-bottom-color: var(--primary-red);
+  color: var(--primary);
+  border-bottom-color: var(--primary);
 }
 
 .navbar__link:hover .navbar__link-jp {
-  color: var(--primary-red);
+  color: var(--primary);
 }
 
 .navbar__link:hover .navbar__link-en {
-  color: var(--primary-red);
+  color: var(--primary);
 }
 
 .navbar__cta {
   display: inline-block;
-  background-color: var(--primary-red);
+  background-color: var(--primary);
   color: #fff;
   padding: 0.5rem 1.5rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-title);
   font-weight: 700;
   font-size: 0.875rem;
   text-transform: uppercase;
@@ -131,7 +131,7 @@ body.no-scroll {
 }
 
 .navbar__cta:hover {
-  background-color: var(--primary-red-hover);
+  background-color: var(--primary-hover);
 }
 
 .navbar__cta.is-loading {
@@ -214,7 +214,7 @@ body.no-scroll {
   display: block;
   width: 1.5625rem;
   height: 0.1875rem;
-  background: var(--primary-red);
+  background: var(--primary);
   position: relative;
   transition: var(--transition-smooth);
 }
@@ -225,7 +225,7 @@ body.no-scroll {
   position: absolute;
   width: 1.5625rem;
   height: 0.1875rem;
-  background: var(--primary-red);
+  background: var(--primary);
   left: 0;
   transition: var(--transition-smooth);
 }
