@@ -3,7 +3,8 @@ source "https://rubygems.org"
 
 # PostgreSQL adapter
 gem "pg"
-# ...existing code...
+
+gem "rake"
 
 group :development, :test do
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
