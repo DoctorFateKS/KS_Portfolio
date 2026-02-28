@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[8.0].define(version: 2026_02_15_150634) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -67,6 +70,18 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_15_150634) do
     t.index ["created_at"], name: "index_contacts_on_created_at"
     t.index ["email"], name: "index_contacts_on_email"
     t.index ["ip_address"], name: "index_contacts_on_ip_address"
+  end
+
+  create_table "paris", id: :serial, force: :cascade do |t|
+    t.text "sport"
+    t.text "pays"
+    t.text "championnat"
+    t.text "type_pari"
+    t.text "pari"
+    t.decimal "cote"
+    t.decimal "mise"
+    t.text "resultat"
+    t.decimal "profit"
   end
 
   create_table "projects", force: :cascade do |t|

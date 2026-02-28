@@ -1,0 +1,136 @@
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-methods {
+  padding: 20px;
+}
+
+.contact-panel {
+  border: 3px solid #444;
+  padding-left: calc(2rem - 2px);
+  padding-right: calc(2rem - 2px);
+  padding-top: calc(1rem - 2px);
+  padding-bottom: calc(1rem - 2px);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+.jp-contact {
+  color: var(--text-color);
+}
+
+.en-contact {
+  color: var(--title-color);
+}
+
+.contact-link {
+  color: var(--primary);
+}
+
+.contact-form {
+  border: 3px solid #444;
+  padding-left: calc(2rem - 2px);
+  padding-right: calc(2rem - 2px);
+  padding-top: calc(1rem - 2px);
+  padding-bottom: calc(1rem - 2px);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.corner-accent {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-bottom: 40px solid var(--primary, #e63946);
+  border-left: 40px solid transparent;
+}
+
+.form-title {
+  font-family: var(--font-display, 'Montserrat', sans-serif);
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--text-color, #222);
+  margin-bottom: 0.5rem;
+}
+.form-title-jp {
+  font-family: var(--font-jp, 'Noto Sans JP', sans-serif);
+  font-size: 0.8rem;
+  color: var(--primary, #e63946);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 12px;
+}
+.form-label {
+  font-family: var(--font-display, 'Montserrat', sans-serif);
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text-color, #222);
+  margin-bottom: 0.2rem;
+}
+.form-label-jp {
+  font-family: var(--font-jp, 'Noto Sans JP', sans-serif);
+  font-size: 0.7rem;
+  color: var(--muted-foreground, #888);
+  margin-right: 0.5em;
+}
+.form-input {
+  width: 90%;
+  border: 2px solid #bbb;
+  border-radius: 8px;
+  background: var(--background, #fafafa);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: var(--text-color, #222);
+  transition: border-color 0.2s;
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--primary, #e63946);
+}
+.form-textarea {
+  resize: none;
+  min-height: 100px;
+}
+.form-submit-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  border: none;
+  cursor: pointer;
+}
+.form-submit-btn:hover {
+  background-color: var(--primary-hover);
+}
+.form-submit-icon {
+  display: flex;
+  align-items: center;
+}
