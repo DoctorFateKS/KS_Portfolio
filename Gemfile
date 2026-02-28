@@ -1,73 +1,56 @@
-
 source "https://rubygems.org"
 
-# PostgreSQL adapter
-gem "pg"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-gem "rake"
+ruby "3.1.0"
 
-group :development, :test do
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.4"
-# The modern asset pipeline for Rails [https://github.com/rails/propshaft]
-gem "propshaft"
+gem "rails", "~> 7.0.0"
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", ">= 2.1"
-# Use the Puma web server [https://github.com/puma/puma]
-gem "puma", ">= 5.0"
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+gem "sqlite3", "~> 1.4"
+# Use Puma as the app server
+gem "puma", "~> 5.0"
+# Use Sass to process CSS
+gem "sass-rails", ">= 6"
+# Transpile app-like JavaScript. Read more: https://github.com/rails/jsbundling-rails
+gem "jsbundling-rails"
+# Use UJS for unobtrusive scripting adapter for Rails
 gem "turbo-rails"
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem "jbuilder"
-
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# Use Redis adapter to run Action Cable in production
+# gem "redis", "~> 4.0"
+# Use Active Model has_secure_password
 # gem "bcrypt", "~> 3.1.7"
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
-
-# Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
-gem "solid_cache"
-gem "solid_queue"
-gem "solid_cable"
+# Use Active Storage variant
+# gem "image_processing", "~> 1.2"
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+gem "bootsnap", ">= 1.4.4", require: false
 
-# Deploy this application anywhere as a Docker container [https://kamal-deploy.org]
-gem "kamal", require: false
-
-# Add HTTP asset caching/compression and X-Sendfile acceleration to Puma [https://github.com/basecamp/thruster/]
-gem "thruster", require: false
-
-  # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-  # gem "image_processing", "~> 1.2"
-
-
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-
-  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
-  gem "brakeman", require: false
-
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
-
-
-  gem "simplecov", require: false
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem "byebug", platforms: [ :mri, :mingw, :x64_mingw ]
 end
 
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
+  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem "web-console"
+  # Speed up commands on slow machines
+  gem "listen", "~> 3.3"
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem "spring"
 end
 
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
+  # Adds support for Capybara system testing and selenium driver
+  gem "capybara", ">= 3.26"
   gem "selenium-webdriver"
+  # Easy installation and use of web drivers
+  gem "webdrivers"
 end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: [ :mingw, :x64_mingw, :mswin ]
