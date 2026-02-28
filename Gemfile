@@ -12,8 +12,6 @@ gem "sqlite3", "~> 1.4"
 gem "puma", "~> 6.0"
 # Use Sass to process CSS
 gem "sass-rails", ">= 6"
-# Transpile app-like JavaScript. Read more: https://github.com/rails/jsbundling-rails
-gem "jsbundling-rails"
 # Use UJS for unobtrusive scripting adapter for Rails
 gem "turbo-rails"
 gem "stimulus-rails"
