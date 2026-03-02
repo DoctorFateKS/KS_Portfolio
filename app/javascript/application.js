@@ -1,2 +1,1 @@
-import "@hotwired/turbo-rails"
-import "controllers" // Ceci pointe vers le dossier controllers (et donc son index.js)
+// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
