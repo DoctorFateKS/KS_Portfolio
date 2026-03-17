@@ -49,7 +49,7 @@ class PagesController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:name, :email, :company, :project_type, :message)
+    params.require(:contact).permit(:name, :email, :subject, :company, :project_type, :message)
   end
 
   def set_rate_limit

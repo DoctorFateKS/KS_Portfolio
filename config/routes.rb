@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   get "pages/profil"
   get "pages/skills"
   get "pages/method"
-  get "pages/contact"
-  post "pages/create_contact" => "pages#create_contact", as: :create_contact
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
