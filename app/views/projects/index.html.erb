@@ -1,167 +1,60 @@
-<section class="skills-section">
-  <header class="skills-header">
-    <h2 class="skills-title">Projets & <span class="text--red">Réalisations</span></h2>
-    <p class="skills-intro">
-      Exposition de projets que j'ai planifiés, conçus, et maintenus avec Ruby et Ruby on Rails.
-    </p>
-    <%= link_to "+ Nouveau Projet", new_project_path, class: "btn-action", style: "width: fit-content; margin-top: 20px;" %>
-  </header>
+<section class="secondary-section">
+  <div class="halftone"></div>
+  <div class="action-lines"></div>
 
-  <div class="stats-grid">
-    <div class="impact-card">
-      <div class="impact-icon"><i class="fa-solid fa-user-injured"></i></div>
-      <div class="impact-value">Besoin</div>
-    </div>
-    <div class="impact-card">
-      <div class="impact-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
-      <div class="impact-value">Problème</div>
-    </div>
-    <div class="impact-card">
-      <div class="impact-icon"><i class="fa-solid fa-brain"></i></div>
-      <div class="impact-value">Réflexion</div>
-    </div>
-    <div class="impact-card">
-      <div class="impact-icon"><i class="fa-solid fa-lightbulb"></i></div>
-      <div class="impact-value">Solution</div>
-    </div>
-  </div>
-</section>
+  <div class="container">
+    <div class="header">
+      <div class="header-line"></div>
+			<span class="header-jp">アートギャラリー</span>
+			<span class="header-en">Ma Galerie d'Art</span>
+		</div>
 
-<section class="featured-projects">
-  <% @featured_projects.each do |project| %>
-    <article class="project-case-study">
-      <div class="project-banner" style="background-image: url('<%= url_for(project.banner) if project.banner.attached? %>')">
-        <div class="project-banner__overlay">
-          <% if project.status.present? %>
-            <span class="badge badge--featured"><%= project.status %></span>
-          <% end %>
-          <h3 class="project-main-title"><%= project.title %></h3>
-          <p class="project-tagline"><%= project.tagline %></p>
-        </div>
-      </div>
+    <h1 class="skills-title"><span class="fg">Grimoire</span> des <span class="highlight">Projets</span></h1>
+    <p class="skills-intro">Chaque projet est une nouvelle aventure avec mes acolytes <span class="emphasis">Ruby</span> et <span class="emphasis">Ruby on Rails</span>. Chacun d'eux a été réalisé en respectant au mieux les principes d'architectures d'applications et une méthodologie de tests rigoureuse.</p>
 
-      <div class="project-body">
-        <div class="project-section">
-          <h4 class="project-label"><span class="icon-accent"></span> Contexte & Problématique</h4>
-          <p class="project-text"><%= project.context %></p>
-        </div>
-
-        <div class="project-details-grid">
-          <div class="detail-column">
-            <h4 class="project-label"><span class="icon-accent"></span> Mon Rôle</h4>
-            <div class="project-text">
-              <%= project.role_description %>
-            </div>
-          </div>
-          <div class="detail-column">
-            <h4 class="project-label"><span class="icon-accent"></span> Stack Technique</h4>
-            <div class="tech-stack-tags">
-              <% project.stack.to_s.split(',').each do |tech| %>
-                <span class="stack-tag"><%= tech.strip %></span>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-        <div class="project-section">
-          <h4 class="project-label"><span class="icon-accent"></span> Choix d'Architecture</h4>
-          <div class="decisions-grid">
-            <% project.usage_decisions.to_s.split(';').each do |decision| %>
-              <div class="decision-pill"><%= decision.strip %></div>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="project-two-col">
-          <div class="col">
-            <h4 class="project-label"><span class="icon-accent"></span> Défis</h4>
-            <ul class="bullet-list list--green">
-              <% project.challenges.to_s.split(';').each do |challenge| %>
-                <li><%= challenge.strip %></li>
-              <% end %>
-            </ul>
-          </div>
-          <div class="col">
-            <h4 class="project-label"><span class="icon-green"></span> Solutions</h4>
-            <ul class="bullet-list list--green">
-              <% project.solutions.to_s.split(';').each do |solution| %>
-                <li><%= solution.strip %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-
-        <div class="project-results">
-          <div class="impact-quote">
-            "<%= project.impact_quote %>"
-          </div>
-        </div>
-
-        <div class="project-actions">
-          <%= link_to "Code Source", project.github_url, class: "btn-action", target: "_blank" if project.github_url.present? %>
-          <%= link_to "Voir l'app", project.demo_url, class: "btn-action btn-action--accent", target: "_blank" if project.demo_url.present? %>
-          <%# Liens d'édition rapides %>
-          <%= link_to "Modifier", edit_project_path(project), class: "btn-action", style: "flex: 0; min-width: 100px; background: #333;" %>
-        </div>
-      </div>
-    </article>
-  <% end %>
-</section>
-
-<section class="more-projects-section">
-  <header class="more-projects-header">
-    <h2 class="more-projects-title">Autres Réalisations</h2>
-    <p class="more-projects-subtitle">Une sélection de projets illustrant une expertise technique variée</p>
-  </header>
-
-  <div class="projects-grid">
-    <% @other_projects.each do |project| %>
-      <article class="mini-project-card">
-        <div class="mini-project-image"
-            style="<%= "background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('#{url_for(project.banner)}'); background-size: cover; background-position: center;" if project.banner.attached? %>">
-
-          <%# Si aucune image n'est attachée, on affiche l'icône par défaut %>
-          <% unless project.banner.attached? %>
-            <div class="mini-project-icon">
-              <%= project.category == 'Healthcare' ? '🏥' : (project.category == 'SaaS' ? '💳' : '💻') %>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="mini-project-content">
-          <h3 class="mini-project-name"><%= project.title %></h3>
-          <p class="mini-project-type"><%= project.category %></p>
-          <p class="mini-project-desc"><%= truncate(project.context, length: 120) %></p>
-
-          <div class="mini-project-tags">
-            <% project.stack.to_s.split(',').first(3).each do |tech| %>
-              <span class="mini-tag"><%= tech.strip %></span>
-            <% end %>
-          </div>
-
-          <div class="mini-project-stats">
-            <div class="mini-stat">
-              <span class="mini-stat-value">Détails</span>
-              <%= link_to "Voir", project, class: "mini-stat-label", style: "text-decoration: underline;" %>
-            </div>
-
-              <div class="mini-stat">
-                <%= link_to "Modifier", edit_project_path(project), class: "mini-stat-label" %>
+    <div class="projects-grid">
+      <% @projects.each do |project| %>
+        <article class="skills-card">
+          <div class="card-ribbon"></div>
+          <header class="project-card-head">
+            <div class="card-title">
+              <h3><%= project.title %></h3>
+              <div class="project-subtitle">
+                <span class="jp-subtitle"><%= project.role_jp %></span> <span class="project-highlight">— <%= project.role_description %></span>
               </div>
-
+            </div>
+            <div class="social-icons">
+              <%= link_to project.github_url, class: "social-icon" do %><i class="fa-brands fa-github"></i><% end %>
+              <%= link_to project.demo_url, class: "social-icon" do %><i class="fa-solid fa-arrow-right-to-bracket"></i><% end %>
+            </div>
+          </header>
+          <div class="project-card-body">
+            <p class="tagline"><%= project.tagline %></p>
+            <div>
+              <span class="challenge-title">Challenges</span>
+              <p class="challenge"><%= project.challenges %></p>
+            </div>
+            <div class="stack">
+              <p>
+                <% project.stack.split(",").each do |techno| %>
+                  <span class="techno"><%= techno %></span>
+                <% end %>
+              </p>
+            </div>
           </div>
-        </div>
-      </article>
-    <% end %>
-  </div>
-
-  <footer class="final-contact-cta">
-    <div class="final-cta-icon">📮</div>
-    <h2 class="final-cta-title">Un projet en tête ?</h2>
-    <p class="final-cta-text">Je suis toujours à la recherche de défis techniques ambitieux.</p>
-    <div class="final-cta-actions">
-        <a href="#contact" class="btn-action btn-action--accent">Démarrer une conversation</a>
-        <%= link_to "Ajouter un projet", new_project_path, class: "btn-action" %>
+          <footer class="project-card-footer">
+            <div class="results">
+              <div class="results-item">
+                <% project.results.split(",").first(3).each do |result| %>
+                  <div class="results-square"></div>
+                  <span class="result"><%= result %></span>
+                <% end %>
+              </div>
+            </div>
+            <%= link_to "#", class: "details-link" do %>Détails <i class="fa-solid fa-arrow-right"></i><% end %>
+          </footer>
+        </article>
+      <% end %>
     </div>
-  </footer>
+  </div>
 </section>
