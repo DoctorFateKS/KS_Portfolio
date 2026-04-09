@@ -9,7 +9,7 @@ gem "rails", "~> 8.0.0"
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 2.1"
 # Use Puma as the app server
-gem "puma", "~> 6.0"
+gem "puma", "~> 8.0"
 # Use Sass to process CSS
 gem "sass-rails", ">= 6"
 # Use UJS for unobtrusive scripting adapter for Rails
