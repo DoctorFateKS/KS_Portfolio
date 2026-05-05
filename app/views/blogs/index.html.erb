@@ -23,7 +23,7 @@
               </div>
             </header>
             <div class="project-card-body">
-              <p class="tagline"><%= article.content.first(150) %>...</p>
+              <p class="tagline"><%= article.content.first(150).html_safe %>...</p>
               <div class="stack">
                 <p>
                   <% article.tags.split(",").each do |tag| %>

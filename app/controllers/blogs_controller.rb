@@ -12,12 +12,18 @@ class BlogsController < ApplicationController
 
   # GET /blogs/new
   def new
-
+    @blog = Blog.new
   end
 
   # POST /blogs
   def create
+    @blog = Blog.new(blog_params)
 
+    if @blog.save
+      redirect_to @blog
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   # GET /blogs/:id/edit
@@ -33,5 +39,11 @@ class BlogsController < ApplicationController
   # DELETE /blogs/:id
   def destroy
 
+  end
+
+  private
+
+  def blog_params
+    params.require(:blog).permit(:title, :jp_title, :tags, :content)
   end
 end
