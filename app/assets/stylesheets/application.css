@@ -3,7 +3,8 @@
  *= require navbar
  *= require profil
  *= require skills
-  *= require projects
+ *= require projects
+ *= require blogs
  */
 
  :root {

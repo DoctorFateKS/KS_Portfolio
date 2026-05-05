@@ -37,3 +37,12 @@ Project.create(
 )
 
 puts "Projets créé !"
+
+Blog.destroy_all
+
+Blog.create(
+  title: "Star Wars quelle dinguerie !",
+  jp_title: "主任開発者",
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et cursus velit. Nulla at nunc vitae magna euismod lobortis. Morbi nec malesuada leo. Donec placerat vehicula lacus, sit amet fringilla magna sagittis a. Sed in arcu sit amet nibh interdum viverra. Phasellus quis mi gravida, consequat est non, bibendum turpis. Donec bibendum, quam vel convallis hendrerit, nunc felis suscipit tortor, at feugiat nibh tortor sit amet neque. Aliquam ut lobortis erat. Praesent nec viverra arcu. In a leo eget dolor commodo sagittis at in felis. Sed volutpat venenatis dapibus. Mauris est nulla, venenatis at nibh vitae, interdum convallis nisi. ",
+  tags: "Ruby, IA, Rails"
+)
