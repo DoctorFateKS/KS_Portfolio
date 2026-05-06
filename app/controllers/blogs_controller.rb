@@ -28,12 +28,17 @@ class BlogsController < ApplicationController
 
   # GET /blogs/:id/edit
   def edit
-
+    @blog = Blog.find(params[:id])
   end
 
   # PATCH/PUT /blogs/:id
   def update
-
+    @blog = Blog.find(params[:id])
+    if @blog.update(blog_params)
+      redirect_to @blog
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   # DELETE /blogs/:id
