@@ -4,6 +4,12 @@
 	gap: 1.25rem;
 }
 
+.blog-card-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
 .article_link {
 	text-decoration: none;
 	color: var(--text);
