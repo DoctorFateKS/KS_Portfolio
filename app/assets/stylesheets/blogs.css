@@ -34,3 +34,15 @@
 .content-puce {
 	color: red;
 }
+
+.pre {
+	background: #111827;
+  color: #e2e8f0;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  font-family: ui-monospace, monospace;
+  border: 1px solid #1f2937;
+  font-size: 0.95rem;
+}
