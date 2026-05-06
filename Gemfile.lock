@@ -232,6 +232,7 @@ GEM
     reline (0.6.3)
       io-console (~> 0.5)
     rexml (3.4.4)
+    rouge (4.7.0)
     rubyzip (3.2.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -330,6 +331,7 @@ DEPENDENCIES
   listen (~> 3.3)
   puma (~> 6.0)
   rails (~> 8.0.0)
+  rouge (~> 4.7)
   sass-rails (>= 6)
   selenium-webdriver
   solid_cache

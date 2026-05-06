@@ -10,7 +10,7 @@
     <% @blog.tags.split(",").each do |tag| %> <span class="techno"><%= tag %></span> <% end %>
 
     <div class="content">
-      <%= @blog.content.html_safe %>
+      <%= highlight_code(@blog.content) %>
     </div>
   </div>
 </section>
