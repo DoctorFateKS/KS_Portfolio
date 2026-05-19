@@ -29,7 +29,7 @@ body {
 
 .main-section {
   position: relative;
-  min-height: 100vh;
+  height: calc(100vh - 130px);
   display: flex;
   align-items: center;
   overflow: hidden;
