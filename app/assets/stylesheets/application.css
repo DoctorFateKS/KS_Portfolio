@@ -29,7 +29,7 @@ body {
 
 .main-section {
   position: relative;
-  height: calc(100vh - 130px);
+  height: calc(100vh - 94px);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -37,7 +37,7 @@ body {
 
 .secondary-section {
   position: relative;
-  min-height: 100vh;
+  height: calc(100vh - 160px);
   display: flex;
   align-items: center;
   overflow: hidden;
