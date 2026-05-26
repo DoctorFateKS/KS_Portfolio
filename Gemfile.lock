@@ -178,7 +178,7 @@ GEM
       date
       stringio
     public_suffix (7.0.2)
-    puma (6.6.1)
+    puma (8.0.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
@@ -329,7 +329,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   listen (~> 3.3)
-  puma (~> 6.0)
+  puma (~> 8.0)
   rails (~> 8.0.0)
   rouge (~> 4.7)
   sass-rails (>= 6)
