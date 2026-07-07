@@ -225,19 +225,6 @@
   }
 }
 
-/* ---------- Filet de sécurité "full page" ----------
-   Cette page a plus de contenu que la home : si elle dépasse
-   la hauteur du viewport (petit écran, zoom navigateur...),
-   .container scrolle en interne au lieu de couper le contenu
-   silencieusement — la page elle-même (body) ne scrolle jamais. */
-.main-section:has(.profil-hero) .container {
-  max-height: 100%;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -258,13 +245,6 @@
     opacity: 1;
     transform: scale(1) translateY(0);
   }
-}
-
-.profil-header {
-  opacity: 0;
-  transform: translateY(8px);
-  animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
-  animation-delay: 120ms;
 }
 
 .profil-avatar-wrapper {

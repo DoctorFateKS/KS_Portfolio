@@ -18,6 +18,8 @@
   --font-text: 'Courier New', monospace;
   --card-background: #f1eded;
   --card-border: #444;
+  --border-light: #ddd;
+  --surface: #fff;
 
   /* Fallback pour navigateurs sans support de dvh (ex: anciens Safari) */
   --viewport-height: 100vh;
@@ -106,6 +108,21 @@ body {
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) 120ms forwards;
+}
+
+/* Filet de sécurité "full page" réutilisable : à poser sur .container
+   quand une page a plus de contenu qu'un hero simple (Profil, Skills...).
+   La page elle-même ne scrolle jamais (overflow hidden sur body) ;
+   seul ce conteneur scrolle en interne si le contenu dépasse le viewport. */
+.scroll-safe {
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .header-line {
@@ -331,6 +348,7 @@ body {
 
 /* Respecte les préférences de réduction de mouvement */
 @media (prefers-reduced-motion: reduce) {
+  .header,
   .hero__badge,
   .hero__title-line,
   .hero__description,
