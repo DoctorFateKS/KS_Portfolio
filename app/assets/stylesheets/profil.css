@@ -51,7 +51,8 @@
 .profil-avatar-title {
   font-weight: 700;
   font-size: 1.25rem;
-  color: var(--foreground);
+  /* corrigé : --foreground n'existait pas */
+  color: var(--title-color);
   font-family: 'Space Grotesk', sans-serif;
 }
 
@@ -93,24 +94,12 @@
 }
 
 .profil-hero-title {
-  font-size: 2.25rem;
-  line-height: 0.80;
+  font-size: clamp(1.75rem, 5vw, 3.75rem);
+  line-height: 0.9;
   font-weight: 700;
   margin-bottom: 1.5rem;
   font-family: 'Space Grotesk', sans-serif;
   margin-top: 0;
-}
-
-@media (min-width: 768px) {
-  .profil-hero-title {
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .profil-hero-title {
-    font-size: 3.75rem;
-  }
 }
 
 .profil-paragraph {
@@ -129,7 +118,6 @@
 
 .profil-journey {
   margin-bottom: 1.5rem;
-  opacity: 1;
 }
 
 .profil-section-title {
@@ -138,7 +126,8 @@
   font-size: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: var(--foreground);
+  /* corrigé : --foreground n'existait pas */
+  color: var(--title-color);
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -213,7 +202,7 @@
 
 .profil-timeline-label {
   font-size: 0.875rem;
-  color: var(--foreground);
+  color: var(--title-color);
   font-weight: 500;
   font-family: 'Space Grotesk', sans-serif;
   margin-top: 0.25rem;
@@ -227,17 +216,26 @@
 }
 
 @media (max-width: 767px) {
-  .profil-section {
-    padding-top: 100px;
-  }
-
   .profil-hero {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   .profil-journey {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
+}
+
+/* ---------- Filet de sécurité "full page" ----------
+   Cette page a plus de contenu que la home : si elle dépasse
+   la hauteur du viewport (petit écran, zoom navigateur...),
+   .container scrolle en interne au lieu de couper le contenu
+   silencieusement — la page elle-même (body) ne scrolle jamais. */
+.main-section:has(.profil-hero) .container {
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 @keyframes fadeInUp {
