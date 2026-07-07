@@ -1,7 +1,19 @@
-<section class="main-section">
+<%# app/views/pages/index.html.erb (ou équivalent) %>
+
+<section class="main-section" data-controller="parallax">
+  <div class="halftone" aria-hidden="true"></div>
+  <div class="action-lines" aria-hidden="true"></div>
+
   <div class="background-image-container">
-    <div class="background-gradient"></div>
-    <%= image_tag "hero-background.webp", alt: "Ruby gemstone manga art", class: "hero__image", fetchpriority: "high", loading: "eager" %>
+    <div class="background-gradient" aria-hidden="true"></div>
+    <%= image_tag "hero-background.webp",
+          alt: "",
+          role: "presentation",
+          class: "hero__image",
+          fetchpriority: "high",
+          loading: "eager",
+          width: 1920,
+          height: 1080 %>
   </div>
 
   <div class="hero__container">
@@ -14,22 +26,25 @@
       <h1 class="hero__title">
         <span class="hero__title-line">Kevin</span>
         <span class="hero__title-line highlight">Saison</span>
-        <span class="hero__title-line">Ruby & Rails</span>
+        <span class="hero__title-line">Ruby &amp; Rails</span>
       </h1>
 
       <p class="hero__description">
-        Le <span class="highlight">FUTUR</span> du développement Ruby & Ruby on Rails. Et ce n'est pas seulement <span class="highlight">MOI</span> qui le dit. <span class="highlight">GOOGLE</span> le dit !  <span class="highlight">APPLE</span> le dit ! (ou pas... encore !)
+        Le <span class="highlight">FUTUR</span> du développement Ruby &amp; Ruby on Rails.
+        Et ce n'est pas seulement <span class="highlight">MOI</span> qui le dit.
+        <span class="highlight">GOOGLE</span> le dit ! <span class="highlight">APPLE</span> le dit ! (ou pas... encore !)
       </p>
 
       <div class="hero__cta-buttons">
-        <%# <a href="#projects" class="hero__btn hero__btn--primary manga-slash">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__icon">
+        <%= link_to projects_path, class: "hero__btn hero__btn--primary manga-slash" do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__icon" aria-hidden="true">
             <polyline points="16 18 22 12 16 6"></polyline>
             <polyline points="8 6 2 12 8 18"></polyline>
           </svg>
           Voir mes talents
-        </a> %>
-        <a href="mailto:saisonkevin@protonmail.com" class="hero__btn hero__btn--secondary manga-panel">Un p'tit message ?</a>
+        <% end %>
+
+        <%= link_to "Un p'tit message ?", "mailto:saisonkevin@protonmail.com", class: "hero__btn hero__btn--secondary manga-panel" %>
       </div>
     </div>
   </div>

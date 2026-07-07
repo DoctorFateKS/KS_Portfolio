@@ -1,41 +1,79 @@
-<nav class="navbar" data-controller="navbar" data-action="scroll@window->navbar#toggleNavbarStyles">
-  <div class="navbar__container">
-    <a href="<%= root_path %>" class="navbar__brand">
-      <span class="navbar__logo-text">ルビー</span>
-      <span class="navbar__logo-subtitle">KS</span>
+<div class="navbar-root" data-controller="navbar" data-navbar-pages-value="<%= [root_path, pages_profil_path, pages_skills_path, projects_path, blogs_path].to_json %>">
+
+  <%# Logo toujours visible, ne fait jamais partie de l'overlay %>
+  <%= link_to root_path, class: "navbar-brand", data: { action: "click->navbar#close" } do %>
+    <span class="navbar-brand__text">ルビー</span>
+    <span class="navbar-brand__subtitle">KS</span>
+  <% end %>
+
+  <%# Bouton hamburger, seul déclencheur du menu %>
+  <button
+    class="navbar-toggle"
+    data-navbar-target="button"
+    data-action="click->navbar#toggle keydown.esc->navbar#close"
+    aria-expanded="false"
+    aria-controls="navbar-overlay"
+    aria-label="Ouvrir le menu de navigation"
+  >
+    <span class="hamburger" data-navbar-target="hamburger" aria-hidden="true"></span>
+  </button>
+
+  <%# Overlay plein écran = le "menu-page" %>
+  <div
+    id="navbar-overlay"
+    class="navbar-overlay"
+    data-navbar-target="overlay"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menu principal"
+    inert
+  >
+    <div class="navbar-overlay__halftone" aria-hidden="true"></div>
+
+    <nav class="navbar-overlay__nav" aria-label="Navigation principale">
+      <a href="<%= root_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close">
+        <span class="navbar-overlay__index">01</span>
+        <span class="navbar-overlay__jp">ホームページ</span>
+        <span class="navbar-overlay__en">Accueil</span>
+      </a>
+      <a href="<%= pages_profil_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close">
+        <span class="navbar-overlay__index">02</span>
+        <span class="navbar-overlay__jp">紹介</span>
+        <span class="navbar-overlay__en">Profil</span>
+      </a>
+      <a href="<%= pages_skills_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close">
+        <span class="navbar-overlay__index">03</span>
+        <span class="navbar-overlay__jp">技術</span>
+        <span class="navbar-overlay__en">Skills</span>
+      </a>
+      <a href="<%= projects_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close">
+        <span class="navbar-overlay__index">04</span>
+        <span class="navbar-overlay__jp">作品</span>
+        <span class="navbar-overlay__en">Projects</span>
+      </a>
+      <a href="<%= blogs_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close">
+        <span class="navbar-overlay__index">05</span>
+        <span class="navbar-overlay__jp">ブログ</span>
+        <span class="navbar-overlay__en">Blog</span>
+      </a>
+    </nav>
+
+    <a href="mailto:saisonkevin@protonmail.com" class="navbar-overlay__cta manga-slash" data-navbar-target="link" data-action="click->navbar#close">
+      Embauchez-moi !
     </a>
-
-    <div class="navbar__menu" data-navbar-target="menu" role="navigation" aria-label="Main navigation">
-      <a href="<%= root_path %>" class="navbar__link">
-        <span class="navbar__link-jp">ホームページ</span>
-        <span class="navbar__link-en">Accueil</span>
-      </a>
-      <a href="<%= pages_profil_path %>" class="navbar__link">
-        <span class="navbar__link-jp">紹介</span>
-        <span class="navbar__link-en">Profil</span>
-      </a>
-      <a href="<%= pages_skills_path %>" class="navbar__link">
-        <span class="navbar__link-jp">技術</span>
-        <span class="navbar__link-en">Skills</span>
-      </a>
-      <a href="<%= projects_path %>" class="navbar__link">
-        <span class="navbar__link-jp">作品</span>
-        <span class="navbar__link-en">Projects</span>
-      </a>
-      <a href="<%= blogs_path %>" class="navbar__link">
-        <span class="navbar__link-jp">ブログ</span>
-        <span class="navbar__link-en">Blog</span>
-      </a>
-    </div>
-
-    <a href="mailto:saisonkevin@protonmail.com" class="navbar__cta manga-slash" data-navbar-target="cta">Embauchez-moi !</a>
-
-    <button class="navbar__toggle"
-        data-navbar-target="button"
-        data-action="click->navbar#toggleMenu"
-        aria-label="Toggle menu"
-        aria-expanded="false">
-      <span class="hamburger"></span>
-    </button>
   </div>
-</nav>
+
+  <%# Petit indicateur de page discret, en bas à droite, visible même overlay fermé %>
+  <div class="page-indicator" data-navbar-target="indicator" aria-hidden="true"></div>
+</div>
+
+<%# Fallback pur HTML si JS désactivé : les liens restent accessibles sans dépendre du JS %>
+<noscript>
+  <nav class="navbar-noscript" aria-label="Navigation principale (sans JavaScript)">
+    <%= link_to "Accueil", root_path %>
+    <%= link_to "Profil", pages_profil_path %>
+    <%= link_to "Skills", pages_skills_path %>
+    <%= link_to "Projects", projects_path %>
+    <%= link_to "Blog", blogs_path %>
+  </nav>
+</noscript>
