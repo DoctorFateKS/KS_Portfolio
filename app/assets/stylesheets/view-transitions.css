@@ -1,0 +1,73 @@
+/* ============================================
+   VIEW TRANSITIONS — effet "tourne-page manga"
+   ============================================
+   Turbo 8 gère nativement les View Transitions : il suffit d'ajouter
+   dans le <head> du layout :
+     <meta name="view-transition" content="same-origin" />
+   Aucun JS custom n'est nécessaire (turbo_view_transitions.js est
+   à supprimer s'il a été ajouté précédemment).
+*/
+
+/* Le logo + hamburger ont leur propre "groupe" de transition : ils
+   restent stables pendant que le contenu de la page se découpe en biais.
+
+   IMPORTANT : pas de `contain` ici. `contain: layout` (ou paint/strict/
+   content) transforme l'élément en bloc conteneur pour ses descendants
+   en position:fixed — exactement ce qu'on ne veut PAS puisque le logo,
+   le bouton hamburger, l'overlay et l'indicateur de page doivent rester
+   fixés par rapport au viewport, pas par rapport à .navbar-root. */
+
+
+::view-transition-old(site-chrome),
+::view-transition-new(site-chrome) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  animation: manga-wipe-leave 0.55s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+::view-transition-new(root) {
+  animation: manga-wipe-enter 0.55s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes manga-wipe-leave {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(-45% 0%, -25% 0%, -65% 100%, -85% 100%);
+  }
+}
+
+@keyframes manga-wipe-enter {
+  0% {
+    clip-path: polygon(125% 0%, 145% 0%, 105% 100%, 85% 100%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+
+/* ============================================
+   PATTERN .page-content — scroll interne contrôlé
+   ============================================ */
+.page-content {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+}
+
+
+/* ============================================
+   FIX ZOOM MOBILE
+   ============================================ */
+html,
+body {
+  touch-action: pan-x pan-y pinch-zoom;
+}

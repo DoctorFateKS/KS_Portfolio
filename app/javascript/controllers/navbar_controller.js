@@ -6,25 +6,28 @@ export default class extends Controller {
   static values = { pages: Array }
 
   connect() {
-    console.log("navbar controller connecté !")
-
     this.isOpen = false
     this.updateIndicator()
 
     // Ferme automatiquement le menu si l'utilisateur navigue via Turbo
-    // (retour arrière navigateur, clic sur un lien externe au menu, etc.)
     this.boundCloseOnVisit = () => this.close()
     document.addEventListener("turbo:before-visit", this.boundCloseOnVisit)
 
     // Navigation clavier type "diapositives" : flèches gauche/droite
-    // pour circuler entre les pages, uniquement quand le menu est fermé
     this.boundArrowNav = this.handleArrowNav.bind(this)
     document.addEventListener("keydown", this.boundArrowNav)
+
+    // Le navbar est persistant dans le layout : Stimulus ne le
+    // reconnecte pas à chaque page Turbo, donc on rafraîchit
+    // l'indicateur "01 / 05" manuellement à chaque changement de page.
+    this.boundUpdateIndicator = () => this.updateIndicator()
+    document.addEventListener("turbo:load", this.boundUpdateIndicator)
   }
 
   disconnect() {
     document.removeEventListener("turbo:before-visit", this.boundCloseOnVisit)
     document.removeEventListener("keydown", this.boundArrowNav)
+    document.removeEventListener("turbo:load", this.boundUpdateIndicator)
   }
 
   toggle() {
@@ -40,7 +43,6 @@ export default class extends Controller {
     this.buttonTarget.setAttribute("aria-expanded", "true")
     this.buttonTarget.setAttribute("aria-label", "Fermer le menu de navigation")
 
-    // Premier lien focusé pour les utilisateurs clavier / lecteurs d'écran
     this.linkTargets[0]?.focus()
 
     document.addEventListener("keydown", this.handleKeydownBound = this.handleKeydown.bind(this))
@@ -57,7 +59,6 @@ export default class extends Controller {
 
     document.removeEventListener("keydown", this.handleKeydownBound)
 
-    // Rend le focus à l'élément qui avait ouvert le menu
     this.lastFocused?.focus()
   }
 
@@ -94,7 +95,6 @@ export default class extends Controller {
     if (!this.hasPagesValue || this.pagesValue.length === 0) return
     if (!["ArrowRight", "ArrowLeft"].includes(event.key)) return
 
-    // Ignore si le focus est dans un champ de saisie
     const tag = document.activeElement?.tagName
     if (["INPUT", "TEXTAREA", "SELECT"].includes(tag)) return
 

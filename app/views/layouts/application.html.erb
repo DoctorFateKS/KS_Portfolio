@@ -16,6 +16,9 @@
       <link rel="canonical" href="<%= content_for(:canonical) %>">
     <% end %>
 
+    <meta name="turbo-prefetch" content="true">
+    <meta name="view-transition" content="same-origin" />
+
     <!-- Open Graph Tags (Social Media) -->
     <meta property="og:type" content="<%= content_for(:og_type) || 'website' %>">
     <meta property="og:title" content="<%= content_for(:og_title) || content_for(:title) || 'Kevin Saison - Développeur Ruby & Ruby on Rails' %>">

@@ -1,1 +1,89 @@
-<h1>Project Page</h1>
+<section class="main-section">
+  <div class="halftone" aria-hidden="true"></div>
+  <div class="action-lines" aria-hidden="true"></div>
+
+  <div class="container scroll-safe">
+
+    <%= link_to projects_path, class: "header back-link" do %>
+      <div class="header-line"></div>
+      <span class="header-jp">戻る</span>
+      <span class="header-en">Retour au grimoire</span>
+    <% end %>
+
+    <article class="project-show">
+      <header class="project-show-hero">
+        <h1 class="project-show-title"><%= @project.title %></h1>
+
+        <div class="project-subtitle">
+          <span class="jp-subtitle"><%= @project.role_jp %></span>
+          <span class="project-highlight">— <%= @project.role_description %></span>
+        </div>
+
+        <p class="project-show-tagline"><%= @project.tagline %></p>
+
+        <div class="stack project-show-stack">
+          <% @project.stack.split(",").each do |techno| %>
+            <span class="techno"><%= techno.strip %></span>
+          <% end %>
+        </div>
+
+        <div class="project-show-actions">
+          <% if @project.demo_url.present? %>
+            <%= link_to @project.demo_url,
+                  class: "hero__btn hero__btn--primary manga-slash",
+                  target: "_blank",
+                  rel: "noopener noreferrer" do %>
+              <i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i>
+              Voir la démo
+            <% end %>
+          <% end %>
+
+          <% if @project.github_url.present? %>
+            <%= link_to @project.github_url,
+                  class: "hero__btn hero__btn--secondary manga-panel",
+                  target: "_blank",
+                  rel: "noopener noreferrer" do %>
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+              Code source
+            <% end %>
+          <% end %>
+        </div>
+      </header>
+
+      <section class="project-show-section">
+        <h2 class="profil-section-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profil-icon" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <circle cx="12" cy="12" r="5"></circle>
+            <circle cx="12" cy="12" r="1"></circle>
+          </svg>
+          <span>Le Défi</span>
+          <span class="profil-section-jp">課題</span>
+        </h2>
+        <p class="project-show-challenge"><%= @project.challenges %></p>
+      </section>
+
+      <section class="project-show-section">
+        <h2 class="profil-section-title">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profil-icon" aria-hidden="true">
+            <path d="M8 21h8"></path>
+            <path d="M12 17v4"></path>
+            <path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"></path>
+            <path d="M5 6H3v1a4 4 0 0 0 4 4"></path>
+            <path d="M19 6h2v1a4 4 0 0 1-4 4"></path>
+          </svg>
+          <span>Butin de la Quête</span>
+          <span class="profil-section-jp">戦利品</span>
+        </h2>
+        <div class="results-grid">
+          <% @project.results.split(",").each do |result| %>
+            <div class="result-card">
+              <div class="results-square" aria-hidden="true"></div>
+              <span class="result-card-text"><%= result.strip %></span>
+            </div>
+          <% end %>
+        </div>
+      </section>
+    </article>
+  </div>
+</section>

@@ -1,57 +1,80 @@
 <section class="main-section">
-  <div class="halftone"></div>
-  <div class="action-lines"></div>
+  <div class="halftone" aria-hidden="true"></div>
+  <div class="action-lines" aria-hidden="true"></div>
 
-  <div class="container">
+  <div class="container scroll-safe">
     <div class="header">
       <div class="header-line"></div>
-			<span class="header-jp">アートギャラリー</span>
-			<span class="header-en">Ma Galerie d'Art</span>
-		</div>
+      <span class="header-jp">アートギャラリー</span>
+      <span class="header-en">Ma Galerie d'Art</span>
+    </div>
 
     <h1 class="skills-title"><span class="fg">Grimoire</span> des <span class="highlight">Projets</span></h1>
-    <p class="skills-intro">Chaque projet est une nouvelle aventure avec mes acolytes <span class="emphasis">Ruby</span> et <span class="emphasis">Ruby on Rails</span>. Chacun d'eux a été réalisé en respectant au mieux les principes d'architectures d'applications et une méthodologie de tests rigoureuse.</p>
+    <p class="skills-intro">
+      Chaque projet est une nouvelle aventure avec mes acolytes <span class="emphasis">Ruby</span> et
+      <span class="emphasis">Ruby on Rails</span>. Chacun d'eux a été réalisé en respectant au mieux les
+      principes d'architectures d'applications et une méthodologie de tests rigoureuse.
+    </p>
 
     <div class="projects-grid">
-      <% @projects.each do |project| %>
-        <article class="skills-card">
-          <div class="card-ribbon"></div>
+      <% @projects.each_with_index do |project, index| %>
+        <article class="skills-card" style="animation-delay: <%= 200 + (index * 80) %>ms">
+          <div class="card-ribbon" aria-hidden="true"></div>
+
           <header class="project-card-head">
             <div class="card-title">
-              <h3><%= project.title %></h3>
+              <h2><%= project.title %></h2>
               <div class="project-subtitle">
-                <span class="jp-subtitle"><%= project.role_jp %></span> <span class="project-highlight">— <%= project.role_description %></span>
+                <span class="jp-subtitle"><%= project.role_jp %></span>
+                <span class="project-highlight">— <%= project.role_description %></span>
               </div>
             </div>
+
             <div class="social-icons">
-              <%= link_to project.github_url, class: "social-icon" do %><i class="fa-brands fa-github"></i><% end %>
-              <%= link_to project.demo_url, class: "social-icon" do %><i class="fa-solid fa-arrow-right-to-bracket"></i><% end %>
+              <% if project.github_url.present? %>
+                <%= link_to project.github_url, class: "social-icon", target: "_blank", rel: "noopener noreferrer", aria: { label: "Voir le code source de #{project.title} sur GitHub" } do %>
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+
+              <% if project.demo_url.present? %>
+                <%= link_to project.demo_url, class: "social-icon", target: "_blank", rel: "noopener noreferrer", aria: { label: "Voir la démo de #{project.title}" } do %>
+                  <i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
             </div>
           </header>
+
           <div class="project-card-body">
             <p class="tagline"><%= project.tagline %></p>
+
             <div>
               <span class="challenge-title">Challenges</span>
               <p class="challenge"><%= project.challenges %></p>
             </div>
+
             <div class="stack">
               <p>
                 <% project.stack.split(",").each do |techno| %>
-                  <span class="techno"><%= techno %></span>
+                  <span class="techno"><%= techno.strip %></span>
                 <% end %>
               </p>
             </div>
           </div>
+
           <footer class="project-card-footer">
             <div class="results">
-              <div class="results-item">
-                <% project.results.split(",").first(3).each do |result| %>
-                  <div class="results-square"></div>
-                  <span class="result"><%= result %></span>
-                <% end %>
-              </div>
+              <% project.results.split(",").first(3).each do |result| %>
+                <div class="result-pill">
+                  <div class="results-square" aria-hidden="true"></div>
+                  <span class="result"><%= result.strip %></span>
+                </div>
+              <% end %>
             </div>
-            <%= link_to project_path(project), class: "details-link" do %>Détails <i class="fa-solid fa-arrow-right"></i><% end %>
+
+            <%= link_to project_path(project), class: "details-link" do %>
+              Détails <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            <% end %>
           </footer>
         </article>
       <% end %>

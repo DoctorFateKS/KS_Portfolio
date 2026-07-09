@@ -1,6 +1,7 @@
 /*
  *= require_self
  *= require navbar
+ *= require view-transitions
  *= require profil
  *= require skills
  *= require projects
@@ -61,6 +62,18 @@ body {
   justify-content: center;
   box-sizing: border-box;
   /* plus de padding-top : la nav flotte, elle ne réserve plus d'espace */
+}
+
+.page-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: 6rem;   /* respiration sous le logo/hamburger fixes */
+  padding-bottom: 4rem;
+  box-sizing: border-box;
 }
 
 .halftone {

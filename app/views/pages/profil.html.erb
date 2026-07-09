@@ -1,89 +1,118 @@
-<section class="main-section">
-  <div class="halftone" aria-hidden="true"></div>
-  <div class="action-lines" aria-hidden="true"></div>
+<div class="page-content">
+  <section class="page-section">
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="action-lines" aria-hidden="true"></div>
 
-  <div class="container scroll-safe">
-    <div class="header">
-      <div class="header-line"></div>
-      <span class="header-jp">私は誰ですか</span>
-      <span class="header-en">Qui suis-je ?</span>
-    </div>
+    <div class="container">
+      <div class="header">
+        <div class="header-line"></div>
+        <span class="header-jp">私は誰ですか</span>
+        <span class="header-en">Qui suis-je ?</span>
+      </div>
 
-    <div class="profil-hero">
-      <div class="profil-avatar-wrapper">
-        <div class="profil-avatar-card">
-          <%= image_tag "profile.avif", alt: "Portrait façon manga du développeur", class: "profil-avatar-image" %>
-          <div class="profil-avatar-text">
-            <div class="profil-avatar-title">Votre Futur Dev</div>
-            <div class="profil-avatar-jp">あなたの将来の開発者</div>
+      <div class="profil-hero">
+        <div class="profil-avatar-wrapper">
+          <div class="profil-avatar-card">
+            <%= image_tag "profile.avif", alt: "Portrait façon manga du développeur", class: "profil-avatar-image" %>
+            <div class="profil-avatar-text">
+              <div class="profil-avatar-title">Développeur Ruby on Rails</div>
+              <div class="profil-avatar-jp">開発者</div>
+            </div>
           </div>
+          <div class="profil-avatar-glow glow-top-right" aria-hidden="true"></div>
+          <div class="profil-avatar-glow glow-bottom-left" aria-hidden="true"></div>
         </div>
-        <div class="profil-avatar-glow glow-top-right" aria-hidden="true"></div>
-        <div class="profil-avatar-glow glow-bottom-left" aria-hidden="true"></div>
-      </div>
 
-      <div class="profil-hero-content">
-        <h1 class="profil-hero-title">
-          <span>Lié à</span>
-          <span class="highlight">Ruby</span>
-          <span>depuis</span>
-          <br>
-          <span>une</span>
-          <span class="highlight">année</span>
-        </h1>
-        <p class="profil-paragraph">
-          C'était il y a un an. J'étais assis au fond d'une taverne brumeuse, une chope d'hydromel à la main,
-          quand j'ai croisé leur regard : <span class="emphasis">Ruby</span> et son inséparable compagnon,
-          <span class="emphasis">Ruby on Rails</span>.
-        </p>
-        <p class="profil-paragraph">
-          Ce fut le coup de foudre instantané. Et oui, j'ai choisi de m'engager avec les deux en même temps.
-          Ne jugez pas, chacun gère ses relations comme il l'entend. Depuis ce jour, nous formons une guilde
-          soudée par un pacte de sang (ou du moins, par un bundle install).
-        </p>
-      </div>
-    </div>
+        <div class="profil-hero-content">
+          <h1 class="profil-hero-title">
+            <span>Développeur</span>
+            <span class="highlight">Ruby on Rails</span>
+            <span>depuis</span>
+            <span>un</span>
+            <span class="highlight">an</span>
+          </h1>
+          <p class="profil-paragraph">
+            Il y a un peu plus d'un an, en pleine reconversion professionnelle, j'ai découvert
+            <span class="emphasis">Ruby</span> — et avec lui, <span class="emphasis">Ruby on Rails</span>.
+            Ce qui devait être une simple exploration technique est vite devenu une évidence :
+            la lisibilité du langage, la clarté des conventions, l'efficacité du framework.
+          </p>
+          <p class="profil-paragraph">
+            Depuis, je n'ai cessé d'approfondir cette pratique : certifications, projets personnels,
+            veille technique constante. Ruby on Rails n'est plus seulement l'outil avec lequel je
+            travaille — c'est celui avec lequel je conçois, structure et fais vivre mes idées.
+          </p>
 
-    <div class="profil-journey">
-      <h2 class="profil-section-title">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profil-icon" aria-hidden="true">
-          <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-          <rect width="20" height="14" x="2" y="6" rx="2"></rect>
-        </svg>
-        <span>Mon Aventure</span>
-        <span class="profil-section-jp">私の冒険</span>
-      </h2>
-
-      <div class="profil-journey-timeline">
-        <div class="profil-timeline-line" aria-hidden="true"></div>
-        <div class="profil-journey-grid">
-          <div class="profil-timeline-item">
-            <div class="profil-timeline-year">Février 2025</div>
-            <div class="profil-timeline-label">Reconversion Professionnelle</div>
-            <div class="profil-timeline-jp">再訓練</div>
-          </div>
-          <div class="profil-timeline-item">
-            <div class="profil-timeline-year">Mai 2025</div>
-            <div class="profil-timeline-label">Certification Ruby - Le Wagon</div>
-            <div class="profil-timeline-jp">認証</div>
-          </div>
-          <div class="profil-timeline-item">
-            <div class="profil-timeline-year">Novembre 2025</div>
-            <div class="profil-timeline-label">Certification SQL - ENI Services</div>
-            <div class="profil-timeline-jp">認証</div>
-          </div>
-          <div class="profil-timeline-item">
-            <div class="profil-timeline-year">Février 2026</div>
-            <div class="profil-timeline-label">Lancement Site Personnel</div>
-            <div class="profil-timeline-jp">ポートフォリオ</div>
-          </div>
-          <div class="profil-timeline-item">
-            <div class="profil-timeline-year">Année 2026</div>
-            <div class="profil-timeline-label">Projet SkillEn en cours</div>
-            <div class="profil-timeline-jp">プロジェクト</div>
-          </div>
+          <%= link_to asset_path("cv.pdf"), class: "profil-cv-btn", download: "CV-Kevin-Saison.pdf", data: { turbo: false } do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profil-cv-btn__icon" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Télécharger mon CV (PDF)
+          <% end %>
         </div>
       </div>
+
+      <div class="profil-journey" data-controller="reveal">
+        <h2 class="profil-section-title" data-reveal-target="item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profil-icon" aria-hidden="true">
+            <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+          </svg>
+          <span>Mon Parcours</span>
+          <span class="profil-section-jp">経歴</span>
+        </h2>
+
+        <div class="profil-journey-timeline">
+          <div class="profil-timeline-line" aria-hidden="true"></div>
+          <div class="profil-journey-grid">
+
+            <%# Pas de certificat associé : simple carte, non cliquable %>
+            <div class="profil-timeline-item" data-reveal-target="item">
+              <div class="profil-timeline-year">Février 2025</div>
+              <div class="profil-timeline-label">Reconversion professionnelle</div>
+              <div class="profil-timeline-jp">再訓練</div>
+            </div>
+
+            <%# Certification avec preuve externe : carte cliquable %>
+            <%= link_to "https://www.lewagon.com/fr/web-development-course", class: "profil-timeline-item profil-timeline-item--linkable", data: { reveal_target: "item", turbo: false }, target: "_blank", rel: "noopener noreferrer", "aria-label": "Certification Ruby, Le Wagon — voir le certificat (nouvel onglet)" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profil-timeline-external" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              <div class="profil-timeline-year">Mai 2025</div>
+              <div class="profil-timeline-label">Certification Ruby — Le Wagon</div>
+              <div class="profil-timeline-jp">認証</div>
+            <% end %>
+
+            <%= link_to "https://www.eni-service.fr/formation/formation-postgresql-10-x-programmation-sql/", class: "profil-timeline-item profil-timeline-item--linkable", data: { reveal_target: "item", turbo: false }, target: "_blank", rel: "noopener noreferrer", "aria-label": "Certification SQL, ENI Services — voir le certificat (nouvel onglet)" do %>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profil-timeline-external" aria-hidden="true">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              <div class="profil-timeline-year">Novembre 2025</div>
+              <div class="profil-timeline-label">Certification SQL — ENI Services</div>
+              <div class="profil-timeline-jp">認証</div>
+            <% end %>
+
+            <div class="profil-timeline-item" data-reveal-target="item">
+              <div class="profil-timeline-year">Février 2026</div>
+              <div class="profil-timeline-label">Lancement du site personnel</div>
+              <div class="profil-timeline-jp">ポートフォリオ</div>
+            </div>
+
+            <div class="profil-timeline-item" data-reveal-target="item">
+              <div class="profil-timeline-year">2026</div>
+              <div class="profil-timeline-label">SkillEn — en développement</div>
+              <div class="profil-timeline-jp">プロジェクト</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

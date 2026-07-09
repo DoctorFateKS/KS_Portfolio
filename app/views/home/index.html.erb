@@ -1,51 +1,40 @@
-<%# app/views/pages/index.html.erb (ou équivalent) %>
-
-<section class="main-section" data-controller="parallax">
-  <div class="halftone" aria-hidden="true"></div>
-  <div class="action-lines" aria-hidden="true"></div>
-
-  <div class="background-image-container">
-    <div class="background-gradient" aria-hidden="true"></div>
-    <%= image_tag "hero-background.webp",
-          alt: "",
-          role: "presentation",
-          class: "hero__image",
-          fetchpriority: "high",
-          loading: "eager",
-          width: 1920,
-          height: 1080 %>
-  </div>
-
-  <div class="hero__container">
-    <div class="hero__content">
-      <div class="hero__badge">
-        <div class="hero__badge-line"></div>
-        <span class="hero__badge-text">開発者</span>
-      </div>
-
-      <h1 class="hero__title">
-        <span class="hero__title-line">Kevin</span>
-        <span class="hero__title-line highlight">Saison</span>
-        <span class="hero__title-line">Ruby &amp; Rails</span>
-      </h1>
-
-      <p class="hero__description">
-        Le <span class="highlight">FUTUR</span> du développement Ruby &amp; Ruby on Rails.
-        Et ce n'est pas seulement <span class="highlight">MOI</span> qui le dit.
-        <span class="highlight">GOOGLE</span> le dit ! <span class="highlight">APPLE</span> le dit ! (ou pas... encore !)
-      </p>
-
-      <div class="hero__cta-buttons">
-        <%= link_to projects_path, class: "hero__btn hero__btn--primary manga-slash" do %>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__icon" aria-hidden="true">
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-          Voir mes talents
-        <% end %>
-
-        <%= link_to "Un p'tit message ?", "mailto:saisonkevin@protonmail.com", class: "hero__btn hero__btn--secondary manga-panel" %>
+<div class="page-content">
+  <section class="main-section">
+    <div class="background-image-container">
+      <div class="background-gradient"></div>
+      <%= image_tag "hero-background.webp", alt: "Ruby gemstone manga art", class: "hero__image", fetchpriority: "high", loading: "eager" %>
+    </div>
+    <div class="hero__container">
+      <div class="hero__content">
+        <div class="hero__badge">
+          <div class="hero__badge-line"></div>
+          <span class="hero__badge-text">開発者</span>
+        </div>
+        <h1 class="hero__title">
+          <span class="hero__title-line">Kevin</span>
+          <span class="hero__title-line highlight">Saison</span>
+          <span class="hero__title-line">Ruby & Rails</span>
+        </h1>
+        <p class="hero__description">
+          Développeur <span class="highlight">Ruby on Rails</span>, je conçois des applications web
+          <span class="emphasis">robustes</span> et pensées pour durer — de l'architecture
+          backend jusqu'à l'expérience utilisateur. Mon objectif : transformer une idée
+          en produit <span class="highlight">fiable</span>, <span class="emphasis">maintenable</span>
+          et prêt à grandir.
+        </p>
+        <div class="hero__cta-buttons">
+          <a href="<%= projects_path %>" class="hero__btn hero__btn--primary manga-slash" data-turbo-prefetch="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__icon">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            Découvrir mes réalisations
+          </a>
+          <a href="mailto:saisonkevin@protonmail.com" class="hero__btn hero__btn--secondary manga-panel" data-turbo-prefetch="false">
+            Discutons de votre projet
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>

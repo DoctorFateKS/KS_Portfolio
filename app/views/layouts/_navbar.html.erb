@@ -1,12 +1,10 @@
 <div class="navbar-root" data-controller="navbar" data-navbar-pages-value="<%= [root_path, pages_profil_path, pages_skills_path, projects_path, blogs_path].to_json %>">
 
-  <%# Logo toujours visible, ne fait jamais partie de l'overlay %>
-  <%= link_to root_path, class: "navbar-brand", data: { action: "click->navbar#close" } do %>
+  <%= link_to root_path, class: "navbar-brand", data: { action: "click->navbar#close", turbo_prefetch: true } do %>
     <span class="navbar-brand__text">ルビー</span>
     <span class="navbar-brand__subtitle">KS</span>
   <% end %>
 
-  <%# Bouton hamburger, seul déclencheur du menu %>
   <button
     class="navbar-toggle"
     data-navbar-target="button"
@@ -18,7 +16,6 @@
     <span class="hamburger" data-navbar-target="hamburger" aria-hidden="true"></span>
   </button>
 
-  <%# Overlay plein écran = le "menu-page" %>
   <div
     id="navbar-overlay"
     class="navbar-overlay"
@@ -31,49 +28,47 @@
     <div class="navbar-overlay__halftone" aria-hidden="true"></div>
 
     <nav class="navbar-overlay__nav" aria-label="Navigation principale">
-      <a href="<%= root_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close">
+      <a href="<%= root_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close" data-turbo-prefetch="true">
         <span class="navbar-overlay__index">01</span>
         <span class="navbar-overlay__jp">ホームページ</span>
         <span class="navbar-overlay__en">Accueil</span>
       </a>
-      <a href="<%= pages_profil_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close">
+      <a href="<%= pages_profil_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close" data-turbo-prefetch="true">
         <span class="navbar-overlay__index">02</span>
         <span class="navbar-overlay__jp">紹介</span>
-        <span class="navbar-overlay__en">Profil</span>
+        <span class="navbar-overlay__en">À propos</span>
       </a>
-      <a href="<%= pages_skills_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close">
+      <a href="<%= pages_skills_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close" data-turbo-prefetch="true">
         <span class="navbar-overlay__index">03</span>
         <span class="navbar-overlay__jp">技術</span>
-        <span class="navbar-overlay__en">Skills</span>
+        <span class="navbar-overlay__en">Compétences</span>
       </a>
-      <a href="<%= projects_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close">
+      <a href="<%= projects_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close" data-turbo-prefetch="true">
         <span class="navbar-overlay__index">04</span>
         <span class="navbar-overlay__jp">作品</span>
-        <span class="navbar-overlay__en">Projects</span>
+        <span class="navbar-overlay__en">Réalisations</span>
       </a>
-      <a href="<%= blogs_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close">
+      <a href="<%= blogs_path %>" class="navbar-overlay__link" data-navbar-target="link" data-action="click->navbar#close" data-turbo-prefetch="true">
         <span class="navbar-overlay__index">05</span>
         <span class="navbar-overlay__jp">ブログ</span>
-        <span class="navbar-overlay__en">Blog</span>
+        <span class="navbar-overlay__en">Journal</span>
       </a>
     </nav>
 
-    <a href="mailto:saisonkevin@protonmail.com" class="navbar-overlay__cta manga-slash" data-navbar-target="link" data-action="click->navbar#close">
-      Embauchez-moi !
+    <a href="mailto:saisonkevin@protonmail.com" class="navbar-overlay__cta manga-slash" data-navbar-target="link" data-action="click->navbar#close" data-turbo-prefetch="false">
+      Parlons de votre projet
     </a>
   </div>
 
-  <%# Petit indicateur de page discret, en bas à droite, visible même overlay fermé %>
   <div class="page-indicator" data-navbar-target="indicator" aria-hidden="true"></div>
 </div>
 
-<%# Fallback pur HTML si JS désactivé : les liens restent accessibles sans dépendre du JS %>
 <noscript>
   <nav class="navbar-noscript" aria-label="Navigation principale (sans JavaScript)">
     <%= link_to "Accueil", root_path %>
-    <%= link_to "Profil", pages_profil_path %>
-    <%= link_to "Skills", pages_skills_path %>
-    <%= link_to "Projects", projects_path %>
-    <%= link_to "Blog", blogs_path %>
+    <%= link_to "À propos", pages_profil_path %>
+    <%= link_to "Compétences", pages_skills_path %>
+    <%= link_to "Réalisations", projects_path %>
+    <%= link_to "Journal", blogs_path %>
   </nav>
 </noscript>

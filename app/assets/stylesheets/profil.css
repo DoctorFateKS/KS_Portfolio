@@ -28,6 +28,12 @@
   border: 5px solid var(--card-border);
   padding: 0.75rem;
   width: 280px;
+  /* Permet, si un jour une mini-photo apparaît ailleurs (overlay du
+     menu, footer...) avec le même nom, une transition fluide de
+     l'image entre les deux pages via la View Transitions API déjà
+     en place (cf. view-transitions.css). Ce nom doit rester unique
+     sur la page à un instant T. */
+  view-transition-name: profil-avatar;
 }
 
 @media (min-width: 768px) {
@@ -51,7 +57,6 @@
 .profil-avatar-title {
   font-weight: 700;
   font-size: 1.25rem;
-  /* corrigé : --foreground n'existait pas */
   color: var(--title-color);
   font-family: 'Space Grotesk', sans-serif;
 }
@@ -116,6 +121,39 @@
   }
 }
 
+/* ---------- Bouton CV téléchargeable ---------- */
+.profil-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  margin-top: 0.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--title-color);
+  background-color: transparent;
+  border: 2px solid var(--card-border);
+  transition: var(--transition-smooth);
+}
+
+.profil-cv-btn:hover,
+.profil-cv-btn:focus-visible {
+  color: #fff;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.profil-cv-btn__icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
 .profil-journey {
   margin-bottom: 1.5rem;
 }
@@ -126,7 +164,6 @@
   font-size: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  /* corrigé : --foreground n'existait pas */
   color: var(--title-color);
   margin-bottom: 2rem;
   display: flex;
@@ -152,45 +189,103 @@
   position: relative;
 }
 
+/* Ligne de connexion : verticale sur mobile, horizontale sur desktop
+   (les deux variantes sont définies plus bas dans leurs media queries
+   respectives) */
 .profil-timeline-line {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background-color: #ddd;
-  transform: translateY(-50%);
   display: none;
+  position: absolute;
+  background-color: #ddd;
   z-index: 0;
-}
-
-@media (min-width: 768px) {
-  .profil-timeline-line {
-    display: block;
-  }
 }
 
 .profil-journey-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   position: relative;
   z-index: 1;
 }
 
+/* ---------- Mobile : timeline verticale ---------- */
+@media (max-width: 767px) {
+  .profil-journey-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-left: 1.75rem;
+  }
+
+  .profil-timeline-line {
+    display: block;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    left: 0.65rem;
+    width: 3px;
+  }
+
+  .profil-timeline-item {
+    text-align: left;
+  }
+
+  .profil-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 1.35rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: var(--primary);
+    border: 2px solid var(--card-background);
+  }
+}
+
+/* ---------- Desktop : timeline horizontale (comportement d'origine) ---------- */
 @media (min-width: 768px) {
   .profil-journey-grid {
     grid-template-columns: repeat(5, 1fr);
     gap: 0.5rem;
   }
+
+  .profil-timeline-line {
+    display: block;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    transform: translateY(-50%);
+  }
 }
 
 .profil-timeline-item {
+  display: block;
   background-color: var(--card-background);
   border: 3px solid var(--card-border);
   padding: 1rem;
   text-align: center;
   position: relative;
+  text-decoration: none;
+}
+
+/* ---------- Cartes cliquables (certifications avec preuve externe) ---------- */
+.profil-timeline-item--linkable {
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.profil-timeline-item--linkable:hover,
+.profil-timeline-item--linkable:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+.profil-timeline-external {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--primary);
+  opacity: 0.6;
 }
 
 .profil-timeline-year {
@@ -225,26 +320,17 @@
   }
 }
 
+/* ============================================
+   ANIMATIONS — contenu au-dessus de la ligne de flottaison
+   ============================================ */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes popIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95) translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
+  from { opacity: 0; transform: scale(0.95) translateY(6px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .profil-avatar-wrapper {
@@ -273,43 +359,55 @@
   animation: fadeInUp 640ms cubic-bezier(.2,.9,.2,1) forwards;
 }
 
-.profil-hero-content .profil-paragraph:nth-of-type(1) {
-  animation-delay: 420ms;
-}
+.profil-hero-content .profil-paragraph:nth-of-type(1) { animation-delay: 420ms; }
+.profil-hero-content .profil-paragraph:nth-of-type(2) { animation-delay: 520ms; }
 
-.profil-hero-content .profil-paragraph:nth-of-type(2) {
-  animation-delay: 520ms;
-}
-
-.profil-section-title {
+.profil-cv-btn {
   opacity: 0;
   transform: translateY(10px);
-  animation: fadeInUp 560ms cubic-bezier(.2,.9,.2,1) forwards;
-  animation-delay: 640ms;
+  animation: fadeInUp 640ms cubic-bezier(.2,.9,.2,1) forwards;
+  animation-delay: 600ms;
 }
 
+/* ============================================
+   RÉVÉLATION AU SCROLL — section "Mon Parcours"
+   ============================================ */
+.profil-section-title,
 .profil-timeline-item {
   opacity: 0;
-  transform: translateY(10px);
-  animation: popIn 520ms cubic-bezier(.2,.9,.2,1) forwards;
+  transform: translateY(14px);
+  transition: opacity 520ms cubic-bezier(.2,.9,.2,1),
+              transform 520ms cubic-bezier(.2,.9,.2,1);
 }
 
-.profil-journey-grid .profil-timeline-item:nth-child(1) { animation-delay: 760ms; }
-.profil-journey-grid .profil-timeline-item:nth-child(2) { animation-delay: 860ms; }
-.profil-journey-grid .profil-timeline-item:nth-child(3) { animation-delay: 960ms; }
-.profil-journey-grid .profil-timeline-item:nth-child(4) { animation-delay: 1060ms; }
-.profil-journey-grid .profil-timeline-item:nth-child(5) { animation-delay: 1160ms; }
+.profil-section-title.is-visible,
+.profil-timeline-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.profil-journey-grid .profil-timeline-item:nth-child(1) { transition-delay: 0ms; }
+.profil-journey-grid .profil-timeline-item:nth-child(2) { transition-delay: 80ms; }
+.profil-journey-grid .profil-timeline-item:nth-child(3) { transition-delay: 160ms; }
+.profil-journey-grid .profil-timeline-item:nth-child(4) { transition-delay: 240ms; }
+.profil-journey-grid .profil-timeline-item:nth-child(5) { transition-delay: 320ms; }
 
 @media (prefers-reduced-motion: reduce) {
-  .profil-header,
   .profil-avatar-wrapper,
   .profil-avatar-glow,
   .profil-hero-title,
   .profil-paragraph,
+  .profil-cv-btn,
   .profil-section-title,
   .profil-timeline-item {
     animation: none !important;
+    transition: none !important;
     opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .profil-timeline-item--linkable:hover,
+  .profil-timeline-item--linkable:focus-visible {
     transform: none !important;
   }
 }
