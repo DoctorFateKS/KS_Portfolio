@@ -1,7 +1,7 @@
 /*
  *= require_self
- *= require navbar
  *= require view-transitions
+ *= require navbar
  *= require profil
  *= require skills
  *= require projects
@@ -62,6 +62,13 @@ body {
   justify-content: center;
   box-sizing: border-box;
   /* plus de padding-top : la nav flotte, elle ne réserve plus d'espace */
+}
+
+.page-content {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .page-section {

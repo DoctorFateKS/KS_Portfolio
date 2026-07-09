@@ -1,114 +1,254 @@
-<section class="main-section">
-  <div class="halftone" aria-hidden="true"></div>
-  <div class="action-lines" aria-hidden="true"></div>
+<div class="page-content">
+  <section class="page-section page-section--centered">
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="action-lines" aria-hidden="true"></div>
 
-  <div class="container scroll-safe">
+    <div class="container">
 
-    <div class="header">
-      <div class="header-line"></div>
-      <span class="header-jp">私の才能</span>
-      <span class="header-en">Mes Talents</span>
+      <div class="header">
+        <div class="header-line"></div>
+        <span class="header-jp">私の才能</span>
+        <span class="header-en">Mes Talents</span>
+      </div>
+
+      <h1 class="skills-title"><span class="fg">Compétences</span> <span class="highlight">Techniques</span></h1>
+      <p class="skills-intro">
+        <span class="emphasis">Ruby on Rails</span> est mon terrain de prédilection, mais mon approche
+        du développement va au-delà d'un seul framework. Architecture, qualité de code, bases de
+        données, tests, DevOps : voici un aperçu structuré des technologies et pratiques que je
+        maîtrise et que je continue d'approfondir au quotidien.
+      </p>
+
+      <div class="skills-carousel" data-controller="carousel">
+        <button
+          type="button"
+          class="skills-carousel__arrow skills-carousel__arrow--prev"
+          data-carousel-target="prevButton"
+          data-action="click->carousel#prev"
+          aria-label="Compétences précédentes"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <div
+          class="skills-carousel__track"
+          data-controller="reveal"
+          data-carousel-target="track"
+          data-reveal-root-selector-value=".skills-carousel__track"
+          tabindex="0"
+          role="region"
+          aria-label="Compétences techniques, liste défilante horizontalement"
+          data-action="keydown.left->carousel#prev keydown.right->carousel#next"
+        >
+
+          <article class="skills-card" data-carousel-target="card" data-reveal-target="item">
+            <div class="card-ribbon" aria-hidden="true"></div>
+            <header class="card-head">
+              <div class="card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 3 9l9 13 9-13-9-7Z"></path>
+                  <path d="M3 9h18"></path>
+                  <path d="M9 9 12 2l3 7"></path>
+                </svg>
+              </div>
+              <div>
+                <h2>Ruby &amp; Rails</h2>
+                <div class="jp">ルビー＆レールズ</div>
+              </div>
+              <span class="skill-level skill-level--avance">Avancé</span>
+            </header>
+            <div class="card-body">
+              <p class="card-tagline">Le cœur de mon quotidien de développeur, du prototype à la mise en production.</p>
+              <div class="skill-item">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/ruby.svg" alt="" class="skill-item__brand-icon" loading="lazy"> Ruby</b>
+                  <div class="muted">OOP, FP, Metaprogramming, Performance</div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/rubyonrails.svg" alt="" class="skill-item__brand-icon" loading="lazy"> Rails</b>
+                  <div class="muted">MVC, ActiveRecord, ActiveJob, ActionCable</div>
+                </div>
+              </div>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Rails APIs</b><div class="muted">REST, JSON:API, GraphQL</div></div></div>
+            </div>
+          </article>
+
+          <article class="skills-card" data-carousel-target="card" data-reveal-target="item">
+            <div class="card-ribbon" aria-hidden="true"></div>
+            <header class="card-head">
+              <div class="card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3 2 8l10 5 10-5-10-5Z"></path>
+                  <path d="M2 13l10 5 10-5"></path>
+                </svg>
+              </div>
+              <div>
+                <h2>Architecture &amp; Qualité</h2>
+                <div class="jp">設計と品質</div>
+              </div>
+              <span class="skill-level">Confirmé</span>
+            </header>
+            <div class="card-body">
+              <p class="card-tagline">Concevoir des systèmes lisibles, testables et qui vieillissent bien.</p>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Clean Architecture</b><div class="muted">Hexagonal, Ports &amp; Adapters</div></div></div>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>DDD</b><div class="muted">Bounded contexts, Aggregates, Value objects</div></div></div>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>SOLID &amp; Patterns</b><div class="muted">Design patterns, Refactoring</div></div></div>
+            </div>
+          </article>
+
+          <article class="skills-card" data-carousel-target="card" data-reveal-target="item">
+            <div class="card-ribbon" aria-hidden="true"></div>
+            <header class="card-head">
+              <div class="card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <ellipse cx="12" cy="5" rx="8" ry="3"></ellipse>
+                  <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path>
+                  <path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path>
+                </svg>
+              </div>
+              <div>
+                <h2>Base de Données</h2>
+                <div class="jp">データベース</div>
+              </div>
+              <span class="skill-level">Confirmé</span>
+            </header>
+            <div class="card-body">
+              <p class="card-tagline">Modéliser proprement, indexer juste, et traquer les requêtes lentes.</p>
+              <div class="skill-item">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postgresql.svg" alt="" class="skill-item__brand-icon" loading="lazy"> PostgreSQL</b>
+                  <div class="muted">Advanced queries, CTEs, Window functions</div>
+                </div>
+              </div>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Indexing</b><div class="muted">B-tree, GIN, GiST, Partial indexes</div></div></div>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Performance</b><div class="muted">Query optimization, Migrations, Tuning</div></div></div>
+            </div>
+          </article>
+
+          <article class="skills-card" data-carousel-target="card" data-reveal-target="item">
+            <div class="card-ribbon" aria-hidden="true"></div>
+            <header class="card-head">
+              <div class="card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                  <polyline points="16 6 22 12 16 18"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h2>Frontend</h2>
+                <div class="jp">フロントエンド</div>
+              </div>
+              <span class="skill-level skill-level--avance">Avancé</span>
+            </header>
+            <div class="card-body">
+              <p class="card-tagline">Des interfaces réactives et sobres, sans sur-ingénierie côté client.</p>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Hotwire</b><div class="muted">Turbo Frames, Turbo Streams, Stimulus</div></div></div>
+              <div class="skill-item">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/css3.svg" alt="" class="skill-item__brand-icon" loading="lazy"> CSS</b>
+                  <div class="muted">Cascade-based, Responsive, Custom properties</div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg" alt="" class="skill-item__brand-icon" loading="lazy"> JavaScript</b>
+                  <div class="muted">ES6+, TypeScript, Modern tooling</div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="skills-card" data-carousel-target="card" data-reveal-target="item">
+            <div class="card-ribbon" aria-hidden="true"></div>
+            <header class="card-head">
+              <div class="card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.5 19H6a4 4 0 1 1 .4-8 6 6 0 0 1 11.6 2H18a3.5 3.5 0 0 1 0 7Z"></path>
+                </svg>
+              </div>
+              <div>
+                <h2>DevOps &amp; Infra</h2>
+                <div class="jp">インフラ</div>
+              </div>
+              <span class="skill-level">Confirmé</span>
+            </header>
+            <div class="card-body">
+              <p class="card-tagline">Déployer, superviser et automatiser sans mauvaise surprise le vendredi soir.</p>
+              <div class="skill-item">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/docker.svg" alt="" class="skill-item__brand-icon" loading="lazy"> Docker</b>
+                  <div class="muted">Containerization, Multi-stage builds</div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/githubactions.svg" alt="" class="skill-item__brand-icon" loading="lazy"> CI/CD</b>
+                  <div class="muted">GitHub Actions, Automated pipelines</div>
+                </div>
+              </div>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Cloud</b><div class="muted">AWS, Heroku, Fly.io, Redis, Sidekiq</div></div></div>
+            </div>
+          </article>
+
+          <article class="skills-card" data-carousel-target="card" data-reveal-target="item">
+            <div class="card-ribbon" aria-hidden="true"></div>
+            <header class="card-head">
+              <div class="card-icon" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 4 5v6c0 5 3.5 8.5 8 11 4.5-2.5 8-6 8-11V5l-8-3Z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h2>Test &amp; QA</h2>
+                <div class="jp">テスト</div>
+              </div>
+              <span class="skill-level">Confirmé</span>
+            </header>
+            <div class="card-body">
+              <p class="card-tagline">La confiance dans le code avant tout : peu de surprises en production.</p>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>RSpec</b><div class="muted">Unit, Integration, Request specs</div></div></div>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>TDD / BDD</b><div class="muted">Test-first development, Capybara</div></div></div>
+              <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Coverage</b><div class="muted">90%+ coverage, FactoryBot, Fixtures</div></div></div>
+            </div>
+          </article>
+
+        </div>
+
+        <button
+          type="button"
+          class="skills-carousel__arrow skills-carousel__arrow--next"
+          data-carousel-target="nextButton"
+          data-action="click->carousel#next"
+          aria-label="Compétences suivantes"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <div class="skills-cta">
+        <%= link_to projects_path, class: "skills-cta__link manga-slash", data: { turbo_prefetch: true } do %>
+          Voir ces compétences en pratique
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="skills-cta__icon" aria-hidden="true">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        <% end %>
+      </div>
+
     </div>
-
-    <h1 class="skills-title"><span class="fg">Arbre</span> de <span class="highlight">Compétences</span></h1>
-    <p class="skills-intro">Au fil des quêtes en compagnie de <span class="emphasis">Ruby</span> et <span class="emphasis">Ruby on Rails</span>, ma palette de compétences s'est largement développée. Il m'est possible désormais d'affronter n'importe quel ennemi, du faible bug aux plus gros boss !</p>
-
-    <div class="skills-grid">
-      <article class="skills-card">
-        <div class="card-ribbon" aria-hidden="true"></div>
-        <header class="card-head">
-          <div class="card-icon" aria-hidden="true">♦︎</div>
-          <div>
-            <h2>Ruby &amp; Rails</h2>
-            <div class="jp">ルビー＆レールズ</div>
-          </div>
-        </header>
-        <div class="card-body">
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Ruby</b><div class="muted">OOP, FP, Metaprogramming, Performance</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Rails</b><div class="muted">MVC, ActiveRecord, ActiveJob, ActionCable</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Rails APIs</b><div class="muted">REST, JSON:API, GraphQL</div></div></div>
-        </div>
-      </article>
-
-      <article class="skills-card">
-        <div class="card-ribbon" aria-hidden="true"></div>
-        <header class="card-head">
-          <div class="card-icon" aria-hidden="true">☑</div>
-          <div>
-            <h2>Architecture &amp; Qualité</h2>
-            <div class="jp">設計と品質</div>
-          </div>
-        </header>
-        <div class="card-body">
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Clean Architecture</b><div class="muted">Hexagonal, Ports &amp; Adapters</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>DDD</b><div class="muted">Bounded contexts, Aggregates, Value objects</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>SOLID &amp; Patterns</b><div class="muted">Design patterns, Refactoring</div></div></div>
-        </div>
-      </article>
-
-      <article class="skills-card">
-        <div class="card-ribbon" aria-hidden="true"></div>
-        <header class="card-head">
-          <div class="card-icon" aria-hidden="true">⛁</div>
-          <div>
-            <h2>Base de Données</h2>
-            <div class="jp">データベース</div>
-          </div>
-        </header>
-        <div class="card-body">
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>PostgreSQL</b><div class="muted">Advanced queries, CTEs, Window functions</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Indexing</b><div class="muted">B-tree, GIN, GiST, Partial indexes</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Performance</b><div class="muted">Query optimization, Migrations, Tuning</div></div></div>
-        </div>
-      </article>
-
-      <article class="skills-card">
-        <div class="card-ribbon" aria-hidden="true"></div>
-        <header class="card-head">
-          <div class="card-icon" aria-hidden="true">✎</div>
-          <div>
-            <h2>Frontend</h2>
-            <div class="jp">フロントエンド</div>
-          </div>
-        </header>
-        <div class="card-body">
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Hotwire</b><div class="muted">Turbo Frames, Turbo Streams, Stimulus</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>CSS</b><div class="muted">Cascade-based, Responsive, Custom properties</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>JavaScript</b><div class="muted">ES6+, TypeScript, Modern tooling</div></div></div>
-        </div>
-      </article>
-
-      <article class="skills-card">
-        <div class="card-ribbon" aria-hidden="true"></div>
-        <header class="card-head">
-          <div class="card-icon" aria-hidden="true">☁</div>
-          <div>
-            <h2>DevOps &amp; Infra</h2>
-            <div class="jp">インフラ</div>
-          </div>
-        </header>
-        <div class="card-body">
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Docker</b><div class="muted">Containerization, Multi-stage builds</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>CI/CD</b><div class="muted">GitHub Actions, Automated pipelines</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Cloud</b><div class="muted">AWS, Heroku, Fly.io, Redis, Sidekiq</div></div></div>
-        </div>
-      </article>
-
-      <article class="skills-card">
-        <div class="card-ribbon" aria-hidden="true"></div>
-        <header class="card-head">
-          <div class="card-icon" aria-hidden="true">⚖</div>
-          <div>
-            <h2>Test &amp; QA</h2>
-            <div class="jp">テスト</div>
-          </div>
-        </header>
-        <div class="card-body">
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>RSpec</b><div class="muted">Unit, Integration, Request specs</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>TDD / BDD</b><div class="muted">Test-first development, Capybara</div></div></div>
-          <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Coverage</b><div class="muted">90%+ coverage, FactoryBot, Fixtures</div></div></div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
+  </section>
+</div>

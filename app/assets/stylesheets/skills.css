@@ -1,137 +1,284 @@
 .skills-title {
-	font-family: 'Space Grotesk', sans-serif;
-	font-weight: 700;
-	line-height: 0.95;
-	margin: 0 0 1rem 0;
-	font-size: clamp(2.25rem, 6vw, 3.75rem);
-	color: var(--title-color);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  line-height: 0.95;
+  margin: 0 0 1rem 0;
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  color: var(--title-color);
 }
 
 .skills-intro {
-	color: var(--text-color);
-	font-size: 1rem;
-	line-height: 1.6;
-	max-width: 60rem;
-	margin-bottom: 2.5rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 60rem;
+  margin-bottom: 2.5rem;
 }
 
 @media (min-width: 768px) {
-	.skills-intro { font-size: 1.125rem; }
+  .skills-intro { font-size: 1.125rem; }
 }
 
-.skills-grid {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 1.25rem;
+/* ============================================
+   CAROUSEL
+   ============================================
+   Les flèches ne sont PLUS en position: absolute par-dessus les
+   cartes. Elles sont de vrais éléments flex, alignés à côté du
+   track — la seule façon de garantir qu'elles ne recouvrent jamais
+   rien, quelle que soit la largeur exacte des cartes.
+*/
+.skills-carousel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-@media (min-width: 768px) {
-	.skills-grid { grid-template-columns: repeat(2, 1fr); }
+.skills-carousel__track {
+  flex: 1 1 auto;
+  min-width: 0; /* essentiel : sans ça un flex-item scrollable peut
+                   forcer son parent à s'élargir au lieu de scroller */
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.25rem 0.25rem 0.75rem;
+  scrollbar-width: thin;
 }
 
-@media (min-width: 1024px) {
-	.skills-grid { grid-template-columns: repeat(3, 1fr); }
+.skills-carousel__track:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }
 
 .skills-card {
-	position: relative;
-	background: var(--card-background);
-	border: 3px solid var(--card-border);
-	overflow: hidden;
-	transition: border-color 220ms ease, box-shadow 220ms ease;
+  position: relative;
+  background: var(--card-background);
+  border: 3px solid var(--card-border);
+  overflow: hidden;
+  scroll-snap-align: start;
+  flex: 0 0 85%;
+  transition: border-color 220ms ease, box-shadow 220ms ease,
+              opacity 520ms cubic-bezier(.2,.9,.2,1),
+              transform 520ms cubic-bezier(.2,.9,.2,1);
+}
+
+@media (min-width: 640px) {
+  .skills-card {
+    flex: 0 0 calc((100% - 1.5rem) / 2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .skills-card {
+    flex: 0 0 calc((100% - 2 * 1.5rem) / 3);
+  }
 }
 
 .skills-card:hover { border-color: var(--primary); }
 
+/* ---------- Flèches précédent / suivant ---------- */
+.skills-carousel__arrow {
+  flex-shrink: 0; /* ne se compresse jamais, garde sa taille fixe */
+  width: 2.75rem;
+  height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-background);
+  border: 3px solid var(--card-border);
+  color: var(--title-color);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.skills-carousel__arrow svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.skills-carousel__arrow:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.skills-carousel__arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* display: none retire proprement l'élément du flux flex — le track
+   récupère alors 100% de la largeur, sans laisser de trou */
+@media (max-width: 639px) {
+  .skills-carousel__arrow { display: none; }
+}
+
 .card-ribbon {
-	position: absolute;
-	top: 0; right: 0;
-	width: 0; height: 0;
-	border-top: 40px solid rgba(202, 0, 40, 0.20);
-	border-left: 40px solid transparent;
-	transition: border-top-color 220ms ease;
+  position: absolute;
+  top: 0; right: 0;
+  width: 0; height: 0;
+  border-top: 44px solid rgba(202, 0, 40, 0.20);
+  border-left: 44px solid transparent;
+  transition: border-top-color 220ms ease;
 }
 
 .skills-card:hover .card-ribbon { border-top-color: rgba(202,0,40,0.35); }
 
 .card-head {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-	padding: 1.1rem 1.25rem;
-	border-bottom: 2px solid var(--border-light);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  row-gap: 0.5rem;
+  gap: 1.1rem;
+  padding: 1.5rem;
+  border-bottom: 2px solid var(--border-light);
 }
 
 .card-icon {
-	width: 2.5rem; height: 2.5rem;
-	display: flex; align-items: center; justify-content: center;
-	background: var(--surface);
-	color: var(--primary);
-	font-size: 1rem;
+  width: 3rem; height: 3rem;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--surface);
+  color: var(--primary);
   border: 3px solid var(--card-border);
+}
+
+.card-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .skills-card:hover .card-icon { background-color: rgba(202,0,40,0.1); }
 
-.card-head h2 { margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 1rem; color: var(--title-color); }
-.card-head .jp { font-family: 'Noto Sans JP', sans-serif; font-size: 0.8rem; color: var(--text-color); }
+.card-head h2 { margin: 0; font-family: 'Space Grotesk', sans-serif; font-size: 1.15rem; color: var(--title-color); }
+.card-head .jp { font-family: 'Noto Sans JP', sans-serif; font-size: 0.85rem; color: var(--text-color); }
 
-.card-body { padding: 1.25rem; padding-top: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.skill-level {
+  margin-left: auto;
+  align-self: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.7rem;
+  border: 2px solid var(--card-border);
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: var(--text-color);
+}
 
-.skill-item { display: flex; gap: 0.5rem; align-items: flex-start; }
-.skill-item .dot { width: 6px; height: 6px; background: var(--primary); margin-top: 0.6rem; transform: skewX(-12deg); flex-shrink: 0; border-radius: 2px; }
-.skill-item b { display:block; font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--title-color); font-size: 0.95rem; }
-.muted { font-size: 0.75rem; color: var(--text-color); line-height: 1.4; }
+.skill-level--avance {
+  color: var(--title-color);
+  border-color: var(--title-color);
+}
 
+.skill-level--expert {
+  color: #fff;
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.card-body { padding: 1.5rem; padding-top: 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
+
+.card-tagline {
+  margin: 0;
+  padding-bottom: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  line-height: 1.5;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.skill-item { display: flex; gap: 0.6rem; align-items: flex-start; }
+.skill-item .dot { width: 7px; height: 7px; background: var(--primary); margin-top: 0.6rem; transform: skewX(-12deg); flex-shrink: 0; border-radius: 2px; }
+.skill-item b { display: flex; align-items: center; gap: 0.45rem; font-family: 'Space Grotesk', sans-serif; font-weight: 700; color: var(--title-color); font-size: 1.0625rem; }
+.muted { font-size: 0.85rem; color: var(--text-color); line-height: 1.5; }
 .fg { color: var(--title-color); }
 
-@media (max-width: 767px) {
-	.skills-grid { gap: 1rem; }
+.skill-item__brand-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.skills-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.skills-cta__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--primary);
+}
+
+.skills-cta__link:hover {
+  background-color: var(--primary-hover);
+}
+
+.skills-cta__icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.page-section--centered {
+  justify-content: center;
 }
 
 @keyframes fadeInUp {
-	from { opacity: 0; transform: translateY(18px); }
-	to { opacity: 1; transform: translateY(0); }
-}
-@keyframes popIn {
-	from { opacity: 0; transform: scale(0.95) translateY(6px); }
-	to { opacity: 1; transform: scale(1) translateY(0); }
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .skills-title {
-	opacity: 0;
-	transform: translateY(8px);
-	animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
-	animation-delay: 180ms;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
+  animation-delay: 180ms;
 }
+
 .skills-intro {
-	opacity: 0;
-	transform: translateY(8px);
-	animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
-	animation-delay: 240ms;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInUp 520ms cubic-bezier(.2,.9,.2,1) forwards;
+  animation-delay: 240ms;
 }
 
 .skills-card {
-	opacity: 0;
-	transform: translateY(10px) scale(0.99);
-	animation: popIn 560ms cubic-bezier(.2,.9,.2,1) forwards;
+  opacity: 0;
+  transform: translateY(14px) scale(0.99);
 }
-.skills-grid .skills-card:nth-child(1) { animation-delay: 260ms; }
-.skills-grid .skills-card:nth-child(2) { animation-delay: 320ms; }
-.skills-grid .skills-card:nth-child(3) { animation-delay: 380ms; }
-.skills-grid .skills-card:nth-child(4) { animation-delay: 440ms; }
-.skills-grid .skills-card:nth-child(5) { animation-delay: 500ms; }
-.skills-grid .skills-card:nth-child(6) { animation-delay: 560ms; }
 
-.card-icon { opacity: 0; transform: scale(0.9); animation: popIn 420ms cubic-bezier(.2,.9,.2,1) forwards; animation-delay: 360ms; }
+.skills-card.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.skills-carousel__track .skills-card:nth-child(1) { transition-delay: 0ms; }
+.skills-carousel__track .skills-card:nth-child(2) { transition-delay: 60ms; }
+.skills-carousel__track .skills-card:nth-child(3) { transition-delay: 120ms; }
+.skills-carousel__track .skills-card:nth-child(4) { transition-delay: 80ms; }
+.skills-carousel__track .skills-card:nth-child(5) { transition-delay: 80ms; }
+.skills-carousel__track .skills-card:nth-child(6) { transition-delay: 80ms; }
 
 @media (prefers-reduced-motion: reduce) {
-	.skills-title,
-	.skills-intro,
-	.skills-card,
-	.card-icon {
-		animation: none !important;
-		opacity: 1 !important;
-		transform: none !important;
-	}
+  .skills-title,
+  .skills-intro,
+  .skills-card {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

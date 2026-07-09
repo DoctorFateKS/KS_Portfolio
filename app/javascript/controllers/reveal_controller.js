@@ -3,18 +3,25 @@ import { Controller } from "@hotwired/stimulus"
 // app/javascript/controllers/reveal_controller.js
 //
 // Révèle progressivement des éléments quand ils entrent dans le
-// viewport visible — indispensable dès qu'une page dépasse 100vh et
-// scrolle à l'intérieur de .page-content, sinon les animations
-// calées sur le chargement de page se jouent hors champ, avant que
-// l'utilisateur n'ait scrollé jusque-là.
+// champ visible — que ce soit au scroll vertical (.page-content) ou
+// horizontal (le track d'un carousel). Le sélecteur du conteneur de
+// référence est configurable via data-reveal-root-selector-value,
+// et vaut ".page-content" par défaut (comportement historique
+// inchangé pour la page Profil).
 //
-// Usage :
+// Usage vertical (inchangé) :
 //   <div data-controller="reveal">
 //     <div data-reveal-target="item">...</div>
-//     <div data-reveal-target="item">...</div>
+//   </div>
+//
+// Usage horizontal (carousel) :
+//   <div data-controller="reveal"
+//        data-reveal-root-selector-value=".skills-carousel__track">
+//     <article data-reveal-target="item">...</article>
 //   </div>
 export default class extends Controller {
   static targets = ["item"]
+  static values = { rootSelector: { type: String, default: ".page-content" } }
 
   connect() {
     const prefersReducedMotion = window.matchMedia(
@@ -22,7 +29,6 @@ export default class extends Controller {
     ).matches
 
     if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-      // Pas d'animation superflue : on affiche tout directement.
       this.itemTargets.forEach((el) => el.classList.add("is-visible"))
       return
     }
@@ -37,9 +43,7 @@ export default class extends Controller {
         })
       },
       {
-        // Observe par rapport au conteneur qui scrolle réellement
-        // (.page-content), pas par rapport au viewport global.
-        root: this.element.closest(".page-content"),
+        root: this.element.closest(this.rootSelectorValue),
         threshold: 0.2,
       }
     )
