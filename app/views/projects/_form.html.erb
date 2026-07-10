@@ -1,100 +1,83 @@
-<%= form_with(model: project, class: "project-form") do |form| %>
+<%= form_with model: project, class: "project-form" do |f| %>
+
   <% if project.errors.any? %>
-    <div class="error-messages">
-      <h2><%= pluralize(project.errors.count, "erreur") %> empêchent la sauvegarde :</h2>
-      <ul><% project.errors.each do |error| %><li><%= error.full_message %></li><% end %></ul>
+    <div class="form-errors">
+      <p class="form-errors__title">
+        <%= pluralize(project.errors.count, "erreur") %> empêche l'enregistrement :
+      </p>
+      <ul>
+        <% project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
 
-  <div class="form-grid">
-    <%# --- Section Header & Banner --- %>
-    <fieldset>
-      <legend>Identité du Projet</legend>
-      <div class="field">
-        <%= form.label :title, "Titre du projet" %>
-        <%= form.text_field :title, placeholder: "Ex: ShareFriends" %>
-      </div>
-
-      <div class="field">
-        <%= form.label :status, "Badge Status" %>
-        <%= form.text_field :status, placeholder: "Ex: Mis en avant, En développement..." %>
-      </div>
-
-      <div class="field">
-        <%= form.label :tagline, "Slogan accrocheur" %>
-        <%= form.text_field :tagline, placeholder: "Recréer du lien social par l'affinité..." %>
-      </div>
-
-      <div class="field">
-        <%= form.label :banner, "Image de bannière" %>
-        <%= form.file_field :banner %>
-      </div>
-    </fieldset>
-
-    <%# --- Section Contenu Principal --- %>
-    <fieldset>
-      <legend>Détails Techniques & Rôle</legend>
-      <div class="field">
-        <%= form.label :context, "Contexte & Problématique" %>
-        <%= form.text_area :context, rows: 4 %>
-      </div>
-
-      <div class="field">
-        <%= form.label :role_description, "Ton Rôle (Fullstack, Lead...)" %>
-        <%= form.text_area :role_description, rows: 3 %>
-      </div>
-
-      <div class="field">
-        <%= form.label :stack, "Stack Technique (séparer par des virgules ,)" %>
-        <%= form.text_field :stack, placeholder: "Ruby, Rails, Hotwire, PostgreSQL" %>
-      </div>
-    </fieldset>
-
-    <%# --- Section Architecture & Défis --- %>
-    <fieldset>
-      <legend>Architecture & Réalisation</legend>
-      <div class="field">
-        <%= form.label :usage_decisions, "Choix d'Architecture (séparer par des points-virgules ;)" %>
-        <%= form.text_area :usage_decisions, placeholder: "Auth avec Devise; Background jobs avec Sidekiq..." %>
-      </div>
-
-      <div class="field">
-        <%= form.label :challenges, "Défis rencontrés (séparer par des points-virgules ;)" %>
-        <%= form.text_area :challenges, placeholder: "Latence WebSocket; Sécurité des données..." %>
-      </div>
-
-      <div class="field">
-        <%= form.label :solutions, "Solutions apportées (séparer par des points-virgules ;)" %>
-        <%= form.text_area :solutions, placeholder: "Optimisation Redis; Pundit pour les accès..." %>
-      </div>
-    </fieldset>
-
-    <%# --- Section Impact & Liens --- %>
-    <fieldset>
-      <legend>Impact & Liens Externes</legend>
-      <div class="field">
-        <%= form.label :impact_quote, "Citation / Résultat final" %>
-        <%= form.text_area :impact_quote, rows: 2 %>
-      </div>
-
-      <div class="field">
-        <%= form.label :github_url, "Lien GitHub" %>
-        <%= form.url_field :github_url %>
-      </div>
-
-      <div class="field">
-        <%= form.label :demo_url, "Lien Démo / Vidéo" %>
-        <%= form.url_field :demo_url %>
-      </div>
-
-      <div class="field checkbox">
-        <%= form.check_box :featured %>
-        <%= form.label :featured, "Mettre en avant sur la page d'accueil" %>
-      </div>
-    </fieldset>
+  <div class="form-group">
+    <%= f.label :title, "Titre" %>
+    <%= f.text_field :title, required: true %>
   </div>
 
-  <div class="form-actions" style="margin-top: 30px;">
-    <%= form.submit "Enregistrer le projet", class: "btn-action btn-action--accent" %>
+  <div class="form-group">
+    <%= f.label :role_jp, "Rôle (japonais)" %>
+    <%= f.text_field :role_jp, placeholder: "ex : フルスタック開発" %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :role_description, "Rôle (description)" %>
+    <%= f.text_area :role_description, rows: 2 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :tagline, "Accroche courte" %>
+    <%= f.text_field :tagline %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :challenges, "Défis techniques" %>
+    <%= f.text_area :challenges, rows: 4 %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :stack, "Stack technique" %>
+    <span class="form-hint">Séparée par des virgules, ex : Ruby, Rails, PostgreSQL</span>
+    <%= f.text_field :stack, placeholder: "Ruby, Rails, PostgreSQL" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :results, "Résultats" %>
+    <span class="form-hint">Séparés par des virgules — évite les virgules à l'intérieur d'un résultat (ex. préfère "1200 utilisateurs" à "1,200 utilisateurs")</span>
+    <%= f.text_field :results, placeholder: "40% plus rapide, 1200 utilisateurs actifs" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :github_url, "Lien GitHub" %>
+    <%= f.url_field :github_url, placeholder: "https://github.com/..." %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :demo_url, "Lien démo" %>
+    <%= f.url_field :demo_url, placeholder: "https://..." %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cover_image, "Image de couverture" %>
+    <% if project.respond_to?(:cover_image) %>
+      <%= f.file_field :cover_image, accept: "image/*" %>
+      <% if project.cover_image.attached? %>
+        <div class="form-current-image">
+          <%= image_tag project.cover_image.variant(resize_to_limit: [200, 120]), alt: "" %>
+          <span>Image actuelle — en choisir une nouvelle la remplacera</span>
+        </div>
+      <% end %>
+    <% else %>
+      <p class="form-hint">Active Storage n'est pas encore configuré sur ce modèle (voir has_one_attached :cover_image).</p>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit project.new_record? ? "Créer la réalisation" : "Enregistrer les modifications", class: "hero__btn hero__btn--primary" %>
+    <%= link_to "Annuler", projects_path, class: "hero__btn hero__btn--secondary manga-panel" %>
+  </div>
+
 <% end %>

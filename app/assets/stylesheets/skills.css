@@ -282,3 +282,13 @@
     transform: none !important;
   }
 }
+
+.skill-item__link {
+      color: inherit;
+      text-decoration: none;
+    }
+    .skill-item__link:hover,
+    .skill-item__link:focus-visible {
+      color: var(--primary);
+      text-decoration: underline;
+    }

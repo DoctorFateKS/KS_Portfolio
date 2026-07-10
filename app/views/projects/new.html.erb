@@ -1,11 +1,24 @@
-<% content_for :title, "New project" %>
+<div class="page-content">
+  <section class="page-section">
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="action-lines" aria-hidden="true"></div>
 
-<h1>New project</h1>
+    <div class="container">
 
-<%= render "form", project: @project %>
+      <%= link_to projects_path, class: "header back-link" do %>
+        <div class="header-line"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="back-link__icon" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span class="header-jp">戻る</span>
+        <span class="header-en">Retour aux réalisations</span>
+      <% end %>
 
-<br>
+      <h1 class="projects-title"><span class="fg">Nouvelle</span> <span class="highlight">Réalisation</span></h1>
 
-<div>
-  <%= link_to "Back to projects", projects_path %>
+      <%= render "form", project: @project %>
+
+    </div>
+  </section>
 </div>

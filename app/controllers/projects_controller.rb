@@ -1,87 +1,55 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
-
-  # GET /projects or /projects.json
   def index
-    @projects = Project.all
+    @projects = if params[:tag].present?
+      Project.where("LOWER(stack) LIKE ?", "%#{params[:tag].downcase}%")
+    else
+      Project.all
+    end
   end
 
-  # GET /projects/1 or /projects/1.json
   def show
     @project = Project.find(params[:id])
+    @related_projects = Project.where.not(id: @project.id).limit(2)
   end
 
-  # GET /projects/new
   def new
     @project = Project.new
   end
 
-  # GET /projects/1/edit
-  def edit
-  end
-
-  # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
-
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to @project, notice: "Project was successfully created." }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    if @project.save
+      redirect_to @project, notice: "Réalisation créée avec succès."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /projects/1 or /projects/1.json
+  def edit
+    @project = Project.find(params[:id])
+  end
+
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        format.html { redirect_to @project, notice: "Project was successfully updated.", status: :see_other }
-        format.json { render :show, status: :ok, location: @project }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      redirect_to @project, notice: "Réalisation mise à jour."
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /projects/1 or /projects/1.json
   def destroy
-    @project.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to projects_path, notice: "Project was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
-    end
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to projects_path, notice: "Réalisation supprimée."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def project_params
-      params.require(:project).permit(
-        :title,
-        :tagline,
-        :context,
-        :role_description,
-        :stack,
-        :usage_decisions,
-        :challenges,
-        :solutions,
-        :impact_quote,
-        :github_url,
-        :demo_url,
-        :featured,
-        :category,
-        :status,
-        :banner
-      )
-    end
+  def project_params
+    params.require(:project).permit(
+      :title, :tagline, :role_description, :stack, :challenges,
+      :github_url, :demo_url, :role_jp, :results, :cover_image
+    )
+  end
 end

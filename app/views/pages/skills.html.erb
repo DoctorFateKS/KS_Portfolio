@@ -64,14 +64,20 @@
               <div class="skill-item">
                 <span class="dot" aria-hidden="true"></span>
                 <div>
-                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/ruby.svg" alt="" class="skill-item__brand-icon" loading="lazy"> Ruby</b>
+                  <b>
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/ruby.svg" alt="" class="skill-item__brand-icon" loading="lazy">
+                    <%= link_to "Ruby", projects_path(tag: "Ruby"), class: "skill-item__link", data: { turbo_prefetch: true } %>
+                  </b>
                   <div class="muted">OOP, FP, Metaprogramming, Performance</div>
                 </div>
               </div>
               <div class="skill-item">
                 <span class="dot" aria-hidden="true"></span>
                 <div>
-                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/rubyonrails.svg" alt="" class="skill-item__brand-icon" loading="lazy"> Rails</b>
+                  <b>
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/rubyonrails.svg" alt="" class="skill-item__brand-icon" loading="lazy">
+                    <%= link_to "Rails", projects_path(tag: "Rails"), class: "skill-item__link", data: { turbo_prefetch: true } %>
+                  </b>
                   <div class="muted">MVC, ActiveRecord, ActiveJob, ActionCable</div>
                 </div>
               </div>
@@ -123,7 +129,10 @@
               <div class="skill-item">
                 <span class="dot" aria-hidden="true"></span>
                 <div>
-                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postgresql.svg" alt="" class="skill-item__brand-icon" loading="lazy"> PostgreSQL</b>
+                  <b>
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/postgresql.svg" alt="" class="skill-item__brand-icon" loading="lazy">
+                    <%= link_to "PostgreSQL", projects_path(tag: "PostgreSQL"), class: "skill-item__link", data: { turbo_prefetch: true } %>
+                  </b>
                   <div class="muted">Advanced queries, CTEs, Window functions</div>
                 </div>
               </div>
@@ -153,14 +162,20 @@
               <div class="skill-item">
                 <span class="dot" aria-hidden="true"></span>
                 <div>
-                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/css3.svg" alt="" class="skill-item__brand-icon" loading="lazy"> CSS</b>
+                  <b>
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/css3.svg" alt="" class="skill-item__brand-icon" loading="lazy">
+                    <%= link_to "CSS", projects_path(tag: "CSS"), class: "skill-item__link", data: { turbo_prefetch: true } %>
+                  </b>
                   <div class="muted">Cascade-based, Responsive, Custom properties</div>
                 </div>
               </div>
               <div class="skill-item">
                 <span class="dot" aria-hidden="true"></span>
                 <div>
-                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg" alt="" class="skill-item__brand-icon" loading="lazy"> JavaScript</b>
+                  <b>
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/javascript.svg" alt="" class="skill-item__brand-icon" loading="lazy">
+                    <%= link_to "JavaScript", projects_path(tag: "JavaScript"), class: "skill-item__link", data: { turbo_prefetch: true } %>
+                  </b>
                   <div class="muted">ES6+, TypeScript, Modern tooling</div>
                 </div>
               </div>
@@ -186,17 +201,24 @@
               <div class="skill-item">
                 <span class="dot" aria-hidden="true"></span>
                 <div>
-                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/docker.svg" alt="" class="skill-item__brand-icon" loading="lazy"> Docker</b>
+                  <b>
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/docker.svg" alt="" class="skill-item__brand-icon" loading="lazy">
+                    <%= link_to "Docker", projects_path(tag: "Docker"), class: "skill-item__link", data: { turbo_prefetch: true } %>
+                  </b>
                   <div class="muted">Containerization, Multi-stage builds</div>
                 </div>
               </div>
               <div class="skill-item">
                 <span class="dot" aria-hidden="true"></span>
                 <div>
-                  <b><img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/githubactions.svg" alt="" class="skill-item__brand-icon" loading="lazy"> CI/CD</b>
+                  <b>
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/githubactions.svg" alt="" class="skill-item__brand-icon" loading="lazy">
+                    <%= link_to "CI/CD", projects_path(tag: "GitHub Actions"), class: "skill-item__link", data: { turbo_prefetch: true } %>
+                  </b>
                   <div class="muted">GitHub Actions, Automated pipelines</div>
                 </div>
               </div>
+              <%# "Cloud" regroupe plusieurs marques : pas de lien unique pertinent %>
               <div class="skill-item"><span class="dot" aria-hidden="true"></span><div><b>Cloud</b><div class="muted">AWS, Heroku, Fly.io, Redis, Sidekiq</div></div></div>
             </div>
           </article>

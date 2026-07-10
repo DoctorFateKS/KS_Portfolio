@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   validates :title, presence: true
   has_one_attached :banner
+  has_one_attached :cover_image
 
   # Pour transformer nos chaînes de caractères en listes utilisables dans la vue
   def stack_list

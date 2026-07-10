@@ -1,89 +1,137 @@
-<section class="main-section">
-  <div class="halftone" aria-hidden="true"></div>
-  <div class="action-lines" aria-hidden="true"></div>
+<% json_ld = {
+  "@context" => "https://schema.org",
+  "@type" => "CreativeWork",
+  "name" => @project.title,
+  "description" => @project.tagline,
+  "url" => project_url(@project)
+} %>
+<script type="application/ld+json"><%= raw json_ld.to_json %></script>
 
-  <div class="container scroll-safe">
+<div class="page-content">
+  <section class="page-section">
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="action-lines" aria-hidden="true"></div>
 
-    <%= link_to projects_path, class: "header back-link" do %>
-      <div class="header-line"></div>
-      <span class="header-jp">戻る</span>
-      <span class="header-en">Retour au grimoire</span>
-    <% end %>
+    <div class="container">
 
-    <article class="project-show">
-      <header class="project-show-hero">
-        <h1 class="project-show-title"><%= @project.title %></h1>
+      <%= link_to projects_path, class: "header back-link" do %>
+        <div class="header-line"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="back-link__icon" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span class="header-jp">戻る</span>
+        <span class="header-en">Retour aux réalisations</span>
+      <% end %>
 
-        <div class="project-subtitle">
-          <span class="jp-subtitle"><%= @project.role_jp %></span>
-          <span class="project-highlight">— <%= @project.role_description %></span>
-        </div>
+      <article class="project-show">
 
-        <p class="project-show-tagline"><%= @project.tagline %></p>
+        <% if @project.respond_to?(:cover_image) && @project.cover_image.attached? %>
+          <div class="project-show-cover">
+            <%= image_tag @project.cover_image.variant(resize_to_limit: [1400, 700]), alt: "Capture d'écran du projet #{@project.title}", class: "project-show-cover__image" %>
+          </div>
+        <% end %>
 
-        <div class="stack project-show-stack">
-          <% @project.stack.split(",").each do |techno| %>
-            <span class="techno"><%= techno.strip %></span>
-          <% end %>
-        </div>
+        <header class="project-show-hero">
+          <h1 class="project-show-title" style="view-transition-name: project-<%= @project.id %>-title;"><%= @project.title %></h1>
+          <div class="project-subtitle">
+            <span class="jp-subtitle"><%= @project.role_jp %></span>
+            <span class="project-highlight">— <%= @project.role_description %></span>
+          </div>
+          <p class="project-show-tagline"><%= @project.tagline %></p>
 
-        <div class="project-show-actions">
-          <% if @project.demo_url.present? %>
-            <%= link_to @project.demo_url,
-                  class: "hero__btn hero__btn--primary manga-slash",
-                  target: "_blank",
-                  rel: "noopener noreferrer" do %>
-              <i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i>
-              Voir la démo
+          <ul class="stack project-show-stack">
+            <% @project.stack.split(",").each do |techno| %>
+              <li class="techno">
+                <%= link_to techno.strip, projects_path(tag: techno.strip), data: { turbo_prefetch: true } %>
+              </li>
             <% end %>
-          <% end %>
+          </ul>
 
-          <% if @project.github_url.present? %>
-            <%= link_to @project.github_url,
-                  class: "hero__btn hero__btn--secondary manga-panel",
-                  target: "_blank",
-                  rel: "noopener noreferrer" do %>
-              <i class="fa-brands fa-github" aria-hidden="true"></i>
-              Code source
+          <div class="project-show-actions">
+            <% if @project.demo_url.present? %>
+              <%= link_to @project.demo_url,
+                    class: "hero__btn hero__btn--primary manga-slash",
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    data: { turbo: false } do %>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero__icon" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                Voir la démo
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-      </header>
+            <% if @project.github_url.present? %>
+              <%= link_to @project.github_url,
+                    class: "hero__btn hero__btn--secondary manga-panel",
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    data: { turbo: false } do %>
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/github.svg" alt="" class="hero__icon" loading="lazy">
+                Code source
+              <% end %>
+            <% end %>
+          </div>
+        </header>
 
-      <section class="project-show-section">
-        <h2 class="profil-section-title">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profil-icon" aria-hidden="true">
-            <circle cx="12" cy="12" r="9"></circle>
-            <circle cx="12" cy="12" r="5"></circle>
-            <circle cx="12" cy="12" r="1"></circle>
-          </svg>
-          <span>Le Défi</span>
-          <span class="profil-section-jp">課題</span>
-        </h2>
-        <p class="project-show-challenge"><%= @project.challenges %></p>
-      </section>
+        <section class="project-show-section">
+          <h2 class="project-show-section-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-show-icon" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <circle cx="12" cy="12" r="5"></circle>
+              <circle cx="12" cy="12" r="1"></circle>
+            </svg>
+            <span>Le Défi</span>
+            <span class="project-show-section-jp">課題</span>
+          </h2>
+          <p class="project-show-challenge"><%= @project.challenges %></p>
+        </section>
 
-      <section class="project-show-section">
-        <h2 class="profil-section-title">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profil-icon" aria-hidden="true">
-            <path d="M8 21h8"></path>
-            <path d="M12 17v4"></path>
-            <path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"></path>
-            <path d="M5 6H3v1a4 4 0 0 0 4 4"></path>
-            <path d="M19 6h2v1a4 4 0 0 1-4 4"></path>
-          </svg>
-          <span>Butin de la Quête</span>
-          <span class="profil-section-jp">戦利品</span>
-        </h2>
-        <div class="results-grid">
-          <% @project.results.split(",").each do |result| %>
-            <div class="result-card">
-              <div class="results-square" aria-hidden="true"></div>
-              <span class="result-card-text"><%= result.strip %></span>
+        <section class="project-show-section">
+          <h2 class="project-show-section-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-show-icon" aria-hidden="true">
+              <path d="M8 21h8"></path>
+              <path d="M12 17v4"></path>
+              <path d="M7 4h10v5a5 5 0 0 1-10 0V4Z"></path>
+              <path d="M5 6H3v1a4 4 0 0 0 4 4"></path>
+              <path d="M19 6h2v1a4 4 0 0 1-4 4"></path>
+            </svg>
+            <span>Résultats</span>
+            <span class="project-show-section-jp">成果</span>
+          </h2>
+          <div class="results-grid">
+            <% @project.results.split(",").each do |result| %>
+              <div class="result-card">
+                <div class="results-square" aria-hidden="true"></div>
+                <span class="result-card-text"><%= result.strip %></span>
+              </div>
+            <% end %>
+          </div>
+        </section>
+
+        <% if defined?(@related_projects) && @related_projects.present? %>
+          <section class="project-show-section project-show-related">
+            <h2 class="project-show-section-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="project-show-icon" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+              </svg>
+              <span>D'autres réalisations</span>
+              <span class="project-show-section-jp">その他の作品</span>
+            </h2>
+            <div class="project-show-related__grid">
+              <% @related_projects.each do |related| %>
+                <%= link_to related.title, project_path(related), class: "project-show-related__link", data: { turbo_prefetch: true } %>
+              <% end %>
             </div>
-          <% end %>
-        </div>
-      </section>
-    </article>
-  </div>
-</section>
+          </section>
+        <% end %>
+
+      </article>
+    </div>
+  </section>
+</div>
