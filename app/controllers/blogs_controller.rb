@@ -2,7 +2,8 @@ class BlogsController < ApplicationController
 
   # GET /blogs
   def index
-    @blogs = Blog.order(created_at: :desc)
+    scope = params[:tag].present? ? Blog.where("LOWER(tags) LIKE ?", "%#{params[:tag].downcase}%") : Blog.all
+    @pagy, @blogs = pagy(scope.order(created_at: :desc))
   end
 
   # GET /blogs/:id

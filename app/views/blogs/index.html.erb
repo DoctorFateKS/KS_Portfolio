@@ -1,43 +1,89 @@
-<section class="main-section">
-  <div class="halftone"></div>
-  <div class="action-lines"></div>
+<div class="page-content">
+  <section class="page-section">
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="action-lines" aria-hidden="true"></div>
 
-  <div class="container">
-    <div class="header">
-      <div class="header-line"></div>
-			<span class="header-jp">ブログ</span>
-			<span class="header-en">Blog</span>
-		</div>
+    <div class="container">
 
-    <h1 class="skills-title"><span class="fg">Journal</span> <span class="highlight">Intime</span></h1>
+      <div class="header">
+        <div class="header-line"></div>
+        <span class="header-jp">ブログ</span>
+        <span class="header-en">Journal</span>
+      </div>
 
-    <div class="blog-grid">
-      <% @blogs.each do |article| %>
-        <%= link_to blog_path(article), class:"article_link" do %>
-          <article class="skills-card">
-            <div class="card-ribbon"></div>
-            <header class="project-card-head">
-              <div class="card-title">
-                <span class="jp-subtitle"><%= article.jp_title %></span>
-                <h3><%= article.title %></h3>
-              </div>
-            </header>
-            <div class="project-card-body">
-              <p class="tagline"><%= article.content.first(150).html_safe %>...</p>
-              <div class="stack">
-                <p>
-                  <% article.tags.split(",").each do |tag| %>
-                    <span class="techno"><%= tag %></span>
-                  <% end %>
-                </p>
-              </div>
-            </div>
-            <footer class="blog-card-footer">
-              <p> 🗓️ <%= article.created_at.strftime("%d/%m/%Y") %> 🕜 <%= (article.content.length / 1200.0).round %>min</p>
-            </footer>
-          </article>
-        <% end %>
+      <h1 class="blog-title"><span class="fg">Mon</span> <span class="highlight">Journal</span></h1>
+      <p class="blog-intro">
+        Notes techniques, retours d'expérience et réflexions sur <span class="emphasis">Ruby on Rails</span>
+        et le développement au quotidien — ce que j'apprends, ce qui me pose problème,
+        et comment je le résous.
+      </p>
+
+      <% if params[:tag].present? %>
+        <div class="blog-filter-banner">
+          Filtré par <strong><%= params[:tag] %></strong>
+          <%= link_to "Voir tous les articles", blogs_path, class: "blog-filter-banner__clear" %>
+        </div>
       <% end %>
+
+      <% if @blogs.blank? %>
+        <p class="blog-empty">
+          <% if params[:tag].present? %>
+            Aucun article ne correspond à ce filtre pour le moment.
+          <% else %>
+            Aucun article publié pour le moment — revenez bientôt !
+          <% end %>
+        </p>
+      <% else %>
+        <div class="blog-grid" data-controller="reveal">
+          <% @blogs.each do |article| %>
+            <article class="article-card" data-reveal-target="item">
+              <div class="card-ribbon" aria-hidden="true"></div>
+
+              <%= link_to blog_path(article), class: "article-link", data: { turbo_prefetch: true } do %>
+                <header class="article-card-head">
+                  <span class="jp-subtitle"><%= article.jp_title %></span>
+                  <h2 style="view-transition-name: article-<%= article.id %>-title;"><%= article.title %></h2>
+                </header>
+
+                <div class="article-card-body">
+                  <p class="tagline"><%= truncate(strip_tags(article.content), length: 150) %></p>
+                </div>
+
+                <footer class="article-card-footer">
+                  <span class="article-meta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <%= article.created_at.strftime("%d/%m/%Y") %>
+                  </span>
+                  <span class="article-meta">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="9"></circle>
+                      <polyline points="12 7 12 12 16 14"></polyline>
+                    </svg>
+                    <%= [(strip_tags(article.content).length / 1200.0).round, 1].max %> min
+                  </span>
+                </footer>
+              <% end %>
+
+              <%# Hors du grand lien ci-dessus : liens imbriqués invalides sinon %>
+              <ul class="article-tags">
+                <% article.tags.split(",").each do |tag| %>
+                  <li class="techno">
+                    <%= link_to tag.strip, blogs_path(tag: tag.strip), data: { turbo_prefetch: true } %>
+                  </li>
+                <% end %>
+              </ul>
+            </article>
+          <% end %>
+        </div>
+
+        <%== pagy_nav(@pagy) if @pagy %>
+      <% end %>
+
     </div>
-  </div>
-</section>
+  </section>
+</div>

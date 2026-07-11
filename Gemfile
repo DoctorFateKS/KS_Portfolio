@@ -59,3 +59,5 @@ end
 gem "tzinfo-data", platforms: [ :mingw, :x64_mingw, :mswin ]
 
 gem "rouge", "~> 4.7"
+
+gem "pagy", "~> 9.3"
