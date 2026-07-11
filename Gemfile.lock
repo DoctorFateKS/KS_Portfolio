@@ -234,6 +234,7 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
+    redcarpet (3.6.1)
     regexp_parser (2.11.3)
     reline (0.6.3)
       io-console (~> 0.5)
@@ -342,7 +343,8 @@ DEPENDENCIES
   pagy (~> 9.3)
   puma (~> 6.0)
   rails (~> 8.0.0)
-  rouge (~> 4.7)
+  redcarpet
+  rouge
   sass-rails (>= 6)
   selenium-webdriver
   solid_cache

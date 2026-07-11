@@ -1,16 +1,66 @@
-<section class="main-section">
-  <div class="halftone"></div>
-  <div class="action-lines"></div>
+<% json_ld = {
+  "@context" => "https://schema.org",
+  "@type" => "BlogPosting",
+  "headline" => @blog.title,
+  "datePublished" => @blog.created_at.iso8601,
+  "url" => blog_url(@blog)
+} %>
+<script type="application/ld+json"><%= raw json_ld.to_json %></script>
 
-  <div class="container">
-    <%= link_to blogs_path, class: "back_link" do %>⭠ Retour<% end %>
+<div class="page-content">
+  <section class="page-section">
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="action-lines" aria-hidden="true"></div>
 
-    <h1 class="skills-title"><span class="highlight"><%= @blog.title %></span></h1>
-    <p> 🗓️ <%= @blog.created_at.strftime("%d/%m/%Y") %> 🕜 <%= (@blog.content.length / 1200.0).round %>min</p>
-    <% @blog.tags.split(",").each do |tag| %> <span class="techno"><%= tag %></span> <% end %>
+    <div class="container">
 
-    <div class="content">
-      <%= highlight_code(@blog.content) %>
+      <%= link_to blogs_path, class: "header back-link" do %>
+        <div class="header-line"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="back-link__icon" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span class="header-jp">戻る</span>
+        <span class="header-en">Retour au journal</span>
+      <% end %>
+
+      <article class="article-show">
+        <header class="article-show-hero">
+          <h1 class="article-show-title" style="view-transition-name: article-<%= @blog.id %>-title;"><%= @blog.title %></h1>
+
+          <div class="article-show-meta">
+            <span class="article-meta">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <%= @blog.created_at.strftime("%d/%m/%Y") %>
+            </span>
+            <span class="article-meta">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <polyline points="12 7 12 12 16 14"></polyline>
+              </svg>
+              <%= [(@blog.content.length / 1200.0).round, 1].max %> min
+            </span>
+          </div>
+
+          <ul class="article-tags article-show-tags">
+            <% @blog.tags.split(",").each do |tag| %>
+              <li class="techno">
+                <%= link_to tag.strip, blogs_path(tag: tag.strip), data: { turbo_prefetch: true } %>
+              </li>
+            <% end %>
+          </ul>
+        </header>
+
+        <div class="content" data-controller="math">
+          <%= render_markdown(@blog.content) %>
+        </div>
+      </article>
+
     </div>
-  </div>
-</section>
+  </section>
+</div>

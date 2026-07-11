@@ -21,6 +21,10 @@
 
     <%= auto_discovery_link_tag(:rss, blogs_url(format: :rss), title: "Flux RSS du Journal") %>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
     <!-- Open Graph Tags (Social Media) -->
     <meta property="og:type" content="<%= content_for(:og_type) || 'website' %>">
     <meta property="og:title" content="<%= content_for(:og_title) || content_for(:title) || 'Kevin Saison - Développeur Ruby & Ruby on Rails' %>">

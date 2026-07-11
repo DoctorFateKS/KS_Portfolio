@@ -1,34 +1,24 @@
-<section class="secondary-section">
-  <div class="halftone"></div>
-  <div class="action-lines"></div>
+<div class="page-content">
+  <section class="page-section">
+    <div class="halftone" aria-hidden="true"></div>
+    <div class="action-lines" aria-hidden="true"></div>
 
-  <div class="container">
-    <h1>Nouvel Article</h1>
-    <%= form_with model: @blog do |form| %>
-      <div>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-      </div>
+    <div class="container">
 
-      <div>
-        <%= form.label :jp_title %>
-        <%= form.text_field :jp_title %>
-      </div>
+      <%= link_to blogs_path, class: "header back-link" do %>
+        <div class="header-line"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="back-link__icon" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"></line>
+          <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        <span class="header-jp">戻る</span>
+        <span class="header-en">Retour au journal</span>
+      <% end %>
 
-      <div>
-        <%= form.label :tags %>
-        <%= form.text_field :tags %>
-      </div>
+      <h1 class="blog-title"><span class="fg">Nouvel</span> <span class="highlight">Article</span></h1>
 
-      <div>
-        <%= form.label :content %>
-        <%= form.hidden_field :content, id: "blog_content" %>
-        <trix-editor input="blog_content"></trix-editor>
-      </div>
+      <%= render "form", blog: @blog %>
 
-      <div>
-        <%= form.submit %>
-      </div>
-    <% end %>
-  </div>
-</section>
+    </div>
+  </section>
+</div>

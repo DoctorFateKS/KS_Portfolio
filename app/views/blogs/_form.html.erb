@@ -1,417 +1,107 @@
-<div class="blog-form-container">
-  <div class="form-header">
-    <h1 class="form-title"><%= @blog.persisted? ? 'Edit Article' : 'Create New Article' %></h1>
-    <p class="form-subtitle">
-      <%= @blog.persisted? ? 'Update your article with fresh content' : 'Share your expertise with the world' %>
-    </p>
-  </div>
+<%= form_with model: blog, class: "blog-form" do |f| %>
 
-  <% if @blog.errors.any? %>
-    <div class="alert alert--danger">
-      <h3><%= pluralize(@blog.errors.count, "error") %> prevented this article from being saved:</h3>
+  <% if blog.errors.any? %>
+    <div class="form-errors">
+      <p class="form-errors__title">
+        <%= pluralize(blog.errors.count, "erreur") %> empêche l'enregistrement :
+      </p>
       <ul>
-        <% @blog.errors.full_messages.each do |message| %>
+        <% blog.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <%= form_with(model: @blog, local: true, class: 'blog-form') do |form| %>
-    <!-- Title Field -->
-    <div class="form-group">
-      <label for="blog_title" class="form-label">Article Title *</label>
-      <input type="text"
-             id="blog_title"
-             name="blog[title]"
-             class="form-input"
-             placeholder="Enter a compelling article title"
-             value="<%= @blog.title %>"
-             maxlength="200"
-             required>
-      <span class="form-hint">5-200 characters. Must be unique.</span>
-    </div>
+  <div class="form-group">
+    <%= f.label :title, "Titre" %>
+    <%= f.text_field :title, required: true %>
+  </div>
 
-    <!-- Excerpt Field -->
-    <div class="form-group">
-      <label for="blog_excerpt" class="form-label">Excerpt *</label>
-      <textarea id="blog_excerpt"
-                name="blog[excerpt]"
-                class="form-textarea"
-                placeholder="Write a compelling summary (will be shown in listings)"
-                rows="3"
-                maxlength="500"
-                required><%= @blog.excerpt %></textarea>
-      <span class="form-hint">20-500 characters. This appears in blog listings.</span>
-    </div>
+  <div class="form-group">
+    <%= f.label :jp_title, "Titre (japonais)" %>
+    <%= f.text_field :jp_title, placeholder: "ex : 技術ノート" %>
+  </div>
 
-    <!-- Content Field -->
-    <div class="form-group">
-      <label for="blog_content" class="form-label">Article Content *</label>
-      <textarea id="blog_content"
-                name="blog[content]"
-                class="form-textarea form-textarea--large"
-                placeholder="Write your full article here. Supports markdown-style formatting."
-                rows="15"
-                required><%= @blog.content %></textarea>
-      <span class="form-hint">Minimum 100 characters. You can use line breaks, lists, and formatting.</span>
-    </div>
+  <div class="form-group">
+    <%= f.label :tags, "Tags" %>
+    <span class="form-hint">Séparés par des virgules, ex : Ruby, Rails, PostgreSQL</span>
+    <%= f.text_field :tags, placeholder: "Ruby, Rails, PostgreSQL" %>
+  </div>
 
-    <!-- Category Field -->
-    <div class="form-group">
-      <label for="blog_category" class="form-label">Category *</label>
-      <select id="blog_category" name="blog[category]" class="form-select" required>
-        <option value="">-- Select a category --</option>
-        <% @categories.each do |category| %>
-          <option value="<%= category %>" <%= 'selected' if @blog.category == category %>>
-            <%= category %>
-          </option>
-        <% end %>
-      </select>
-      <span class="form-hint">Choose the most relevant category for your article.</span>
-    </div>
+  <div class="form-group">
+    <%= f.label :content, "Contenu (Markdown)" %>
 
-    <!-- Tags Field -->
-    <div class="form-group">
-      <label for="blog_tags" class="form-label">Tags</label>
-      <input type="text"
-             id="blog_tags"
-             name="blog[tags]"
-             class="form-input"
-             placeholder="Rails, ActiveRecord, Performance (comma-separated)"
-             value="<%= @blog.tags %>">
-      <span class="form-hint">Separate tags with commas. Used for search and filtering.</span>
-    </div>
+    <details class="markdown-cheatsheet">
+      <summary>Aide-mémoire Markdown</summary>
+      <table>
+        <tbody>
+          <tr>
+            <td><code># Titre</code> / <code>## Sous-titre</code></td>
+            <td>Titres (niveaux 1 à 6, autant de <code>#</code>)</td>
+          </tr>
+          <tr>
+            <td><code>**gras**</code></td>
+            <td><strong>gras</strong></td>
+          </tr>
+          <tr>
+            <td><code>*italique*</code></td>
+            <td><em>italique</em></td>
+          </tr>
+          <tr>
+            <td><code>~~barré~~</code></td>
+            <td><del>barré</del></td>
+          </tr>
+          <tr>
+            <td><code>[texte](https://exemple.com)</code></td>
+            <td>Lien</td>
+          </tr>
+          <tr>
+            <td><code>- item</code></td>
+            <td>Liste à puces (une ligne par item)</td>
+          </tr>
+          <tr>
+            <td><code>1. item</code></td>
+            <td>Liste numérotée</td>
+          </tr>
+          <tr>
+            <td><code>&gt; citation</code></td>
+            <td>Citation en retrait</td>
+          </tr>
+          <tr>
+            <td><code>`code en ligne`</code></td>
+            <td>Code court dans une phrase</td>
+          </tr>
+          <tr>
+            <td>```` ```ruby ... ``` ````</td>
+            <td>Bloc de code avec coloration syntaxique (indique le langage après les backticks)</td>
+          </tr>
+          <tr>
+            <td><code>| Col A | Col B |</code><br><code>|---|---|</code><br><code>| val | val |</code></td>
+            <td>Tableau</td>
+          </tr>
+          <tr>
+            <td><code>---</code></td>
+            <td>Ligne de séparation horizontale</td>
+          </tr>
+          <tr>
+            <td><code>\( E = mc^2 \)</code></td>
+            <td>Équation en ligne (LaTeX, rendue par KaTeX)</td>
+          </tr>
+          <tr>
+            <td><code>\[ \int_0^1 x^2\,dx \]</code></td>
+            <td>Équation en bloc, centrée</td>
+          </tr>
+        </tbody>
+      </table>
+    </details>
 
-    <!-- Banner Image Field -->
-    <div class="form-group">
-      <label for="blog_banner" class="form-label">Banner Image</label>
-      <div class="file-input-wrapper">
-        <input type="file"
-               id="blog_banner"
-               name="blog[banner]"
-               class="file-input"
-               accept="image/*">
-        <label for="blog_banner" class="file-input-label">
-          <span class="file-input-icon">📸</span>
-          <span class="file-input-text">Click to upload or drag and drop</span>
-          <span class="file-input-hint">PNG, JPG up to 5MB</span>
-        </label>
-      </div>
-      <% if @blog.banner.attached? %>
-        <div class="current-image">
-          <p class="current-image-label">Current banner:</p>
-          <%= image_tag @blog.banner, alt: @blog.title, class: 'current-image-preview' %>
-          <%= link_to 'Remove', @blog.banner, method: :delete, class: 'remove-image-link' %>
-        </div>
-      <% end %>
-    </div>
+    <%= f.text_area :content, rows: 20, class: "blog-form__content" %>
+  </div>
 
-    <!-- Published Checkbox -->
-    <div class="form-group form-group--checkbox">
-      <label for="blog_published" class="checkbox-label">
-        <input type="hidden" name="blog[published]" value="false">
-        <input type="checkbox"
-               id="blog_published"
-               name="blog[published]"
-               value="true"
-               <%= 'checked' if @blog.published %>>
-        <span class="checkbox-text">Publish this article</span>
-      </label>
-      <span class="form-hint">Unpublished articles are only visible to you.</span>
-    </div>
+  <div class="form-actions">
+    <%= f.submit blog.new_record? ? "Publier l'article" : "Enregistrer les modifications", class: "hero__btn hero__btn--primary" %>
+    <%= link_to "Annuler", blogs_path, class: "hero__btn hero__btn--secondary manga-panel" %>
+  </div>
 
-    <!-- Form Actions -->
-    <div class="form-actions">
-      <%= form.submit(@blog.persisted? ? 'Update Article' : 'Create Article',
-                      class: 'btn btn--primary btn--lg') %>
-      <%= link_to 'Cancel', @blog.persisted? ? blog_path(@blog) : blogs_path,
-                  class: 'btn btn--secondary btn--lg' %>
-    </div>
-  <% end %>
-</div>
-
-<style>
-  .blog-form-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    color: #fff;
-  }
-
-  .form-header {
-    text-align: center;
-    margin-bottom: 50px;
-  }
-
-  .form-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 800;
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
-  }
-
-  .form-subtitle {
-    font-size: 1.1rem;
-    color: #aaa;
-  }
-
-  .alert {
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-  }
-
-  .alert--danger {
-    background: rgba(255, 50, 50, 0.1);
-    border: 1px solid rgba(255, 50, 50, 0.3);
-    color: #ff8888;
-  }
-
-  .alert--danger h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #ff6464;
-  }
-
-  .alert--danger ul {
-    margin: 0;
-    padding-left: 1.5rem;
-  }
-
-  .alert--danger li {
-    margin-bottom: 5px;
-  }
-
-  .blog-form {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .form-label {
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #fff;
-  }
-
-  .form-input,
-  .form-textarea,
-  .form-select {
-    background: rgba(255, 0, 0, 0.05);
-    border: 1px solid rgba(255, 100, 100, 0.3);
-    color: #fff;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: all 0.3s ease;
-  }
-
-  .form-input:focus,
-  .form-textarea:focus,
-  .form-select:focus {
-    outline: none;
-    border-color: rgba(255, 100, 100, 0.6);
-    background: rgba(255, 0, 0, 0.08);
-    box-shadow: 0 0 0 3px rgba(255, 100, 100, 0.1);
-  }
-
-  .form-input::placeholder,
-  .form-textarea::placeholder {
-    color: #666;
-  }
-
-  .form-textarea {
-    resize: vertical;
-    min-height: 100px;
-    font-family: 'Monaco', 'Menlo', monospace;
-  }
-
-  .form-textarea--large {
-    min-height: 400px;
-  }
-
-  .form-select {
-    cursor: pointer;
-  }
-
-  .form-select option {
-    background: #1a1a1a;
-    color: #fff;
-  }
-
-  .form-hint {
-    font-size: 0.85rem;
-    color: #888;
-    margin-top: 6px;
-  }
-
-  .form-group--checkbox {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-  }
-
-  .checkbox-label input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    accent-color: #ff6464;
-  }
-
-  .checkbox-text {
-    font-weight: 500;
-  }
-
-  .file-input-wrapper {
-    position: relative;
-    margin-bottom: 10px;
-  }
-
-  .file-input {
-    display: none;
-  }
-
-  .file-input-label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 40px 20px;
-    border: 2px dashed rgba(255, 100, 100, 0.3);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: rgba(255, 0, 0, 0.03);
-  }
-
-  .file-input-label:hover {
-    border-color: rgba(255, 100, 100, 0.6);
-    background: rgba(255, 0, 0, 0.08);
-  }
-
-  .file-input-icon {
-    font-size: 2.5rem;
-  }
-
-  .file-input-text {
-    font-weight: 600;
-    color: #fff;
-  }
-
-  .file-input-hint {
-    font-size: 0.85rem;
-    color: #888;
-  }
-
-  .current-image {
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(255, 100, 100, 0.05);
-    border: 1px solid rgba(255, 100, 100, 0.2);
-    border-radius: 6px;
-  }
-
-  .current-image-label {
-    font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 10px;
-  }
-
-  .current-image-preview {
-    width: 100%;
-    max-width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 4px;
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  .remove-image-link {
-    color: #ff6464;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-
-  .remove-image-link:hover {
-    text-decoration: underline;
-  }
-
-  .form-actions {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 100, 100, 0.2);
-  }
-
-  .btn {
-    padding: 12px 24px;
-    border-radius: 6px;
-    font-weight: 600;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-  }
-
-  .btn--primary {
-    background: linear-gradient(135deg, #ff6464, #ff4444);
-    color: #fff;
-  }
-
-  .btn--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(255, 100, 100, 0.3);
-  }
-
-  .btn--secondary {
-    background: rgba(255, 100, 100, 0.1);
-    color: #ff6464;
-    border: 1px solid rgba(255, 100, 100, 0.3);
-  }
-
-  .btn--secondary:hover {
-    background: rgba(255, 100, 100, 0.2);
-  }
-
-  .btn--lg {
-    padding: 14px 28px;
-    font-size: 1.05rem;
-  }
-
-  @media (max-width: 768px) {
-    .blog-form-container {
-      padding: 40px 20px;
-    }
-
-    .form-title {
-      font-size: 1.8rem;
-    }
-
-    .form-actions {
-      flex-direction: column;
-    }
-
-    .btn {
-      width: 100%;
-    }
-  }
-</style>
+<% end %>
