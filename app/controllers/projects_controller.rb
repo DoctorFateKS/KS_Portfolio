@@ -1,4 +1,7 @@
 class ProjectsController < ApplicationController
+    http_basic_authenticate_with name: Rails.application.credentials.admin_username,
+                                password: Rails.application.credentials.admin_password,
+                                except: [:index, :show]
   def index
     @projects = if params[:tag].present?
       Project.where("LOWER(stack) LIKE ?", "%#{params[:tag].downcase}%")
