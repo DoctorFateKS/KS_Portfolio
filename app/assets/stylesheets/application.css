@@ -484,3 +484,43 @@ body {
   gap: 1rem;
   margin-top: 0.5rem;
 }
+
+/* ============================================
+   ZONE DE SUPPRESSION — à ajouter dans form.css
+   ============================================ */
+.danger-zone {
+  max-width: 44rem;
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border: 3px solid var(--primary);
+  background: rgba(202, 0, 40, 0.04);
+}
+
+.danger-zone__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  margin: 0 0 0.5rem;
+}
+
+.danger-zone__text {
+  font-size: 0.875rem;
+  color: var(--text-color);
+  margin: 0 0 1rem;
+}
+
+/* Variante "danger" du bouton générique .hero__btn (padding/police
+   déjà hérités de la classe de base) */
+.hero__btn--danger {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.hero__btn--danger:hover {
+  background-color: var(--primary);
+  color: #fff;
+}

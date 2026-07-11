@@ -19,6 +19,16 @@
 
       <%= render "form", blog: @blog %>
 
+      <div class="danger-zone">
+        <h2 class="danger-zone__title">Zone de suppression</h2>
+        <p class="danger-zone__text">Cette action est irréversible : l'article sera définitivement supprimé.</p>
+        <%= button_to "Supprimer cet article",
+              blog_path(@blog),
+              method: :delete,
+              class: "hero__btn hero__btn--danger",
+              data: { turbo_confirm: "Supprimer définitivement « #{@blog.title} » ? Cette action est irréversible." } %>
+      </div>
+
     </div>
   </section>
 </div>

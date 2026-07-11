@@ -19,6 +19,16 @@
 
       <%= render "form", project: @project %>
 
+      <div class="danger-zone">
+        <h2 class="danger-zone__title">Zone de suppression</h2>
+        <p class="danger-zone__text">Cette action est irréversible : la réalisation et son image de couverture seront définitivement supprimées.</p>
+        <%= button_to "Supprimer cette réalisation",
+              project_path(@project),
+              method: :delete,
+              class: "hero__btn hero__btn--danger",
+              data: { turbo_confirm: "Supprimer définitivement « #{@project.title} » ? Cette action est irréversible." } %>
+      </div>
+
     </div>
   </section>
 </div>
