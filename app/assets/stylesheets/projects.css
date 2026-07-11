@@ -5,7 +5,7 @@
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   line-height: 0.95;
-  margin: 0 0 1rem 0;
+  margin: 0 0 3rem 0;
   font-size: clamp(2.25rem, 6vw, 3.75rem);
   color: var(--title-color);
   opacity: 0;
